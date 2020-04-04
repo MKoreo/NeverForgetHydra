@@ -1,0 +1,6 @@
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\SPDA\bin\Release\SPDA.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\SPDA\bin\Release\SPDA.dll
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\SPDA\bin\Release\SPDA.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\SPDA\obj\Release\SPDA.dll
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\SPDA\obj\Release\SPDA.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\SPDA\obj\Release\SPDA.csprojAssemblyReference.cache
