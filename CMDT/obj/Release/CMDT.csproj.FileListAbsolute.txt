@@ -8,3 +8,13 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\CMDT\obj\Release\CMDT.csproj
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\CMDT\obj\Release\CMDT.csproj.CopyComplete
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\CMDT\obj\Release\CMDT.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\CMDT\obj\Release\CMDT.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\bin\Release\CMDT.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\bin\Release\CMDT.dll
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\bin\Release\CMDT.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\bin\Release\CMDA.dll
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\bin\Release\CMDA.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\bin\Release\CMDA.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\obj\Release\CMDT.csprojAssemblyReference.cache
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\obj\Release\CMDT.csproj.CopyComplete
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\obj\Release\CMDT.dll
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDT\obj\Release\CMDT.pdb

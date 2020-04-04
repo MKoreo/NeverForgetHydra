@@ -52,7 +52,6 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\bin\De
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\bin\Debug\CMDA.dll.config
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.csprojAssemblyReference.cache
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.FormAbout.resources
-D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.FormHighlightColor.resources
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.FormSettings.resources
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.FormMain.resources
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.Properties.Resources.resources
@@ -60,3 +59,7 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\De
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.csproj.CopyComplete
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.FormChangelog.resources
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Debug\SPIF.FormFeedback.resources
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\bin\Debug\Newtonsoft.Json.dll
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\bin\Debug\Newtonsoft.Json.xml

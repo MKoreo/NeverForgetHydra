@@ -75,7 +75,7 @@
             this.lblFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblFeedback.Font = new System.Drawing.Font("Verdana", 9.163636F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFeedback.Location = new System.Drawing.Point(0, 0);
-            this.lblFeedback.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.lblFeedback.Margin = new System.Windows.Forms.Padding(0);
             this.lblFeedback.Name = "lblFeedback";
             this.lblFeedback.Size = new System.Drawing.Size(494, 40);
             this.lblFeedback.TabIndex = 1;
@@ -90,11 +90,11 @@
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(448, 34);
             this.btnSend.TabIndex = 2;
-            this.btnSend.Text = "Send (Currently not working)";
+            this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // FormHighlightColor
+            // FormFeedback
             // 
             this.AcceptButton = this.btnSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,7 +102,7 @@
             this.ClientSize = new System.Drawing.Size(494, 406);
             this.Controls.Add(this.tlpAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FormHighlightColor";
+            this.Name = "FormFeedback";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

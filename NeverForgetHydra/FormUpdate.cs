@@ -174,7 +174,7 @@ namespace NeverForgetHydra
                 DateTime ver = new DateTime(short.Parse(version[0]), short.Parse(version[1]), short.Parse(version[2]));
                 DateTime verCmp = new DateTime(short.Parse(versionCmp[0]), short.Parse(versionCmp[1]), short.Parse(versionCmp[2]));
                 int daysBetweenDates = (int)Math.Round((ver - verCmp).TotalDays, 0);
-                if ((daysBetweenDates == 0 && version[3] == versionCmp[3]) || (daysBetweenDates < 0))
+                if ((daysBetweenDates == 0 && short.Parse(version[3]) <= short.Parse(versionCmp[3])) || (daysBetweenDates < 0))
                 {
                     //Up to date: Do nothing
                     done = true;
