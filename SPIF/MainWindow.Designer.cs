@@ -45,7 +45,7 @@ namespace SPIF
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewChangelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFile = new System.Windows.Forms.SaveFileDialog();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanelAdd = new System.Windows.Forms.TableLayoutPanel();
@@ -185,7 +185,7 @@ namespace SPIF
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
             this.feedbackToolStripMenuItem,
-            this.checkUpdatesToolStripMenuItem});
+            this.viewChangelogToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
             this.helpToolStripMenuItem.Text = "Help";
@@ -193,23 +193,23 @@ namespace SPIF
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // feedbackToolStripMenuItem
             // 
             this.feedbackToolStripMenuItem.Name = "feedbackToolStripMenuItem";
-            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
             this.feedbackToolStripMenuItem.Text = "Feedback";
             this.feedbackToolStripMenuItem.Click += new System.EventHandler(this.feedbackToolStripMenuItem_Click);
             // 
-            // checkUpdatesToolStripMenuItem
+            // viewChangelogToolStripMenuItem
             // 
-            this.checkUpdatesToolStripMenuItem.Name = "checkUpdatesToolStripMenuItem";
-            this.checkUpdatesToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
-            this.checkUpdatesToolStripMenuItem.Text = "Check Updates";
-            this.checkUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkUpdatesToolStripMenuItem_Click);
+            this.viewChangelogToolStripMenuItem.Name = "viewChangelogToolStripMenuItem";
+            this.viewChangelogToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.viewChangelogToolStripMenuItem.Text = "View Changelog";
+            this.viewChangelogToolStripMenuItem.Click += new System.EventHandler(this.checkUpdatesToolStripMenuItem_Click);
             // 
             // newFile
             // 
@@ -609,7 +609,7 @@ namespace SPIF
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feedbackToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewChangelogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hydraToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog newFile;
         private System.Windows.Forms.OpenFileDialog openFile;

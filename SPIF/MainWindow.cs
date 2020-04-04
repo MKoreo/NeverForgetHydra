@@ -23,7 +23,6 @@ namespace SPIF
         bool fileOpen = false;
         decimal minutesPassed = 0;
 
-
         //Variables
         workLog log = new workLog();
 
@@ -382,7 +381,7 @@ namespace SPIF
         }
         private void feedbackToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form feedback = new FormHighlightColor(this, theme, settings);
+            Form feedback = new FormFeedback(this, theme, settings);
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
             if (feedback.ShowDialog(this) == DialogResult.OK)
             {
@@ -545,8 +544,8 @@ namespace SPIF
 
         private void checkUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Restart();
-            Environment.Exit(0);
+            FormChangelog changes = new FormChangelog(this, theme, settings);
+            DialogResult rslt = changes.ShowDialog();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SPIF
 {
-    partial class FormFeedback
+    partial class FormChangelog
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.tlpAll = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbFeedback = new System.Windows.Forms.RichTextBox();
-            this.lblFeedback = new System.Windows.Forms.Label();
-            this.btnSend = new System.Windows.Forms.Button();
+            this.rtbChangelog = new System.Windows.Forms.RichTextBox();
+            this.lblChangelog = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.tlpAll.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,9 +41,9 @@
             this.tlpAll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpAll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpAll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpAll.Controls.Add(this.rtbFeedback, 1, 1);
-            this.tlpAll.Controls.Add(this.lblFeedback, 0, 0);
-            this.tlpAll.Controls.Add(this.btnSend, 1, 2);
+            this.tlpAll.Controls.Add(this.rtbChangelog, 0, 1);
+            this.tlpAll.Controls.Add(this.lblChangelog, 0, 0);
+            this.tlpAll.Controls.Add(this.btnClose, 1, 2);
             this.tlpAll.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpAll.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpAll.Location = new System.Drawing.Point(0, 0);
@@ -56,57 +56,58 @@
             this.tlpAll.Size = new System.Drawing.Size(494, 406);
             this.tlpAll.TabIndex = 0;
             // 
-            // rtbFeedback
+            // rtbChangelog
             // 
-            this.rtbFeedback.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbFeedback.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbFeedback.Location = new System.Drawing.Point(23, 43);
-            this.rtbFeedback.MaxLength = 1000;
-            this.rtbFeedback.Name = "rtbFeedback";
-            this.rtbFeedback.Size = new System.Drawing.Size(448, 315);
-            this.rtbFeedback.TabIndex = 0;
-            this.rtbFeedback.Text = "";
+            this.rtbChangelog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tlpAll.SetColumnSpan(this.rtbChangelog, 3);
+            this.rtbChangelog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbChangelog.Location = new System.Drawing.Point(3, 43);
+            this.rtbChangelog.MaxLength = 1000;
+            this.rtbChangelog.Name = "rtbChangelog";
+            this.rtbChangelog.Size = new System.Drawing.Size(488, 315);
+            this.rtbChangelog.TabIndex = 0;
+            this.rtbChangelog.Text = "";
             // 
-            // lblFeedback
+            // lblChangelog
             // 
-            this.lblFeedback.AutoSize = true;
-            this.tlpAll.SetColumnSpan(this.lblFeedback, 3);
-            this.lblFeedback.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblFeedback.Font = new System.Drawing.Font("Verdana", 9.163636F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFeedback.Location = new System.Drawing.Point(0, 0);
-            this.lblFeedback.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.lblFeedback.Name = "lblFeedback";
-            this.lblFeedback.Size = new System.Drawing.Size(494, 40);
-            this.lblFeedback.TabIndex = 1;
-            this.lblFeedback.Text = "Provide feedback in the textbox below (Max. 1000 chars):";
-            this.lblFeedback.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblChangelog.AutoSize = true;
+            this.tlpAll.SetColumnSpan(this.lblChangelog, 3);
+            this.lblChangelog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblChangelog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblChangelog.Font = new System.Drawing.Font("Verdana", 9.163636F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangelog.Location = new System.Drawing.Point(0, 0);
+            this.lblChangelog.Margin = new System.Windows.Forms.Padding(0);
+            this.lblChangelog.Name = "lblChangelog";
+            this.lblChangelog.Size = new System.Drawing.Size(494, 40);
+            this.lblChangelog.TabIndex = 1;
+            this.lblChangelog.Text = "Changelog:";
+            this.lblChangelog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnSend
+            // btnClose
             // 
-            this.btnSend.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSend.Location = new System.Drawing.Point(23, 364);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(448, 34);
-            this.btnSend.TabIndex = 2;
-            this.btnSend.Text = "Send (Currently not working)";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(23, 364);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(448, 34);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // FormHighlightColor
+            // FormChangelog
             // 
-            this.AcceptButton = this.btnSend;
+            this.AcceptButton = this.btnClose;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 406);
             this.Controls.Add(this.tlpAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FormHighlightColor";
+            this.Name = "FormChangelog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Provide feedback to the developer";
+            this.Text = "Changelog NFH";
             this.tlpAll.ResumeLayout(false);
             this.tlpAll.PerformLayout();
             this.ResumeLayout(false);
@@ -116,8 +117,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpAll;
-        private System.Windows.Forms.RichTextBox rtbFeedback;
-        private System.Windows.Forms.Label lblFeedback;
-        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.RichTextBox rtbChangelog;
+        private System.Windows.Forms.Label lblChangelog;
+        private System.Windows.Forms.Button btnClose;
     }
 }

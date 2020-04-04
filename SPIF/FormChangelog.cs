@@ -12,29 +12,34 @@ using System.Windows.Forms;
 
 namespace SPIF
 {
-    public partial class FormFeedback : ThemedForm
+    public partial class FormChangelog : ThemedForm
     {
-        public string feedback;
-        public FormFeedback(FormMain test, Theme theme, Settings settings) : base(settings)
+        public FormChangelog(FormMain test, Theme theme, Settings settings) : base(settings)
         {
             InitializeComponent();
             this.theme = theme;
             this.settings = settings;
             applyTheming();
             applyAddTheming();
+
+            string[] lines = System.IO.File.ReadAllLines(@"version.ini");
+            foreach (string line in lines)
+            {
+                rtbChangelog.Text += line + "\n";
+            }
         }
 
         private void applyAddTheming()
         {
             //Add button specific
-            btnSend.BackColor = theme.highlight;
-            btnSend.ForeColor = theme.text;
+            btnClose.BackColor = theme.highlight;
+            btnClose.ForeColor = theme.text;
 
-            lblFeedback.BackColor = theme.tint1;
-            lblFeedback.ForeColor = theme.text;
+            lblChangelog.BackColor = theme.tint1;
+            lblChangelog.ForeColor = theme.text;
 
-            rtbFeedback.BackColor = theme.background;
-            rtbFeedback.ForeColor = theme.text;
+            rtbChangelog.BackColor = theme.background;
+            rtbChangelog.ForeColor = theme.text;
 
             //Update Window
             this.Invalidate();
@@ -42,8 +47,6 @@ namespace SPIF
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            feedback = rtbFeedback.Text;
-
             this.Close();
         }
     }
