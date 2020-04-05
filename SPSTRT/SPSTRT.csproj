@@ -48,6 +48,10 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CMDT\CMDT.csproj">
+      <Project>{413CCE12-35DD-4AA2-92D0-0633F11F4F23}</Project>
+      <Name>CMDT</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CMIF\CMIF.csproj">
       <Project>{7C30AE30-D2E8-4B60-8E52-F5D451DD96DF}</Project>
       <Name>CMIF</Name>

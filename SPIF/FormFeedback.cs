@@ -43,11 +43,9 @@ namespace SPIF
             //Update Window
             this.Invalidate();
         }
-
-        private void btnSend_Click(object sender, EventArgs e)
+        public void sendFeedback()
         {
-            feedback = rtbFeedback.Text;
-             var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://maker.ifttt.com/trigger/NFH_Feedback/with/key/dCq5A5cuAQPzkJGupi9fxz");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://maker.ifttt.com/trigger/NFH_Feedback/with/key/dCq5A5cuAQPzkJGupi9fxz");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
             string name = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
@@ -56,7 +54,7 @@ namespace SPIF
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
                 string json = "{\"value1\":\"" + name + "\"," +
-                              "\"value2\":\"" + feedback + "\"}";
+                              "\"value2\":\"" + @feedback + "\"}";
 
                 streamWriter.Write(json);
             }
@@ -66,6 +64,11 @@ namespace SPIF
             {
                 var result = streamReader.ReadToEnd();
             }
+        }
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            feedback = rtbFeedback.Text;
+            sendFeedback();
             this.Close();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace NeverForgetHydra
@@ -11,23 +12,16 @@ namespace NeverForgetHydra
         [STAThread]
         static void Main()
         {
+            //Some specific Application settings
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            FormUpdate updater = new FormUpdate();
+            //Check for updates/Files & dispose
+            _ = new FormUpdate();
 
-            //Code that checks versions
-            //DialogResult dialogResult = updater.ShowDialog();
-            //If up to date, launch by calling new proj start that contains references to other dlls
-            //this one only references this reference DLL
-            try
-            {
-                SPSTRT.StartApplication app = new SPSTRT.StartApplication();
-                app.Start();
-            } catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Something went wrong while starting NFH", MessageBoxButtons.OK, MessageBoxIcon.None);
-            }
+            //Use starter project to start Never Forget Hydra's app
+            SPSTRT.StartApplication app = new SPSTRT.StartApplication();
+            app.Start();
         }
     }
 }

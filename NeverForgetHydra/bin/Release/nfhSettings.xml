@@ -5,7 +5,7 @@
   <closeOnAdd>false</closeOnAdd>
   <minimizeOnStartup>false</minimizeOnStartup>
   <showJokes>false</showJokes>
-  <showQuickSettings>true</showQuickSettings>
+  <showQuickSettings>false</showQuickSettings>
   <minutesTillPopup>30</minutesTillPopup>
   <style>light</style>
   <highlightColor>-1703936</highlightColor>

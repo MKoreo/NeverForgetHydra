@@ -3,13 +3,8 @@ using CMIF;
 using SPDT;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SPIF
@@ -25,7 +20,7 @@ namespace SPIF
 
         //Variables
         workLog log = new workLog();
-
+        AppDomain dom = AppDomain.CurrentDomain;
         //Create system Tray Icon
         NotifyIcon trayIcon = new NotifyIcon();
 
@@ -146,19 +141,26 @@ namespace SPIF
             cellStyle.SelectionForeColor = theme.textHighlight;
             cellStyle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular);
 
-            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
-            headerStyle.BackColor = theme.background;
-            headerStyle.ForeColor = theme.text;
-            headerStyle.SelectionBackColor = theme.highlight;
-            headerStyle.SelectionForeColor = theme.textHighlight;
-            headerStyle.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Bold);
+            DataGridViewCellStyle ColumnHeaderStyle = new DataGridViewCellStyle();
+            ColumnHeaderStyle.BackColor = theme.highlight;
+            ColumnHeaderStyle.ForeColor = theme.textHighlight;
+            ColumnHeaderStyle.SelectionBackColor = theme.background;
+            ColumnHeaderStyle.SelectionForeColor = theme.textHighlight;
+            ColumnHeaderStyle.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Bold);
+
+            DataGridViewCellStyle RowHeaderStyle = new DataGridViewCellStyle();
+            RowHeaderStyle.BackColor = theme.background;
+            RowHeaderStyle.ForeColor = theme.text;
+            RowHeaderStyle.SelectionBackColor = theme.highlight;
+            RowHeaderStyle.SelectionForeColor = theme.textHighlight;
+            RowHeaderStyle.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Bold);
 
             dataGridView.BackgroundColor = theme.background;
             dataGridView.ForeColor = theme.text;
             dataGridView.GridColor = theme.highlight;
             dataGridView.DefaultCellStyle = cellStyle;
-            dataGridView.ColumnHeadersDefaultCellStyle = headerStyle;
-            dataGridView.RowHeadersDefaultCellStyle = headerStyle;
+            dataGridView.ColumnHeadersDefaultCellStyle = ColumnHeaderStyle;
+            dataGridView.RowHeadersDefaultCellStyle = RowHeaderStyle;
 
             //Layout specific
             tableLayoutPanelDate.BackColor = theme.highlight;
