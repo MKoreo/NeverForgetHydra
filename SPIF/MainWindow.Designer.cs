@@ -98,7 +98,7 @@ namespace SPIF
             this.menuStrip.Size = new System.Drawing.Size(1000, 26);
             this.menuStrip.Stretch = false;
             this.menuStrip.TabIndex = 0;
-            this.menuStrip.Text = "menuStrip1";
+            this.menuStrip.Text = "menuStrip";
             // 
             // fileToolStripMenuItem
             // 
@@ -114,7 +114,7 @@ namespace SPIF
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -122,21 +122,21 @@ namespace SPIF
             // 
             this.openToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -486,6 +486,7 @@ namespace SPIF
             // dateTimePicker
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePicker.CalendarMonthBackground = System.Drawing.SystemColors.Highlight;
             this.dateTimePicker.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker.Location = new System.Drawing.Point(41, 4);

@@ -141,9 +141,17 @@ namespace SPIF
             cellStyle.SelectionForeColor = theme.textHighlight;
             cellStyle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular);
 
+            DataGridViewCellStyle altCellStyle = new DataGridViewCellStyle();
+            altCellStyle.BackColor = theme.background;
+            altCellStyle.ForeColor = theme.text;
+            altCellStyle.SelectionBackColor = theme.highlight;
+            altCellStyle.SelectionForeColor = theme.textHighlight;
+            altCellStyle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular);
+
+
             DataGridViewCellStyle ColumnHeaderStyle = new DataGridViewCellStyle();
-            ColumnHeaderStyle.BackColor = theme.highlight;
-            ColumnHeaderStyle.ForeColor = theme.textHighlight;
+            ColumnHeaderStyle.BackColor = theme.background;               
+            ColumnHeaderStyle.ForeColor = theme.text;
             ColumnHeaderStyle.SelectionBackColor = theme.background;
             ColumnHeaderStyle.SelectionForeColor = theme.textHighlight;
             ColumnHeaderStyle.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Bold);
@@ -161,7 +169,8 @@ namespace SPIF
             dataGridView.DefaultCellStyle = cellStyle;
             dataGridView.ColumnHeadersDefaultCellStyle = ColumnHeaderStyle;
             dataGridView.RowHeadersDefaultCellStyle = RowHeaderStyle;
-
+            dataGridView.AlternatingRowsDefaultCellStyle = altCellStyle;
+            dataGridView.RowHeadersVisible = false;
             //Layout specific
             tableLayoutPanelDate.BackColor = theme.highlight;
             tableLayoutPanelAdd.BackColor = theme.highlight;
@@ -457,8 +466,12 @@ namespace SPIF
         {
             if (comboBoxWork.Text == "" || comboBoxProject.Text == "" || textBoxTime.Text == "")
             {
-                DialogResult error = MessageBox.Show("One or more of the required fields is faulty.", "Cannot add new record", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+                DialogResult error = MessageBox.Show("One or more of the required fields is empty.", "Cannot add new record", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else if (!short.TryParse(textBoxTime.Text, out short _))
+            {
+                DialogResult error = MessageBox.Show("Cannot interpret the time value as a number.", "Cannot add new record", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 //Add the record
                 log.addRecord(dateTimePicker.Value.Date, comboBoxWork.Text, comboBoxProject.Text, Convert.ToDecimal(textBoxTime.Text));

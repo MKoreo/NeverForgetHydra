@@ -7,6 +7,5 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\CMDA\obj\Release\CMDA.csproj
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\bin\Release\CMDA.dll.config
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\bin\Release\CMDA.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\bin\Release\CMDA.pdb
-D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\obj\Release\CMDA.csprojAssemblyReference.cache
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\obj\Release\CMDA.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\obj\Release\CMDA.pdb
