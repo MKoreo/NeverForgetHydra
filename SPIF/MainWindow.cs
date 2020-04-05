@@ -43,7 +43,8 @@ namespace SPIF
             applyAddTheming();
 
             trayIconInit();
-            updateQuickSettings();
+            initQuickSettingsPanel();
+            //updateQuickSettings(); Not needed, as init takes care of this
         }
 
         // ------------------ System Tray Icon ------------------
@@ -228,6 +229,7 @@ namespace SPIF
 
         public void updateQuickSettings()
         {
+            //Prevent eventhandlers from being called
             this.nudTimer.ValueChanged -= new System.EventHandler(this.nudTimer_ValueChanged);
             this.cbCloseOnAdd.CheckedChanged -= new System.EventHandler(this.cbCloseOnAdd_CheckedChanged);
             this.cbFilter.CheckedChanged -= new System.EventHandler(this.cbFilter_CheckedChanged);
@@ -246,6 +248,18 @@ namespace SPIF
             this.cbDarkTheme.CheckedChanged += new System.EventHandler(this.cbDarkTheme_CheckedChanged);
             this.cbMinimizeOnStartup.CheckedChanged += new System.EventHandler(this.cbMinimizeOnStartup_CheckedChanged);
 
+        }
+        public void initQuickSettingsPanel()
+        {
+            //Show or hide quicksettings
+            FormSettings parser = new FormSettings(this, theme, settings);
+            EventArgs empty = new EventArgs();
+            CheckBox fakeCheckbox = new CheckBox();
+            fakeCheckbox.Name = "cbShowQuickSettings";
+            parser.handlerCheckedChanged(fakeCheckbox, empty);
+            parser.btnSubmit_Click(fakeCheckbox, empty);
+            parser.Dispose();
+            fakeCheckbox.Dispose();
         }
         // ------------------ Adding Data ------------------
         private void initComboBoxProject()
@@ -405,6 +419,11 @@ namespace SPIF
             }
             feedback.Dispose();
         }
+        private void ShowChangelogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChangelog changes = new FormChangelog(this, theme, settings);
+            DialogResult rslt = changes.ShowDialog();
+        }
         #endregion
 
         #region Form
@@ -557,10 +576,5 @@ namespace SPIF
 
         #endregion
 
-        private void checkUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormChangelog changes = new FormChangelog(this, theme, settings);
-            DialogResult rslt = changes.ShowDialog();
-        }
     }
 }

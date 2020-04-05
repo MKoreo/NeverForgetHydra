@@ -209,7 +209,7 @@ namespace SPIF
             this.viewChangelogToolStripMenuItem.Name = "viewChangelogToolStripMenuItem";
             this.viewChangelogToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.viewChangelogToolStripMenuItem.Text = "View Changelog";
-            this.viewChangelogToolStripMenuItem.Click += new System.EventHandler(this.checkUpdatesToolStripMenuItem_Click);
+            this.viewChangelogToolStripMenuItem.Click += new System.EventHandler(this.ShowChangelogToolStripMenuItem_Click);
             // 
             // newFile
             // 
