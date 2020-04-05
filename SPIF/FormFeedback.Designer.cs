@@ -116,7 +116,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpAll;
-        private System.Windows.Forms.RichTextBox rtbFeedback;
+        public System.Windows.Forms.RichTextBox rtbFeedback;
         private System.Windows.Forms.Label lblFeedback;
         private System.Windows.Forms.Button btnSend;
     }

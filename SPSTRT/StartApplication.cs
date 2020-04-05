@@ -70,19 +70,8 @@ namespace SPSTRT
 
         public void sendFeedback(string feedback)
         {
-            //Filter following pattern from feedback, as it's not allowed in JSON format.
-            string pattern = "[\\~#%&*{}/\\\\:<>?|\"-]";
-            //Replace signs by a dot
-            string replacement = ".";
-
-            //Replace magic
-            Regex regEx = new Regex(pattern);
-            feedback = Regex.Replace(regEx.Replace(feedback, replacement), @"\s+", " ");
-            
-            //Create new settings & main to call Feedback form
-            Settings settings = new Settings();
-            FormMain main = new FormMain(settings);
-            FormFeedback parser = new FormFeedback(main, main.theme, settings);
+            //Send automated feedback using FormFeedback, with empty constructor
+            FormFeedback parser = new FormFeedback();
             parser.feedback = feedback;
             parser.sendFeedback();
             parser.Dispose();

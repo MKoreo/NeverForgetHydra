@@ -383,6 +383,7 @@ namespace SPIF
             colorc.ShowDialog();
             Color test = colorc.Color;
             settings.highlightColor = test.ToArgb();
+            settings.save();
             applyTheming();
             applyAddTheming();
         }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,6 +28,9 @@ namespace SPIF
             applyTheming();
             applyAddTheming();
         }
+
+        //Empty constructor for sending automatic feedback
+        public FormFeedback() : base() { }
 
         private void applyAddTheming()
         {
@@ -45,6 +49,15 @@ namespace SPIF
         }
         public void sendFeedback()
         {
+            //Filter following pattern from feedback, as it's not allowed in JSON format.
+            string pattern = "[\\~#%&*{}/\\\\:<>?|\"-]";
+            //Replace signs by a dot
+            string replacement = ".";
+
+            //Replace magic
+            Regex regEx = new Regex(pattern);
+            feedback = Regex.Replace(regEx.Replace(feedback, replacement), @"\s+", " ");
+
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://maker.ifttt.com/trigger/NFH_Feedback/with/key/dCq5A5cuAQPzkJGupi9fxz");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
