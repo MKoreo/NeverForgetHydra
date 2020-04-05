@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>false</Deterministic>
-    <AssemblyVersion>2020.4.4</AssemblyVersion>
+    <AssemblyVersion>2020.4.5</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,6 +44,8 @@
     <Compile Include="ThemedForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="WinForm_Renderer.cs" />
+    <Compile Include="WinForm_SelfdestructStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CMDT\CMDT.csproj">

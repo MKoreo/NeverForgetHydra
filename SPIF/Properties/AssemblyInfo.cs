@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SPIF.Properties")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Never Forget Hydra")]
+[assembly: AssemblyDescription("Tool to keep track of Hydra work")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SPIF.Properties")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCompany("Made from Home")]
+[assembly: AssemblyProduct("Never Forget Hydra")]
+[assembly: AssemblyCopyright("Copyright © me 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("2020.4.4")]
-[assembly: AssemblyFileVersion("2020.4.4.29235")]
+[assembly: AssemblyVersion("2020.4.5")]
+[assembly: AssemblyFileVersion("2020.4.5.14825")]

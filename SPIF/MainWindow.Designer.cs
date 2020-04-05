@@ -95,7 +95,7 @@ namespace SPIF
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.menuStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip.Size = new System.Drawing.Size(1000, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1000, 26);
             this.menuStrip.Stretch = false;
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
@@ -108,13 +108,13 @@ namespace SPIF
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -122,21 +122,21 @@ namespace SPIF
             // 
             this.openToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -144,7 +144,7 @@ namespace SPIF
             // 
             this.hydraToolStripMenuItem.Name = "hydraToolStripMenuItem";
             this.hydraToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 23);
+            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.hydraToolStripMenuItem.Text = "Hydra";
             this.hydraToolStripMenuItem.Click += new System.EventHandler(this.hydraToolStripMenuItem_Click);
             // 
@@ -154,7 +154,7 @@ namespace SPIF
             this.themeToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // themeToolStripMenuItem
@@ -187,27 +187,27 @@ namespace SPIF
             this.feedbackToolStripMenuItem,
             this.viewChangelogToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // feedbackToolStripMenuItem
             // 
             this.feedbackToolStripMenuItem.Name = "feedbackToolStripMenuItem";
-            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.feedbackToolStripMenuItem.Text = "Feedback";
             this.feedbackToolStripMenuItem.Click += new System.EventHandler(this.feedbackToolStripMenuItem_Click);
             // 
             // viewChangelogToolStripMenuItem
             // 
             this.viewChangelogToolStripMenuItem.Name = "viewChangelogToolStripMenuItem";
-            this.viewChangelogToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.viewChangelogToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.viewChangelogToolStripMenuItem.Text = "View Changelog";
             this.viewChangelogToolStripMenuItem.Click += new System.EventHandler(this.checkUpdatesToolStripMenuItem_Click);
             // 
@@ -250,7 +250,7 @@ namespace SPIF
             this.comboBoxProject.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxProject.BackColor = System.Drawing.Color.White;
             this.comboBoxProject.Enabled = false;
-            this.comboBoxProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxProject.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBoxProject.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxProject.ForeColor = System.Drawing.Color.Black;
             this.comboBoxProject.FormattingEnabled = true;
@@ -265,7 +265,7 @@ namespace SPIF
             // 
             this.comboBoxWork.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxWork.Enabled = false;
-            this.comboBoxWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxWork.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBoxWork.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxWork.FormattingEnabled = true;
             this.comboBoxWork.Location = new System.Drawing.Point(250, 4);
@@ -314,7 +314,7 @@ namespace SPIF
             this.quickSettingsBox.Margin = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.quickSettingsBox.Name = "quickSettingsBox";
             this.quickSettingsBox.Padding = new System.Windows.Forms.Padding(0);
-            this.quickSettingsBox.Size = new System.Drawing.Size(265, 278);
+            this.quickSettingsBox.Size = new System.Drawing.Size(265, 280);
             this.quickSettingsBox.TabIndex = 10;
             this.quickSettingsBox.TabStop = false;
             this.quickSettingsBox.Text = "Quick Settings";
@@ -344,7 +344,7 @@ namespace SPIF
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(265, 260);
+            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(265, 262);
             this.tableLayoutPanelSettings.TabIndex = 3;
             // 
             // nudTimer
@@ -504,14 +504,14 @@ namespace SPIF
             this.tableLayoutPanel.Controls.Add(this.statusStrip, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.tlpWorkspace, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 26);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 3;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(1000, 347);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1000, 349);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // statusStrip
@@ -521,7 +521,7 @@ namespace SPIF
             this.statusStrip.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusStrip.Location = new System.Drawing.Point(0, 322);
+            this.statusStrip.Location = new System.Drawing.Point(0, 324);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1000, 25);
             this.statusStrip.TabIndex = 14;
@@ -540,7 +540,7 @@ namespace SPIF
             this.tlpWorkspace.Name = "tlpWorkspace";
             this.tlpWorkspace.RowCount = 1;
             this.tlpWorkspace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWorkspace.Size = new System.Drawing.Size(994, 283);
+            this.tlpWorkspace.Size = new System.Drawing.Size(994, 285);
             this.tlpWorkspace.TabIndex = 15;
             // 
             // dataGridView
@@ -560,7 +560,7 @@ namespace SPIF
             this.dataGridView.RowHeadersWidth = 47;
             this.dataGridView.RowTemplate.ReadOnly = true;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(714, 273);
+            this.dataGridView.Size = new System.Drawing.Size(714, 275);
             this.dataGridView.TabIndex = 11;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 

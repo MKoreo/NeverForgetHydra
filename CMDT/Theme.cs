@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CMDT
 {
@@ -22,7 +23,6 @@ namespace CMDT
         public Color text { get; set; }
         public Color tint1 { get; set; }
         public Color tint2 { get; set; }
-
 
         public void generateColours(themeStyle style)
         {

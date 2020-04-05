@@ -111,6 +111,9 @@ namespace SPIF
         // ------------------ Themes and color ------------------
         public void applyAddTheming()
         {
+            //Menu strip specific
+            menuStrip.Renderer = new Winform_Renderer(theme);
+
             //Add button specific
             buttonAdd.BackColor = theme.textHighlight;
             buttonAdd.ForeColor = theme.highlight;
@@ -121,6 +124,18 @@ namespace SPIF
 
             //MenuStrip specific
             menuStrip.ForeColor = theme.text;
+            foreach (ToolStripMenuItem item in menuStrip.Items)
+            {
+                item.ForeColor = theme.text;
+                foreach (ToolStripMenuItem itemm in item.DropDownItems)
+                {
+                    itemm.ForeColor = theme.text;
+                    foreach (ToolStripMenuItem itemmm in itemm.DropDownItems)
+                    {
+                        itemmm.ForeColor = theme.text;
+                    }
+                }
+            }
             menuStrip.BackColor = theme.tint1;
             //DatagridView specific
             DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
