@@ -107,9 +107,14 @@ namespace SPIF
         private void applyAddTheming()
         {
             //Add button specific
-            okButton.BackColor = theme.background;
-            okButton.ForeColor = theme.highlight;
+            okButton.BackColor = theme.highlight;
+            okButton.ForeColor = theme.text;
+            okButton.FlatAppearance.BorderColor = theme.text;
 
+
+            //Textbox
+            textBoxDescription.BackColor = theme.tint1;
+            textBoxDescription.ForeColor = theme.text;
             //Labels
             labelCopyright.BackColor = theme.tint1;
             labelCompanyName.BackColor = theme.tint1;
