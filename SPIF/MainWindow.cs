@@ -176,8 +176,10 @@ namespace SPIF
             tableLayoutPanelAdd.BackColor = theme.highlight;
 
             //QuicksettingsBox Specific
-            quickSettingsBox.ForeColor = theme.text;
-
+            tableLayoutPanelSettings.ForeColor = theme.text;
+            tableLayoutPanelSettings.BackColor = theme.tint1;
+            labelQuicksettings.BackColor = theme.highlight;
+            labelQuicksettings.ForeColor = theme.textHighlight;
             //Statusstrip specific
             statusStrip.BackColor = theme.tint1;
 

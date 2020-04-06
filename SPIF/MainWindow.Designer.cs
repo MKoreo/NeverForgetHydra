@@ -53,7 +53,6 @@ namespace SPIF
             this.comboBoxWork = new System.Windows.Forms.ComboBox();
             this.textBoxTime = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.quickSettingsBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanelSettings = new System.Windows.Forms.TableLayoutPanel();
             this.nudTimer = new System.Windows.Forms.NumericUpDown();
             this.labelTimer = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@ namespace SPIF
             this.cbFilter = new System.Windows.Forms.CheckBox();
             this.cbDarkTheme = new System.Windows.Forms.CheckBox();
             this.cbMinimizeOnStartup = new System.Windows.Forms.CheckBox();
+            this.labelQuicksettings = new System.Windows.Forms.Label();
             this.tableLayoutPanelDate = new System.Windows.Forms.TableLayoutPanel();
             this.button_left = new System.Windows.Forms.Button();
             this.button_right = new System.Windows.Forms.Button();
@@ -71,7 +71,6 @@ namespace SPIF
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanelAdd.SuspendLayout();
-            this.quickSettingsBox.SuspendLayout();
             this.tableLayoutPanelSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTimer)).BeginInit();
             this.tableLayoutPanelDate.SuspendLayout();
@@ -303,40 +302,28 @@ namespace SPIF
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // quickSettingsBox
-            // 
-            this.quickSettingsBox.BackColor = System.Drawing.Color.Transparent;
-            this.quickSettingsBox.Controls.Add(this.tableLayoutPanelSettings);
-            this.quickSettingsBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickSettingsBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quickSettingsBox.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quickSettingsBox.Location = new System.Drawing.Point(5, 5);
-            this.quickSettingsBox.Margin = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.quickSettingsBox.Name = "quickSettingsBox";
-            this.quickSettingsBox.Padding = new System.Windows.Forms.Padding(0);
-            this.quickSettingsBox.Size = new System.Drawing.Size(265, 280);
-            this.quickSettingsBox.TabIndex = 10;
-            this.quickSettingsBox.TabStop = false;
-            this.quickSettingsBox.Text = "Quick Settings";
-            // 
             // tableLayoutPanelSettings
             // 
+            this.tableLayoutPanelSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tableLayoutPanelSettings.ColumnCount = 5;
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
-            this.tableLayoutPanelSettings.Controls.Add(this.nudTimer, 3, 0);
-            this.tableLayoutPanelSettings.Controls.Add(this.labelTimer, 1, 0);
-            this.tableLayoutPanelSettings.Controls.Add(this.cbCloseOnAdd, 1, 1);
-            this.tableLayoutPanelSettings.Controls.Add(this.cbFilter, 1, 2);
-            this.tableLayoutPanelSettings.Controls.Add(this.cbDarkTheme, 1, 3);
-            this.tableLayoutPanelSettings.Controls.Add(this.cbMinimizeOnStartup, 1, 4);
-            this.tableLayoutPanelSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelSettings.Location = new System.Drawing.Point(0, 18);
+            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tableLayoutPanelSettings.Controls.Add(this.nudTimer, 3, 1);
+            this.tableLayoutPanelSettings.Controls.Add(this.labelTimer, 1, 1);
+            this.tableLayoutPanelSettings.Controls.Add(this.cbCloseOnAdd, 1, 2);
+            this.tableLayoutPanelSettings.Controls.Add(this.cbFilter, 1, 3);
+            this.tableLayoutPanelSettings.Controls.Add(this.cbDarkTheme, 1, 4);
+            this.tableLayoutPanelSettings.Controls.Add(this.cbMinimizeOnStartup, 1, 5);
+            this.tableLayoutPanelSettings.Controls.Add(this.labelQuicksettings, 0, 0);
+            this.tableLayoutPanelSettings.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanelSettings.Location = new System.Drawing.Point(5, 5);
+            this.tableLayoutPanelSettings.Margin = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanelSettings.Name = "tableLayoutPanelSettings";
-            this.tableLayoutPanelSettings.RowCount = 7;
+            this.tableLayoutPanelSettings.RowCount = 8;
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -344,7 +331,7 @@ namespace SPIF
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(265, 262);
+            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(260, 275);
             this.tableLayoutPanelSettings.TabIndex = 3;
             // 
             // nudTimer
@@ -356,7 +343,7 @@ namespace SPIF
             0,
             0,
             0});
-            this.nudTimer.Location = new System.Drawing.Point(140, 7);
+            this.nudTimer.Location = new System.Drawing.Point(137, 39);
             this.nudTimer.Maximum = new decimal(new int[] {
             60,
             0,
@@ -380,7 +367,7 @@ namespace SPIF
             // 
             this.labelTimer.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelTimer.AutoSize = true;
-            this.labelTimer.Location = new System.Drawing.Point(13, 11);
+            this.labelTimer.Location = new System.Drawing.Point(13, 43);
             this.labelTimer.Name = "labelTimer";
             this.labelTimer.Size = new System.Drawing.Size(95, 17);
             this.labelTimer.TabIndex = 0;
@@ -391,7 +378,7 @@ namespace SPIF
             this.cbCloseOnAdd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbCloseOnAdd.AutoSize = true;
             this.tableLayoutPanelSettings.SetColumnSpan(this.cbCloseOnAdd, 3);
-            this.cbCloseOnAdd.Location = new System.Drawing.Point(13, 49);
+            this.cbCloseOnAdd.Location = new System.Drawing.Point(13, 81);
             this.cbCloseOnAdd.Name = "cbCloseOnAdd";
             this.cbCloseOnAdd.Size = new System.Drawing.Size(119, 21);
             this.cbCloseOnAdd.TabIndex = 8;
@@ -403,9 +390,9 @@ namespace SPIF
             this.cbFilter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbFilter.AutoSize = true;
             this.tableLayoutPanelSettings.SetColumnSpan(this.cbFilter, 3);
-            this.cbFilter.Location = new System.Drawing.Point(13, 89);
+            this.cbFilter.Location = new System.Drawing.Point(13, 121);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(235, 21);
+            this.cbFilter.Size = new System.Drawing.Size(232, 21);
             this.cbFilter.TabIndex = 9;
             this.cbFilter.Text = "Filter subject by Project Code";
             this.cbFilter.UseVisualStyleBackColor = true;
@@ -415,7 +402,7 @@ namespace SPIF
             this.cbDarkTheme.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbDarkTheme.AutoSize = true;
             this.tableLayoutPanelSettings.SetColumnSpan(this.cbDarkTheme, 3);
-            this.cbDarkTheme.Location = new System.Drawing.Point(13, 129);
+            this.cbDarkTheme.Location = new System.Drawing.Point(13, 161);
             this.cbDarkTheme.Name = "cbDarkTheme";
             this.cbDarkTheme.Size = new System.Drawing.Size(109, 21);
             this.cbDarkTheme.TabIndex = 10;
@@ -427,12 +414,27 @@ namespace SPIF
             this.cbMinimizeOnStartup.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbMinimizeOnStartup.AutoSize = true;
             this.tableLayoutPanelSettings.SetColumnSpan(this.cbMinimizeOnStartup, 3);
-            this.cbMinimizeOnStartup.Location = new System.Drawing.Point(13, 169);
+            this.cbMinimizeOnStartup.Location = new System.Drawing.Point(13, 201);
             this.cbMinimizeOnStartup.Name = "cbMinimizeOnStartup";
             this.cbMinimizeOnStartup.Size = new System.Drawing.Size(170, 21);
             this.cbMinimizeOnStartup.TabIndex = 11;
             this.cbMinimizeOnStartup.Text = "Autostart: Load last";
             this.cbMinimizeOnStartup.UseVisualStyleBackColor = true;
+            // 
+            // labelQuicksettings
+            // 
+            this.labelQuicksettings.AutoSize = true;
+            this.labelQuicksettings.BackColor = System.Drawing.Color.Red;
+            this.tableLayoutPanelSettings.SetColumnSpan(this.labelQuicksettings, 5);
+            this.labelQuicksettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelQuicksettings.ForeColor = System.Drawing.Color.White;
+            this.labelQuicksettings.Location = new System.Drawing.Point(5, 5);
+            this.labelQuicksettings.Margin = new System.Windows.Forms.Padding(5);
+            this.labelQuicksettings.Name = "labelQuicksettings";
+            this.labelQuicksettings.Size = new System.Drawing.Size(250, 22);
+            this.labelQuicksettings.TabIndex = 12;
+            this.labelQuicksettings.Text = "Quicksettings";
+            this.labelQuicksettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanelDate
             // 
@@ -534,8 +536,9 @@ namespace SPIF
             this.tableLayoutPanel.SetColumnSpan(this.tlpWorkspace, 2);
             this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpWorkspace.Controls.Add(this.dataGridView, 1, 0);
-            this.tlpWorkspace.Controls.Add(this.quickSettingsBox, 0, 0);
+            this.tlpWorkspace.Controls.Add(this.tableLayoutPanelSettings, 0, 0);
             this.tlpWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpWorkspace.Location = new System.Drawing.Point(3, 36);
             this.tlpWorkspace.Name = "tlpWorkspace";
@@ -585,7 +588,6 @@ namespace SPIF
             this.menuStrip.PerformLayout();
             this.tableLayoutPanelAdd.ResumeLayout(false);
             this.tableLayoutPanelAdd.PerformLayout();
-            this.quickSettingsBox.ResumeLayout(false);
             this.tableLayoutPanelSettings.ResumeLayout(false);
             this.tableLayoutPanelSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTimer)).EndInit();
@@ -618,7 +620,6 @@ namespace SPIF
         private System.Windows.Forms.ComboBox comboBoxWork;
         private System.Windows.Forms.TextBox textBoxTime;
         private System.Windows.Forms.Button buttonAdd;
-        public System.Windows.Forms.GroupBox quickSettingsBox;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDate;
         private System.Windows.Forms.Button button_left;
@@ -626,7 +627,7 @@ namespace SPIF
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ComboBox comboBoxProject;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSettings;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanelSettings;
         private System.Windows.Forms.CheckBox cbCloseOnAdd;
         private System.Windows.Forms.NumericUpDown nudTimer;
         private System.Windows.Forms.Label labelTimer;
@@ -639,6 +640,7 @@ namespace SPIF
         private System.Windows.Forms.ToolStripMenuItem setColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         public System.Windows.Forms.TableLayoutPanel tlpWorkspace;
+        private System.Windows.Forms.Label labelQuicksettings;
     }
 }
 

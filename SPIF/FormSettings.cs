@@ -95,11 +95,11 @@ namespace SPIF
                     settings.showQuickSettings = ((CheckBox)obj).Checked;
                     if (!settings.showQuickSettings)
                     {
-                        parent.quickSettingsBox.Visible = false;
+                        parent.tableLayoutPanelSettings.Visible = false;
                         parent.tlpWorkspace.ColumnStyles[0].Width = 0;
                     } else
                     {
-                        parent.quickSettingsBox.Visible = true;
+                        parent.tableLayoutPanelSettings.Visible = true;
                         parent.tlpWorkspace.ColumnStyles[0].Width = 270;
                     }
                     break;
