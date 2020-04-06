@@ -268,6 +268,7 @@ namespace SPIF
             FormSettings parser = new FormSettings(this, theme, settings);
             EventArgs empty = new EventArgs();
             CheckBox fakeCheckbox = new CheckBox();
+            fakeCheckbox.Checked = settings.showQuickSettings;
             fakeCheckbox.Name = "cbShowQuickSettings";
             parser.handlerCheckedChanged(fakeCheckbox, empty);
             parser.btnSubmit_Click(fakeCheckbox, empty);
