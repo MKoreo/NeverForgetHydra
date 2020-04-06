@@ -111,10 +111,10 @@ namespace SPIF
             okButton.ForeColor = theme.text;
             okButton.FlatAppearance.BorderColor = theme.text;
 
-
             //Textbox
             textBoxDescription.BackColor = theme.tint1;
             textBoxDescription.ForeColor = theme.text;
+
             //Labels
             labelCopyright.BackColor = theme.tint1;
             labelCompanyName.BackColor = theme.tint1;
@@ -124,6 +124,7 @@ namespace SPIF
             labelCompanyName.ForeColor = theme.text; 
             labelProductName.ForeColor = theme.text;
             labelVersion.ForeColor = theme.text;
+
             //Update Window
             this.Invalidate();
         }
