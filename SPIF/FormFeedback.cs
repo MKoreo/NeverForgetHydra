@@ -49,21 +49,26 @@ namespace SPIF
         }
         public void sendFeedback()
         {
-            //Filter following pattern from feedback, as it's not allowed in JSON format.
+            // Filter following pattern from feedback, as it's not allowed in JSON format.
             string pattern = "[\\~#%&*{}/\\\\:<>?|\"-]";
-            //Replace signs by a dot
-            string replacement = ".";
+            // Replace signs by a dot
+            string replacement = "."; // Makes stack trace more readable
 
-            //Replace magic
+            // Replace magic
             Regex regEx = new Regex(pattern);
             feedback = Regex.Replace(regEx.Replace(feedback, replacement), @"\s+", " ");
 
+            // Setup the POST, replace by own server in the future
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://maker.ifttt.com/trigger/NFH_Feedback/with/key/dCq5A5cuAQPzkJGupi9fxz");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
+
+            //Get username from userfolder (Specific for barco, the user initials...)
             string name = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             int cut = name.LastIndexOf('\\') + 1;
             name = name.Substring(cut);
+
+            // Make the POST
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
                 string json = "{\"value1\":\"" + name + "\"," +
@@ -72,6 +77,7 @@ namespace SPIF
                 streamWriter.Write(json);
             }
 
+            // Check if it worked
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {

@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 
 namespace CMDA
 {
+    //Common Data Access Class: IoXML to serialize object to XML file
     public class IoXml
     {
         public object loadXml(Type objType, string path)

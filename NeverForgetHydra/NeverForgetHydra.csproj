@@ -37,7 +37,7 @@
     <UpdatePackageVersion>False</UpdatePackageVersion>
     <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
     <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <AssemblyVersion>2020.4.6</AssemblyVersion>
+    <AssemblyVersion>2020.4.7</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

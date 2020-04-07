@@ -151,7 +151,7 @@ namespace SPIF
             {
                 case "nudTimer":
                     settings.minutesTillPopup = ((NumericUpDown)obj).Value;
-                    parent.trayIconUpdate();
+                    parent.updateTrayIcon();
                     break;
                 default:
                     MessageBox.Show("Error: Not Implemented", "Oh noes, an error has occured. It's probably your fault", MessageBoxButtons.OK, MessageBoxIcon.Error);

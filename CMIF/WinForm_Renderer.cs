@@ -9,10 +9,11 @@ using System.Windows.Forms;
 
 namespace CMIF
 {
+    //Common Interface Class: Winform Renderer to render menustrip with other colours
+    //Uses: CMDT.Theme
     public class Winform_Renderer : ToolStripProfessionalRenderer
     {
         public Winform_Renderer(Theme theme) : base(new MyColors(theme)) { }
-
     }
 
     public class MyColors : ProfessionalColorTable

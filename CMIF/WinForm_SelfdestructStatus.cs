@@ -9,26 +9,31 @@ using System.Windows.Forms;
 
 namespace CMIF
 {
+    // Common Interface Class: Selfdestruct status
+    // Label that removes itself from existence after given period of time
+    // No dependencies
     public class WinForm_SelfdestructStatus
     {
-        Timer selfDestruct;
-        ToolStripStatusLabel newStatus;
+        private Timer selfDestruct;
+        private ToolStripStatusLabel newStatus;
 
-        Decimal time;
-        Color temp1;
-        Color temp2;
-        int transparency;
-        int fadeFactor;
+        private Decimal time;
+        private Color temp1;
+        private Color temp2;
+        private int transparency;
+        private int fadeFactor;
 
         //Creation of object sets parent and creates status
         public WinForm_SelfdestructStatus(StatusStrip strip, string status, decimal seconds, Color foreColor, Color backColor)
         {
+            //Construct
             this.time = 10 * seconds;
             this.transparency = 255;
             this.selfDestruct = new Timer();
             this.fadeFactor = 255 / (int)time;
             this.temp1 = foreColor;
             this.temp2 = backColor;
+
             //Set timer values
             selfDestruct.Interval = (int)(100);
             selfDestruct.Tick += new EventHandler(destroyTimer);

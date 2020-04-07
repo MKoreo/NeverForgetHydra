@@ -31,36 +31,18 @@ namespace SPIF
             InitializeComponent();
 
             //Initialize timer, trayIcon
-            popupTimerInit();
+            initPopupTimer();
 
             //Theme
             applyTheming();
             applyAddTheming();
 
-            trayIconInit();
+            initTrayIcon();
             initQuickSettingsPanel();
-            //updateQuickSettings(); Not needed, as init takes care of this
         }
-
-        // ------------------ System Tray Icon ------------------
-        private void trayIconInit()
-        {
-            trayIcon.Icon = SPIF.Properties.Resources.Hourglass;
-
-            // The Text property sets the text that will be displayed,
-            // in a tooltip, when the mouse hovers over the systray icon.
-            trayIconUpdate();
-            trayIcon.Visible = true;
-
-            // Handle the DoubleClick event to activate the form.
-            trayIcon.DoubleClick += new System.EventHandler(this.trayIcon_DoubleClick);
-        }
-        public void trayIconUpdate()
-        {
-            trayIcon.Text = "NFH\n" + (settings.minutesTillPopup - minutesPassed) + "m left!";
-        }
-        // ------------------ Timer and popup ------------------
-        private void popupTimerInit()
+        
+        // ------------------ Popup timer ------------------
+        private void initPopupTimer()
         {
             //Interval = 60 * 1000ms * AmountOfMinutes
             popupTimer.Interval = (int)(60 * 1000); //Every minute
@@ -75,7 +57,7 @@ namespace SPIF
                 minutesPassed = 0;
             }
 
-            trayIconUpdate();
+            updateTrayIcon();
 
             //Joke
             if (settings.showJokes)
@@ -91,20 +73,16 @@ namespace SPIF
         {
             //Popup
             this.Show();
-            fillInTime();
+            updateTimePassed();
             //Change to today
             dateTimePicker.Value = DateTime.Now;
             //Dropdown
             comboBoxWork.DroppedDown = true;
         }
-        private void fillInTime()
-        {
-            //Set time passed in minutes
-            textBoxTime.Text = minutesPassed.ToString();
-            updateStatus("Time calculated");
-        }
 
         // ------------------ Themes and color ------------------
+        // Main theming happens in derrived class: ThemedForm
+        // Additional theming here
         public void applyAddTheming()
         {
             //Menu strip specific
@@ -133,6 +111,7 @@ namespace SPIF
                 }
             }
             menuStrip.BackColor = theme.tint1;
+
             //DatagridView specific
             DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
             cellStyle.BackColor = theme.background;
@@ -147,7 +126,6 @@ namespace SPIF
             altCellStyle.SelectionBackColor = theme.highlight;
             altCellStyle.SelectionForeColor = theme.textHighlight;
             altCellStyle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular);
-
 
             DataGridViewCellStyle ColumnHeaderStyle = new DataGridViewCellStyle();
             ColumnHeaderStyle.BackColor = theme.background;               
@@ -171,6 +149,7 @@ namespace SPIF
             dataGridView.RowHeadersDefaultCellStyle = RowHeaderStyle;
             dataGridView.AlternatingRowsDefaultCellStyle = altCellStyle;
             dataGridView.RowHeadersVisible = false;
+
             //Layout specific
             tableLayoutPanelDate.BackColor = theme.highlight;
             tableLayoutPanelAdd.BackColor = theme.highlight;
@@ -187,49 +166,87 @@ namespace SPIF
             this.Invalidate();
             updateStatus("Theme applied");
         }
-
-        // ------------------ Display records ------------------
-        public void updateRecords()
+        // ------------------ Inits ----------------------------
+        // Reminder: Init should be private
+        private void initQuickSettingsPanel()
         {
-            try
+            //Show or hide quicksettings
+            FormSettings parser = new FormSettings(this, theme, settings);
+            EventArgs empty = new EventArgs();
+            CheckBox fakeCheckbox = new CheckBox();
+            fakeCheckbox.Checked = settings.showQuickSettings;
+            fakeCheckbox.Name = "cbShowQuickSettings";
+            parser.handlerCheckedChanged(fakeCheckbox, empty);
+            parser.btnSubmit_Click(fakeCheckbox, empty);
+            parser.Dispose();
+            fakeCheckbox.Dispose();
+        }
+        private void initComboBoxProject()
+        {
+            comboBoxProject.Items.Clear();
+
+            foreach (Record rec in log.records)
             {
-                //Clear datagrid
-                dataGridView.Columns.Clear();
-                dataGridView.Rows.Clear();
-
-                //Add Columns
-                dataGridView.Columns.Add("Date", "Date");
-                dataGridView.Columns.Add("Project", "Project");
-                dataGridView.Columns.Add("Time", "Time");
-                dataGridView.Columns.Add("Subject", "Subject");
-                dataGridView.Columns.Add("Remove", "");
-
-                //Set Column settings
-                foreach (DataGridViewColumn dc in dataGridView.Columns)
+                if (!comboBoxProject.Items.Contains(rec.projectCode))
                 {
-                    dc.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                }
-
-                dataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                // Add the data
-                List<Record> records = log.getRecords(dateTimePicker.Value.Date);
-
-                foreach (Record rec in records)
-                {
-                    int rowId = dataGridView.Rows.Add();
-                    // Grab the new row!
-                    DataGridViewRow row = dataGridView.Rows[rowId];
-                    row.Cells["Date"].Value = rec.date.ToShortDateString();
-                    row.Cells["Project"].Value = rec.projectCode;
-                    row.Cells["Time"].Value = rec.minutes.ToString();
-                    row.Cells["Subject"].Value = rec.subject;
-                    row.Cells["Remove"].Value = "Delete";
+                    //When pressing add, new project code needs to be added directly if not yet in it!
+                    //Calling this method is to much overhead
+                    comboBoxProject.Items.Add(rec.projectCode);
                 }
             }
-            catch (Exception e) { }
+        }
+        private void initTrayIcon()
+        {
+            trayIcon.Icon = SPIF.Properties.Resources.Hourglass;
 
+            // The Text property sets the text that will be displayed,
+            // in a tooltip, when the mouse hovers over the systray icon.
+            updateTrayIcon();
+            trayIcon.Visible = true;
 
+            // Handle the DoubleClick event to activate the form.
+            trayIcon.DoubleClick += new System.EventHandler(this.trayIcon_DoubleClick);
+        }
+        // ------------------ Updates-------- ------------------
+        // Reminder: Every update should be public and designed in such a way that this is allowed.
+        public void updateRecords()
+        {
+            //Clear datagrid
+            dataGridView.Columns.Clear();
+            dataGridView.Rows.Clear();
+
+            //Add Columns
+            dataGridView.Columns.Add("Date", "Date");
+            dataGridView.Columns.Add("Project", "Project");
+            dataGridView.Columns.Add("Time", "Time");
+            dataGridView.Columns.Add("Subject", "Subject");
+            dataGridView.Columns.Add("Remove", "");
+
+            //Set Column settings
+            foreach (DataGridViewColumn dc in dataGridView.Columns)
+            {
+                dc.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+
+            dataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // Add the data
+            List<Record> records = log.getRecords(dateTimePicker.Value.Date);
+
+            foreach (Record rec in records)
+            {
+                int rowId = dataGridView.Rows.Add();
+
+                // Grab the new row!
+                DataGridViewRow row = dataGridView.Rows[rowId];
+                row.Cells["Date"].Value = rec.date.ToShortDateString();
+                row.Cells["Project"].Value = rec.projectCode;
+                row.Cells["Time"].Value = rec.minutes.ToString();
+                row.Cells["Subject"].Value = rec.subject;
+                row.Cells["Remove"].Value = "Delete";
+                //Possible to change colour based on time value, but it ugly:
+                //row.Cells["Time"].Style.BackColor = Color.FromArgb((int)rec.minutes, (int)rec.minutes, (int)rec.minutes);
+            }
         }
         public void updateStatus(string text)
         {
@@ -239,7 +256,6 @@ namespace SPIF
         {
             _ = new WinForm_SelfdestructStatus(statusStrip, text, seconds, theme.textHighlight, back);
         }
-
         public void updateQuickSettings()
         {
             //Prevent eventhandlers from being called
@@ -260,35 +276,6 @@ namespace SPIF
             this.cbFilter.CheckedChanged += new System.EventHandler(this.cbFilter_CheckedChanged);
             this.cbDarkTheme.CheckedChanged += new System.EventHandler(this.cbDarkTheme_CheckedChanged);
             this.cbMinimizeOnStartup.CheckedChanged += new System.EventHandler(this.cbMinimizeOnStartup_CheckedChanged);
-
-        }
-        public void initQuickSettingsPanel()
-        {
-            //Show or hide quicksettings
-            FormSettings parser = new FormSettings(this, theme, settings);
-            EventArgs empty = new EventArgs();
-            CheckBox fakeCheckbox = new CheckBox();
-            fakeCheckbox.Checked = settings.showQuickSettings;
-            fakeCheckbox.Name = "cbShowQuickSettings";
-            parser.handlerCheckedChanged(fakeCheckbox, empty);
-            parser.btnSubmit_Click(fakeCheckbox, empty);
-            parser.Dispose();
-            fakeCheckbox.Dispose();
-        }
-        // ------------------ Adding Data ------------------
-        private void initComboBoxProject()
-        {
-            comboBoxProject.Items.Clear();
-
-            foreach (Record rec in log.records)
-            {
-                if (!comboBoxProject.Items.Contains(rec.projectCode))
-                {
-                    //When pressing add, new project code needs to be added directly if not yet in it!
-                    //Calling this method is to much overhead
-                    comboBoxProject.Items.Add(rec.projectCode);
-                }
-            }
         }
         public void updateComboBoxSubject()
         {
@@ -318,7 +305,16 @@ namespace SPIF
                 }
             }
         }
-
+        public void updateTrayIcon()
+        {
+            trayIcon.Text = "NFH\n" + (settings.minutesTillPopup - minutesPassed) + "m left!";
+        }
+        public void updateTimePassed()
+        {
+            //Set time passed in minutes
+            textBoxTime.Text = minutesPassed.ToString();
+            updateStatus("Time calculated");
+        }
         // ------------------ EventHandlers ------------------ 
 
         #region menustrip
@@ -557,18 +553,18 @@ namespace SPIF
             parser.btnSubmit_Click(sender, e);
             parser.Dispose();
         }
-
         #endregion
 
         #region Other
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Check if delete is pressed
             if (e.ColumnIndex == 4)
             {
                 DialogResult confirm = MessageBox.Show("Are you sure you want to delete this record?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (confirm == DialogResult.Yes)
                 {
-                    
+                    //Delete record that matches the selected row
                     log.removeRecord(dateTimePicker.Value.Date, dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString());
                     log.save();
                     updateRecords();
@@ -580,7 +576,8 @@ namespace SPIF
         {
             // Show the form when the user double clicks on the notify icon.
             this.Show();
-            fillInTime();
+            // Calculate and fill in time passed since last timer popup
+            updateTimePassed();
             // Activate the form.
             this.Activate();
         }

@@ -38,7 +38,6 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\bin\Re
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\bin\Release\SPDA.dll.config
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\bin\Release\SPDT.pdb
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\bin\Release\SPDT.dll.config
-D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\obj\Release\SPLO.csprojAssemblyReference.cache
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\obj\Release\SPLO.csproj.CopyComplete
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\obj\Release\SPLO.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\obj\Release\SPLO.pdb
