@@ -14,6 +14,7 @@
 
 ## What is this
 A tool made to keep track of what to fill in on **Hydra** (Citrix App) at the end of the week.
+A timer makes the tool popup and requires you to fill in what you've done. At the end of the week, the user can view how much time he/she has spent on which project.
 Free to use for anyone, although this repository lays its focus on offering the best functionality for Barco NV employees.
 
 ## Updates
