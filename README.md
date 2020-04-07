@@ -7,6 +7,11 @@ Free to use for anyone.
 The tool is checks updates on start.
 If you want to disable it, change the code and recompile.
 
+## PreCompiled and ready to use
+Download: https://drive.google.com/open?id=1bW8nKafGaQjiept200WR01d66ibY5_MK
+Keep in mind, this tool will be updated for use at Barco NV.
+For private use, it's recommended to alter the code and compile your own version.
+
 # Licensed as MIT
 Copyright 2020 Thomas Poppe
 
