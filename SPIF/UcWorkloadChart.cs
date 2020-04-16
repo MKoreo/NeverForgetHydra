@@ -44,7 +44,7 @@ namespace SPIF
                 if (control.GetType() == typeof(ProgressBarEx))
                 {
                     ((ProgressBarEx)control).foreground = theme.highlight;
-                    ((ProgressBarEx)control).background = theme.tint1;
+                    ((ProgressBarEx)control).background = theme.background;
                     ((ProgressBarEx)control).textColor = theme.text;
                 }
             }
@@ -77,9 +77,12 @@ namespace SPIF
         {
             // Calculate total time
             decimal totaltime = 0;
+            decimal maxTime = 0;
+
             foreach (Record rec in records)
             {
                 totaltime += rec.minutes;
+                maxTime = (rec.minutes > maxTime ? rec.minutes : maxTime);
             }
 
             records = records.OrderByDescending(o => o.minutes).ToList();
@@ -92,6 +95,7 @@ namespace SPIF
                 currentRow++;
                 tlpChart.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
                 tlpChart.RowCount += 1;
+
                 Label name = new Label();
                 name.AutoSize = true;
                 name.ForeColor = theme.text;
@@ -106,13 +110,21 @@ namespace SPIF
                 }
 
                 name.Text = Generic.fixStringLength(name.Text, 40, true);
-
                 tlpChart.Controls.Add(name, 0, currentRow);
-                
-                ProgressBarEx barTime = new ProgressBarEx(theme.text, theme.background, theme.highlight);
+
+                ProgressBarEx barTime;
+                if (rec.minutes > maxTime / 2)
+                {
+                    barTime = new ProgressBarEx(theme.textHighlight, theme.tint2, theme.highlight);
+                }
+                else
+                {
+                    barTime = new ProgressBarEx(theme.text, theme.tint2, theme.highlight);
+                }
+
                 barTime.ForeColor = theme.highlight;
                 barTime.BackColor = theme.highlight;
-                barTime.Maximum = (int)totaltime;
+                barTime.Maximum = (int)maxTime + 40;
                 barTime.Minimum = 0;
                 barTime.Dock = DockStyle.Fill;
                 barTime.Value = (int)(rec.minutes);

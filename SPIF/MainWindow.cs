@@ -56,7 +56,6 @@ namespace SPIF
 
             //btnViewRecords.PerformClick();
         }
-
         // ------------------ Popup timer ------------------
         private void initPopupTimer()
         {
@@ -89,13 +88,16 @@ namespace SPIF
         {
             //Popup
             this.Show();
+
+            // Attempted bugfix: When popup, only dropdown list shows.
+            this.Invalidate();
+
             updateTimePassed();
             //Change to today
             dateTimePicker.Value = DateTime.Now;
             //Dropdown
             comboBoxWork.DroppedDown = true;
         }
-
         // ------------------ Themes and color ------------------
         // Main theming happens in derrived class: ThemedForm
         // Additional theming here
@@ -624,6 +626,10 @@ namespace SPIF
             {
                 tlpWorkspace.Controls.Remove(dataGridView);
                 tlpWorkspace.Controls.Add(ucStatistics, 1, 0);
+
+                // To ensure datagrid is themed at start
+                // Perhaps there's a better location for this
+                applyAddTheming();
             }
             view = View.statistics;
         }
