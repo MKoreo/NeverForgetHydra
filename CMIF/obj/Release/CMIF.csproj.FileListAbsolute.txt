@@ -36,3 +36,5 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMIF\obj\Re
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMIF\obj\Release\CMIF.csproj.CopyComplete
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMIF\obj\Release\CMIF.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMIF\obj\Release\CMIF.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMIF\bin\Release\Newtonsoft.Json.dll
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMIF\bin\Release\Newtonsoft.Json.xml

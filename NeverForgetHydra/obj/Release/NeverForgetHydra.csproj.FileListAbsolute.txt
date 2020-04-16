@@ -46,3 +46,12 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForget
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\obj\Release\NeverForgetHydra.csproj.CopyComplete
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\obj\Release\NeverForgetHydra.exe
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\obj\Release\NeverForgetHydra.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\bin\Release\SPSTRT.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\bin\Release\SPDT.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\bin\Release\SPIF.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\bin\Release\CMDT.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\bin\Release\CMDA.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\bin\Release\CMIF.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\bin\Release\CMLO.dll.config
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\obj\Release\NeverForgetHydra.csproj.Fody.CopyLocal.cache
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\NeverForgetHydra\bin\Release\Newtonsoft.Json.xml

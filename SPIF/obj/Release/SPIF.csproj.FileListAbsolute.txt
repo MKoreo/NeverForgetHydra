@@ -55,7 +55,6 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Re
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.FormChangelog.resources
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.FormFeedback.resources
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.FormSettings.resources
-D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.FormMain.resources
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.Properties.Resources.resources
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.csproj.GenerateResource.cache
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.csproj.CopyComplete
@@ -63,3 +62,6 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Re
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.pdb
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\bin\Release\Newtonsoft.Json.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\bin\Release\Newtonsoft.Json.xml
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.MainWindow.resources
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.UcStatistics.resources
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPIF\obj\Release\SPIF.UcWorkloadChart.resources

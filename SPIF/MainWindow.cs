@@ -1,4 +1,5 @@
 ﻿using CMDT;
+using SPIF;
 using CMIF;
 using SPDT;
 using System;
@@ -9,38 +10,53 @@ using System.Windows.Forms;
 
 namespace SPIF
 {
-    public partial class FormMain : ThemedForm
+    public partial class MainWindow : ThemedForm
     {
         //Ui timer
         System.Windows.Forms.Timer popupTimer = new System.Windows.Forms.Timer();
 
         //States
-        bool fileOpen = false;
-        decimal minutesPassed = 0;
+        private bool fileOpen = false; 
+        private decimal minutesPassed = 0;
 
+        enum View
+        {
+            records,
+            statistics
+        }
+        View view = View.records;
         //Variables
-        workLog log = new workLog();
-        AppDomain dom = AppDomain.CurrentDomain;
+        private workLog log;
+        private UcStatistics ucStatistics;
+
         //Create system Tray Icon
         NotifyIcon trayIcon = new NotifyIcon();
 
         //Constructor
-        public FormMain(Settings settings) : base(settings)
+        public MainWindow(Settings settings) : base(settings)
         {
-            //Default
+            // Default
             InitializeComponent();
 
-            //Initialize timer, trayIcon
+            // Initialize timer, trayIcon
             initPopupTimer();
 
-            //Theme
+            // Theme
             applyTheming();
             applyAddTheming();
 
+            // Init objects
+            log = new workLog();
+
+            // Init UI components
             initTrayIcon();
             initQuickSettingsPanel();
+            initUcStatistics();
+           
+
+            //btnViewRecords.PerformClick();
         }
-        
+
         // ------------------ Popup timer ------------------
         private void initPopupTimer()
         {
@@ -85,9 +101,6 @@ namespace SPIF
         // Additional theming here
         public void applyAddTheming()
         {
-            //Menu strip specific
-            menuStrip.Renderer = new Winform_Renderer(theme);
-
             //Add button specific
             buttonAdd.BackColor = theme.textHighlight;
             buttonAdd.ForeColor = theme.highlight;
@@ -97,6 +110,7 @@ namespace SPIF
             button_right.ForeColor = theme.background;
 
             //MenuStrip specific
+            menuStrip.Renderer = new Winform_Renderer(theme);
             menuStrip.ForeColor = theme.text;
             foreach (ToolStripMenuItem item in menuStrip.Items)
             {
@@ -114,34 +128,34 @@ namespace SPIF
 
             //DatagridView specific
             DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
-            cellStyle.BackColor = theme.background;
+            cellStyle.BackColor = theme.tint1;
             cellStyle.ForeColor = theme.text;
             cellStyle.SelectionBackColor = theme.highlight;
             cellStyle.SelectionForeColor = theme.textHighlight;
             cellStyle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular);
 
             DataGridViewCellStyle altCellStyle = new DataGridViewCellStyle();
-            altCellStyle.BackColor = theme.background;
+            altCellStyle.BackColor = theme.tint1;
             altCellStyle.ForeColor = theme.text;
             altCellStyle.SelectionBackColor = theme.highlight;
             altCellStyle.SelectionForeColor = theme.textHighlight;
             altCellStyle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular);
 
             DataGridViewCellStyle ColumnHeaderStyle = new DataGridViewCellStyle();
-            ColumnHeaderStyle.BackColor = theme.background;               
+            ColumnHeaderStyle.BackColor = theme.tint1;               
             ColumnHeaderStyle.ForeColor = theme.text;
             ColumnHeaderStyle.SelectionBackColor = theme.background;
             ColumnHeaderStyle.SelectionForeColor = theme.textHighlight;
             ColumnHeaderStyle.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Bold);
 
             DataGridViewCellStyle RowHeaderStyle = new DataGridViewCellStyle();
-            RowHeaderStyle.BackColor = theme.background;
+            RowHeaderStyle.BackColor = theme.tint1;
             RowHeaderStyle.ForeColor = theme.text;
             RowHeaderStyle.SelectionBackColor = theme.highlight;
             RowHeaderStyle.SelectionForeColor = theme.textHighlight;
             RowHeaderStyle.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Bold);
 
-            dataGridView.BackgroundColor = theme.background;
+            dataGridView.BackgroundColor = theme.tint1;
             dataGridView.ForeColor = theme.text;
             dataGridView.GridColor = theme.highlight;
             dataGridView.DefaultCellStyle = cellStyle;
@@ -159,8 +173,28 @@ namespace SPIF
             tableLayoutPanelSettings.BackColor = theme.tint1;
             labelQuicksettings.BackColor = theme.highlight;
             labelQuicksettings.ForeColor = theme.textHighlight;
+            btnResetTimer.BackColor = theme.tint2;
+            btnResetTimer.ForeColor = theme.text;
+            btnResetTimer.FlatAppearance.BorderSize = 0;
+
             //Statusstrip specific
             statusStrip.BackColor = theme.tint1;
+
+            //View
+            lblView.BackColor = theme.highlight;
+            lblView.ForeColor = theme.textHighlight;
+            btnViewRecords.BackColor = theme.tint2;
+            btnViewRecords.ForeColor = theme.text;
+            btnViewRecords.FlatAppearance.BorderSize = 0;
+            btnViewStatistics.FlatAppearance.BorderSize = 0;
+            btnViewStatistics.BackColor = theme.tint2;
+            btnViewStatistics.ForeColor = theme.text;
+
+            //Inside Statistics
+            if (ucStatistics != null)
+            {
+                ucStatistics.applyTheming();
+            }
 
             //Update mainWindow
             this.Invalidate();
@@ -207,6 +241,10 @@ namespace SPIF
             // Handle the DoubleClick event to activate the form.
             trayIcon.DoubleClick += new System.EventHandler(this.trayIcon_DoubleClick);
         }
+        private void initUcStatistics()
+        {
+            ucStatistics = new UcStatistics(ref theme);
+        }
         // ------------------ Updates-------- ------------------
         // Reminder: Every update should be public and designed in such a way that this is allowed.
         public void updateRecords()
@@ -231,7 +269,7 @@ namespace SPIF
             dataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             // Add the data
-            List<Record> records = log.getRecords(dateTimePicker.Value.Date);
+            List<Record> records = log.getRecordsByDate(dateTimePicker.Value.Date);
 
             foreach (Record rec in records)
             {
@@ -262,19 +300,16 @@ namespace SPIF
             this.nudTimer.ValueChanged -= new System.EventHandler(this.nudTimer_ValueChanged);
             this.cbCloseOnAdd.CheckedChanged -= new System.EventHandler(this.cbCloseOnAdd_CheckedChanged);
             this.cbFilter.CheckedChanged -= new System.EventHandler(this.cbFilter_CheckedChanged);
-            this.cbDarkTheme.CheckedChanged -= new System.EventHandler(this.cbDarkTheme_CheckedChanged);
             this.cbMinimizeOnStartup.CheckedChanged -= new System.EventHandler(this.cbMinimizeOnStartup_CheckedChanged);
 
             cbFilter.Checked = settings.filterOnCombo;
             cbCloseOnAdd.Checked = settings.closeOnAdd;
-            cbDarkTheme.Checked = (settings.style == Theme.themeStyle.dark ? true : false);
             nudTimer.Value = settings.minutesTillPopup;
             cbMinimizeOnStartup.Checked = settings.minimizeOnStartup;
 
             this.nudTimer.ValueChanged += new System.EventHandler(this.nudTimer_ValueChanged);
             this.cbCloseOnAdd.CheckedChanged += new System.EventHandler(this.cbCloseOnAdd_CheckedChanged);
             this.cbFilter.CheckedChanged += new System.EventHandler(this.cbFilter_CheckedChanged);
-            this.cbDarkTheme.CheckedChanged += new System.EventHandler(this.cbDarkTheme_CheckedChanged);
             this.cbMinimizeOnStartup.CheckedChanged += new System.EventHandler(this.cbMinimizeOnStartup_CheckedChanged);
         }
         public void updateComboBoxSubject()
@@ -315,8 +350,13 @@ namespace SPIF
             textBoxTime.Text = minutesPassed.ToString();
             updateStatus("Time calculated");
         }
-        // ------------------ EventHandlers ------------------ 
+        // ----------------- Sets -----------------------------
+        public void setUcStatisticslog()
+        {
+            ucStatistics.log = log;
+        }
 
+        // ------------------ EventHandlers ------------------ 
         #region menustrip
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -339,11 +379,16 @@ namespace SPIF
                 comboBoxWork.Enabled = true;
                 textBoxTime.Enabled = true;
                 buttonAdd.Enabled = true;
+                button_left.Enabled = true;
+                button_right.Enabled = true;
+                dateTimePicker.Enabled = true;
+
                 updateStatus("File created");
                 this.Text = "Never Forget Hydra - " + log.getPath();
                 //If new file, popuptimer can be 
                 //Incase previous file had records in richtextbox field
                 updateRecords();
+                setUcStatisticslog();
                 popupTimer.Start();
                 fileOpen = true;
             }
@@ -367,22 +412,32 @@ namespace SPIF
                 updateRecords();
                 settings.lastOpened = openFile.FileName;
                 settings.save();
+
                 //Enable buttons etc.
                 comboBoxProject.Enabled = true;
                 comboBoxWork.Enabled = true;
                 textBoxTime.Enabled = true;
                 buttonAdd.Enabled = true;
+                button_left.Enabled = true;
+                button_right.Enabled = true;
+                dateTimePicker.Enabled = true;
+
                 //pictureBoxLogo.Visible = false;
                 //tableLayoutPanel.SetRowSpan(dataGridView, 2);
                 updateStatus("File Loaded");
                 this.Text = "Never Forget Hydra - " + log.getPath();
                 initComboBoxProject();
+                setUcStatisticslog();
                 popupTimer.Start();
                 fileOpen = true;
             }
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Before exit, remove trayicon, otherwise it remains for some reason...
+            trayIcon.Dispose();
+
+            //Exit application
             Application.Exit();
         }
         private void setColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -553,6 +608,36 @@ namespace SPIF
             parser.btnSubmit_Click(sender, e);
             parser.Dispose();
         }
+        private void btnResetTimer_Click(object sender, EventArgs e)
+        {
+            if (fileOpen)
+            {
+                minutesPassed = 0;
+                updateTrayIcon();
+                updateStatus("Popup timer reset");
+            }
+        }
+        private void btnViewStatistics_Click(object sender, EventArgs e)
+        {
+            // Hide records View, show statistics
+            if (view == View.records)
+            {
+                tlpWorkspace.Controls.Remove(dataGridView);
+                tlpWorkspace.Controls.Add(ucStatistics, 1, 0);
+            }
+            view = View.statistics;
+        }
+        private void btnViewRecords_Click(object sender, EventArgs e)
+        {
+            // Hide statistics, show records view
+            if (view == View.statistics)
+            {
+                tlpWorkspace.Controls.Remove(ucStatistics);
+                tlpWorkspace.Controls.Add(dataGridView, 1, 0);
+            }
+            view = View.records;
+            // ((UcWorkloadChart)tlpWorkspace.Controls.Find("stats", false)[0]).Dispose();            
+        }
         #endregion
 
         #region Other
@@ -590,6 +675,5 @@ namespace SPIF
             }
         }
         #endregion
-
     }
 }

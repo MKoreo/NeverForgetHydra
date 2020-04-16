@@ -30,3 +30,5 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPDT\obj\De
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPDT\obj\Debug\SPDT.csproj.CopyComplete
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPDT\obj\Debug\SPDT.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPDT\obj\Debug\SPDT.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPDT\bin\Debug\Newtonsoft.Json.dll
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPDT\bin\Debug\Newtonsoft.Json.xml

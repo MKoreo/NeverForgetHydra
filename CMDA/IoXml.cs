@@ -25,7 +25,8 @@ namespace CMDA
         {
             using (System.IO.FileStream fs = new FileStream(path, FileMode.Create))
             {
-                XmlSerializer serializer = new XmlSerializer(objType);
+                //XmlSerializer serializer = new XmlSerializer(objType);
+                XmlSerializer serializer = XmlSerializer.FromTypes(new[] { objType })[0];
                 serializer.Serialize(fs, obj);
             }
         }
@@ -33,7 +34,8 @@ namespace CMDA
         {
             using (FileStream fs = new FileStream(path, FileMode.Open))
             {
-                XmlSerializer serializer = new XmlSerializer(objType);
+                //XmlSerializer serializer = new XmlSerializer(objType);
+                XmlSerializer serializer = XmlSerializer.FromTypes(new[] { objType })[0];
                 return serializer.Deserialize(fs);
             }
         }

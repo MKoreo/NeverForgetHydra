@@ -1,4 +1,5 @@
 ﻿using CMDA;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,15 +12,13 @@ namespace SPDT
     [Serializable]
     public class workLog
     {
+        //XML
         public List<Record> records { get; } = new List<Record>();
-
         //Others
         private string path = "";
-        public workLog()
-        {
-            
-        }
+        public workLog(){}
 
+        // ---- Do something with records ----
         public void addRecord(DateTime dateTime, string subject, string projectCode, decimal minutes)
         {
             //records.Add(new Record(dateTime, subject, projectCode, minutes));
@@ -34,15 +33,13 @@ namespace SPDT
             //Else add
             records.Add(new Record(dateTime, subject, projectCode, minutes));
         }
-
         public void removeRecord(Record record)
         {
             records.Remove(record);
         }
-
         public void removeRecord(DateTime dateTime, string projectCode, string subject)
         {
-           List<Record> records = getRecords(dateTime);
+           List<Record> records = getRecordsByDate(dateTime);
            foreach(Record rec in records)
             {
                 if (rec.projectCode == projectCode && rec.subject == subject)
@@ -52,12 +49,12 @@ namespace SPDT
             }
         }
 
+        // ----- Getters
         public string getPath()
         {
             return path;
         }
-
-        public List<Record> getRecords(DateTime dateTime)
+        public List<Record> getRecordsByDate(DateTime dateTime)
         {
             List<Record> returnList = new List<Record>();
             foreach (Record rec in records)
@@ -69,13 +66,68 @@ namespace SPDT
             }
             return returnList;
         }
+        public List<Record> getRecordsBetweenDates(DateTime start, DateTime end, bool filterProject)
+        {
+            List<Record> returnList = new List<Record>();
+            int daysBetween = (int)Math.Round((end - start).TotalDays, 0, MidpointRounding.AwayFromZero); // Possibly do +1 to account for missing decimals
+            do
+            {
+                // Append records for every day
+                returnList.AddRange(getRecordsByDate(end.AddDays(-daysBetween)));
+                daysBetween--;
+            } while (daysBetween != -1);
 
+            List<Record> dummy = new List<Record>();
+            bool matched = false;
+            if (!filterProject)
+            {
+                foreach (Record rec in returnList)
+                {
+                    foreach (Record dum in dummy)
+                    {
+                        if (dum.projectCode == rec.projectCode && dum.subject == rec.subject)
+                        {
+                            dum.minutes += rec.minutes;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched)
+                    {
+                        // Json convert, so we pass a copy instead of the real
+                        dummy.Add(JsonConvert.DeserializeObject<Record>(JsonConvert.SerializeObject(rec)));
+                    }
+                    matched = false;
+                }
+            } else
+            {
+                foreach (Record rec in returnList)
+                {
+                    foreach (Record dum in dummy)
+                    {
+                        if (dum.projectCode == rec.projectCode)
+                        {
+                            dum.minutes += rec.minutes;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched)
+                    {
+                        dummy.Add(JsonConvert.DeserializeObject<Record>(JsonConvert.SerializeObject(rec)));
+                    }
+                    matched = false;
+                }
+            }
+
+            return dummy;
+        }
+        // ------ To/From XML
         public void createNew(String path)
         {
             this.path = path;
             save();
         }
-
         public workLog load(string path)
         {
             this.path = path;
@@ -84,7 +136,6 @@ namespace SPDT
             log.path = path;
             return log;
         }
-
         public void save()
         {
             IoXml xmlReader = new IoXml();

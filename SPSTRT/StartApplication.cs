@@ -16,15 +16,18 @@ namespace SPSTRT
 
             //When running without debugger, exceptions in application will be handler by automatic handler.
             //To prevent that, handle thread exceptions and unhandled ones.
-            AppDomain.CurrentDomain.UnhandledException += this.CurrentDomain_UnhandledExceptiond;
-            Application.ThreadException += ThreadExceptionHandler;
-
+            if (!System.Diagnostics.Debugger.IsAttached)
+            {
+                AppDomain.CurrentDomain.UnhandledException += this.CurrentDomain_UnhandledExceptiond;
+                Application.ThreadException += ThreadExceptionHandler;
+            }
+           
             //Load settings first as it also contains theme related stuff and we want all windows to point to its location
             Settings settings = new Settings();
             settings = settings.load();   
             
             //Start main window
-            FormMain main = new FormMain(settings);
+            MainWindow main = new MainWindow(settings);
             Application.Run(main);
         }
 

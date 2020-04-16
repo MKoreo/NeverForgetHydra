@@ -2,7 +2,7 @@
 
 namespace SPIF
 {
-    partial class FormMain : ThemedForm
+    partial class MainWindow : ThemedForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace SPIF
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,13 +54,16 @@ namespace SPIF
             this.textBoxTime = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanelSettings = new System.Windows.Forms.TableLayoutPanel();
+            this.btnViewStatistics = new System.Windows.Forms.Button();
+            this.btnViewRecords = new System.Windows.Forms.Button();
+            this.lblView = new System.Windows.Forms.Label();
             this.nudTimer = new System.Windows.Forms.NumericUpDown();
             this.labelTimer = new System.Windows.Forms.Label();
             this.cbCloseOnAdd = new System.Windows.Forms.CheckBox();
             this.cbFilter = new System.Windows.Forms.CheckBox();
-            this.cbDarkTheme = new System.Windows.Forms.CheckBox();
-            this.cbMinimizeOnStartup = new System.Windows.Forms.CheckBox();
             this.labelQuicksettings = new System.Windows.Forms.Label();
+            this.cbMinimizeOnStartup = new System.Windows.Forms.CheckBox();
+            this.btnResetTimer = new System.Windows.Forms.Button();
             this.tableLayoutPanelDate = new System.Windows.Forms.TableLayoutPanel();
             this.button_left = new System.Windows.Forms.Button();
             this.button_right = new System.Windows.Forms.Button();
@@ -304,35 +307,89 @@ namespace SPIF
             // 
             // tableLayoutPanelSettings
             // 
-            this.tableLayoutPanelSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.tableLayoutPanelSettings.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanelSettings.AutoSize = true;
+            this.tableLayoutPanelSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelSettings.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanelSettings.ColumnCount = 5;
-            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanelSettings.Controls.Add(this.btnViewStatistics, 3, 7);
+            this.tableLayoutPanelSettings.Controls.Add(this.btnViewRecords, 1, 7);
+            this.tableLayoutPanelSettings.Controls.Add(this.lblView, 0, 6);
             this.tableLayoutPanelSettings.Controls.Add(this.nudTimer, 3, 1);
             this.tableLayoutPanelSettings.Controls.Add(this.labelTimer, 1, 1);
             this.tableLayoutPanelSettings.Controls.Add(this.cbCloseOnAdd, 1, 2);
             this.tableLayoutPanelSettings.Controls.Add(this.cbFilter, 1, 3);
-            this.tableLayoutPanelSettings.Controls.Add(this.cbDarkTheme, 1, 4);
-            this.tableLayoutPanelSettings.Controls.Add(this.cbMinimizeOnStartup, 1, 5);
             this.tableLayoutPanelSettings.Controls.Add(this.labelQuicksettings, 0, 0);
-            this.tableLayoutPanelSettings.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanelSettings.Controls.Add(this.cbMinimizeOnStartup, 1, 4);
+            this.tableLayoutPanelSettings.Controls.Add(this.btnResetTimer, 1, 5);
+            this.tableLayoutPanelSettings.Font = new System.Drawing.Font("Verdana", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanelSettings.Location = new System.Drawing.Point(5, 5);
             this.tableLayoutPanelSettings.Margin = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanelSettings.Name = "tableLayoutPanelSettings";
-            this.tableLayoutPanelSettings.RowCount = 8;
+            this.tableLayoutPanelSettings.RowCount = 9;
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(260, 275);
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(220, 284);
             this.tableLayoutPanelSettings.TabIndex = 3;
+            // 
+            // btnViewStatistics
+            // 
+            this.btnViewStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewStatistics.BackColor = System.Drawing.Color.DarkGray;
+            this.btnViewStatistics.FlatAppearance.BorderSize = 0;
+            this.btnViewStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewStatistics.ForeColor = System.Drawing.Color.Black;
+            this.btnViewStatistics.Location = new System.Drawing.Point(114, 249);
+            this.btnViewStatistics.Margin = new System.Windows.Forms.Padding(0);
+            this.btnViewStatistics.Name = "btnViewStatistics";
+            this.btnViewStatistics.Size = new System.Drawing.Size(89, 25);
+            this.btnViewStatistics.TabIndex = 15;
+            this.btnViewStatistics.Text = "Statistics";
+            this.btnViewStatistics.UseVisualStyleBackColor = false;
+            this.btnViewStatistics.Click += new System.EventHandler(this.btnViewStatistics_Click);
+            // 
+            // btnViewRecords
+            // 
+            this.btnViewRecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewRecords.BackColor = System.Drawing.Color.DarkGray;
+            this.btnViewRecords.FlatAppearance.BorderSize = 0;
+            this.btnViewRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewRecords.ForeColor = System.Drawing.Color.Black;
+            this.btnViewRecords.Location = new System.Drawing.Point(15, 249);
+            this.btnViewRecords.Margin = new System.Windows.Forms.Padding(0);
+            this.btnViewRecords.Name = "btnViewRecords";
+            this.btnViewRecords.Size = new System.Drawing.Size(89, 25);
+            this.btnViewRecords.TabIndex = 14;
+            this.btnViewRecords.Text = "Records";
+            this.btnViewRecords.UseVisualStyleBackColor = false;
+            this.btnViewRecords.Click += new System.EventHandler(this.btnViewRecords_Click);
+            // 
+            // lblView
+            // 
+            this.lblView.BackColor = System.Drawing.Color.Red;
+            this.tableLayoutPanelSettings.SetColumnSpan(this.lblView, 5);
+            this.lblView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblView.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblView.ForeColor = System.Drawing.Color.White;
+            this.lblView.Location = new System.Drawing.Point(10, 217);
+            this.lblView.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.lblView.Name = "lblView";
+            this.lblView.Size = new System.Drawing.Size(200, 22);
+            this.lblView.TabIndex = 16;
+            this.lblView.Text = "View";
+            this.lblView.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nudTimer
             // 
@@ -343,7 +400,7 @@ namespace SPIF
             0,
             0,
             0});
-            this.nudTimer.Location = new System.Drawing.Point(137, 39);
+            this.nudTimer.Location = new System.Drawing.Point(117, 43);
             this.nudTimer.Maximum = new decimal(new int[] {
             60,
             0,
@@ -355,7 +412,7 @@ namespace SPIF
             0,
             0});
             this.nudTimer.Name = "nudTimer";
-            this.nudTimer.Size = new System.Drawing.Size(78, 25);
+            this.nudTimer.Size = new System.Drawing.Size(78, 22);
             this.nudTimer.TabIndex = 7;
             this.nudTimer.Value = new decimal(new int[] {
             10,
@@ -367,9 +424,10 @@ namespace SPIF
             // 
             this.labelTimer.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelTimer.AutoSize = true;
-            this.labelTimer.Location = new System.Drawing.Point(13, 43);
+            this.tableLayoutPanelSettings.SetColumnSpan(this.labelTimer, 2);
+            this.labelTimer.Location = new System.Drawing.Point(18, 46);
             this.labelTimer.Name = "labelTimer";
-            this.labelTimer.Size = new System.Drawing.Size(95, 17);
+            this.labelTimer.Size = new System.Drawing.Size(89, 16);
             this.labelTimer.TabIndex = 0;
             this.labelTimer.Text = "Timer (min):";
             // 
@@ -378,9 +436,9 @@ namespace SPIF
             this.cbCloseOnAdd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbCloseOnAdd.AutoSize = true;
             this.tableLayoutPanelSettings.SetColumnSpan(this.cbCloseOnAdd, 3);
-            this.cbCloseOnAdd.Location = new System.Drawing.Point(13, 81);
+            this.cbCloseOnAdd.Location = new System.Drawing.Point(18, 79);
             this.cbCloseOnAdd.Name = "cbCloseOnAdd";
-            this.cbCloseOnAdd.Size = new System.Drawing.Size(119, 21);
+            this.cbCloseOnAdd.Size = new System.Drawing.Size(112, 20);
             this.cbCloseOnAdd.TabIndex = 8;
             this.cbCloseOnAdd.Text = "Close on add";
             this.cbCloseOnAdd.UseVisualStyleBackColor = true;
@@ -390,36 +448,12 @@ namespace SPIF
             this.cbFilter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbFilter.AutoSize = true;
             this.tableLayoutPanelSettings.SetColumnSpan(this.cbFilter, 3);
-            this.cbFilter.Location = new System.Drawing.Point(13, 121);
+            this.cbFilter.Location = new System.Drawing.Point(18, 114);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(232, 21);
+            this.cbFilter.Size = new System.Drawing.Size(182, 20);
             this.cbFilter.TabIndex = 9;
             this.cbFilter.Text = "Filter subject by Project Code";
             this.cbFilter.UseVisualStyleBackColor = true;
-            // 
-            // cbDarkTheme
-            // 
-            this.cbDarkTheme.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbDarkTheme.AutoSize = true;
-            this.tableLayoutPanelSettings.SetColumnSpan(this.cbDarkTheme, 3);
-            this.cbDarkTheme.Location = new System.Drawing.Point(13, 161);
-            this.cbDarkTheme.Name = "cbDarkTheme";
-            this.cbDarkTheme.Size = new System.Drawing.Size(109, 21);
-            this.cbDarkTheme.TabIndex = 10;
-            this.cbDarkTheme.Text = "Dark theme";
-            this.cbDarkTheme.UseVisualStyleBackColor = true;
-            // 
-            // cbMinimizeOnStartup
-            // 
-            this.cbMinimizeOnStartup.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbMinimizeOnStartup.AutoSize = true;
-            this.tableLayoutPanelSettings.SetColumnSpan(this.cbMinimizeOnStartup, 3);
-            this.cbMinimizeOnStartup.Location = new System.Drawing.Point(13, 201);
-            this.cbMinimizeOnStartup.Name = "cbMinimizeOnStartup";
-            this.cbMinimizeOnStartup.Size = new System.Drawing.Size(170, 21);
-            this.cbMinimizeOnStartup.TabIndex = 11;
-            this.cbMinimizeOnStartup.Text = "Autostart: Load last";
-            this.cbMinimizeOnStartup.UseVisualStyleBackColor = true;
             // 
             // labelQuicksettings
             // 
@@ -427,14 +461,44 @@ namespace SPIF
             this.labelQuicksettings.BackColor = System.Drawing.Color.Red;
             this.tableLayoutPanelSettings.SetColumnSpan(this.labelQuicksettings, 5);
             this.labelQuicksettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelQuicksettings.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelQuicksettings.ForeColor = System.Drawing.Color.White;
-            this.labelQuicksettings.Location = new System.Drawing.Point(5, 5);
-            this.labelQuicksettings.Margin = new System.Windows.Forms.Padding(5);
+            this.labelQuicksettings.Location = new System.Drawing.Point(10, 10);
+            this.labelQuicksettings.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
             this.labelQuicksettings.Name = "labelQuicksettings";
-            this.labelQuicksettings.Size = new System.Drawing.Size(250, 22);
+            this.labelQuicksettings.Size = new System.Drawing.Size(200, 22);
             this.labelQuicksettings.TabIndex = 12;
             this.labelQuicksettings.Text = "Quicksettings";
             this.labelQuicksettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbMinimizeOnStartup
+            // 
+            this.cbMinimizeOnStartup.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbMinimizeOnStartup.AutoSize = true;
+            this.tableLayoutPanelSettings.SetColumnSpan(this.cbMinimizeOnStartup, 3);
+            this.cbMinimizeOnStartup.Location = new System.Drawing.Point(18, 149);
+            this.cbMinimizeOnStartup.Name = "cbMinimizeOnStartup";
+            this.cbMinimizeOnStartup.Size = new System.Drawing.Size(161, 20);
+            this.cbMinimizeOnStartup.TabIndex = 11;
+            this.cbMinimizeOnStartup.Text = "Autostart: Load last";
+            this.cbMinimizeOnStartup.UseVisualStyleBackColor = true;
+            // 
+            // btnResetTimer
+            // 
+            this.btnResetTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnResetTimer.BackColor = System.Drawing.Color.DarkGray;
+            this.tableLayoutPanelSettings.SetColumnSpan(this.btnResetTimer, 3);
+            this.btnResetTimer.FlatAppearance.BorderSize = 0;
+            this.btnResetTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetTimer.ForeColor = System.Drawing.Color.Black;
+            this.btnResetTimer.Location = new System.Drawing.Point(15, 182);
+            this.btnResetTimer.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResetTimer.Name = "btnResetTimer";
+            this.btnResetTimer.Size = new System.Drawing.Size(188, 25);
+            this.btnResetTimer.TabIndex = 13;
+            this.btnResetTimer.Text = "Reset Timer";
+            this.btnResetTimer.UseVisualStyleBackColor = false;
+            this.btnResetTimer.Click += new System.EventHandler(this.btnResetTimer_Click);
             // 
             // tableLayoutPanelDate
             // 
@@ -458,6 +522,7 @@ namespace SPIF
             // button_left
             // 
             this.button_left.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_left.Enabled = false;
             this.button_left.FlatAppearance.BorderSize = 0;
             this.button_left.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_left.Font = new System.Drawing.Font("Wingdings", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -473,6 +538,7 @@ namespace SPIF
             // button_right
             // 
             this.button_right.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_right.Enabled = false;
             this.button_right.FlatAppearance.BorderSize = 0;
             this.button_right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_right.Font = new System.Drawing.Font("Wingdings", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -489,6 +555,7 @@ namespace SPIF
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateTimePicker.CalendarMonthBackground = System.Drawing.SystemColors.Highlight;
+            this.dateTimePicker.Enabled = false;
             this.dateTimePicker.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker.Location = new System.Drawing.Point(41, 4);
@@ -514,7 +581,7 @@ namespace SPIF
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(1000, 349);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1000, 360);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // statusStrip
@@ -522,9 +589,10 @@ namespace SPIF
             this.statusStrip.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel.SetColumnSpan(this.statusStrip, 2);
             this.statusStrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusStrip.Font = new System.Drawing.Font("Verdana", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
-            this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusStrip.Location = new System.Drawing.Point(0, 324);
+            this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.statusStrip.Location = new System.Drawing.Point(0, 335);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1000, 25);
             this.statusStrip.TabIndex = 14;
@@ -532,11 +600,12 @@ namespace SPIF
             // 
             // tlpWorkspace
             // 
+            this.tlpWorkspace.AutoSize = true;
+            this.tlpWorkspace.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tlpWorkspace.ColumnCount = 2;
             this.tableLayoutPanel.SetColumnSpan(this.tlpWorkspace, 2);
-            this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
+            this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
             this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpWorkspace.Controls.Add(this.dataGridView, 1, 0);
             this.tlpWorkspace.Controls.Add(this.tableLayoutPanelSettings, 0, 0);
             this.tlpWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -544,11 +613,13 @@ namespace SPIF
             this.tlpWorkspace.Name = "tlpWorkspace";
             this.tlpWorkspace.RowCount = 1;
             this.tlpWorkspace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWorkspace.Size = new System.Drawing.Size(994, 285);
+            this.tlpWorkspace.Size = new System.Drawing.Size(994, 296);
             this.tlpWorkspace.TabIndex = 15;
             // 
             // dataGridView
             // 
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -556,7 +627,7 @@ namespace SPIF
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridView.Location = new System.Drawing.Point(275, 5);
+            this.dataGridView.Location = new System.Drawing.Point(235, 5);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -564,23 +635,23 @@ namespace SPIF
             this.dataGridView.RowHeadersWidth = 47;
             this.dataGridView.RowTemplate.ReadOnly = true;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(714, 275);
+            this.dataGridView.Size = new System.Drawing.Size(754, 286);
             this.dataGridView.TabIndex = 11;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
-            // FormMain
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(110F, 110F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 375);
+            this.ClientSize = new System.Drawing.Size(1000, 386);
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Verdana", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(1000, 375);
-            this.Name = "FormMain";
+            this.Name = "MainWindow";
             this.Text = "Never Forget Hydra - Closed Alpha";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Shown += new System.EventHandler(this.MainWindow_Shown);
@@ -595,6 +666,7 @@ namespace SPIF
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.tlpWorkspace.ResumeLayout(false);
+            this.tlpWorkspace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -632,7 +704,6 @@ namespace SPIF
         private System.Windows.Forms.NumericUpDown nudTimer;
         private System.Windows.Forms.Label labelTimer;
         private System.Windows.Forms.CheckBox cbFilter;
-        private System.Windows.Forms.CheckBox cbDarkTheme;
         public System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.CheckBox cbMinimizeOnStartup;
@@ -641,6 +712,10 @@ namespace SPIF
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         public System.Windows.Forms.TableLayoutPanel tlpWorkspace;
         private System.Windows.Forms.Label labelQuicksettings;
+        private System.Windows.Forms.Button btnResetTimer;
+        private System.Windows.Forms.Label lblView;
+        private System.Windows.Forms.Button btnViewStatistics;
+        private System.Windows.Forms.Button btnViewRecords;
     }
 }
 

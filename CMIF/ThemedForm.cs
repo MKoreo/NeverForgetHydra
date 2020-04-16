@@ -13,7 +13,7 @@ namespace CMIF
     public partial class ThemedForm : Form
     {
         public Settings settings { get; set; }
-        public Theme theme { get; set; }
+        public Theme theme;
 
         public ThemedForm()
         {
@@ -23,13 +23,16 @@ namespace CMIF
         {
             InitializeComponent();
             this.settings = settings;
+            initTheme();
             applyTheming();
         }
 
-        public void applyTheming()
+        public void initTheme()
         {
             theme = new Theme();
-
+        }
+        public void applyTheming()
+        {
             //update colours
             theme.generateColours(settings.style);
             theme.highlight = Color.FromArgb(settings.highlightColor);
@@ -56,7 +59,6 @@ namespace CMIF
             this.Name = "ThemedForm";
             this.Tag = "test";
             this.ResumeLayout(false);
-
         }
     }
 }

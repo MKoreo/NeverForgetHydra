@@ -1,61 +1,40 @@
 # Feature thinking
-* Version xxx
-- Fixed init state of quicksettingspanel
-- Fixed menucolors (new renderer)
-- Fixed feedback form
-- Send auto feedback upon crash
-- Theme color is saved again, when set
+- FIRST:
+  - "Invalid handle bug bij debugging"
 
-* Version 2020.04.04.25373
-- Added changelog form
-- Added code to GIT
+- Algemeen:
+  - Logs doorgeven met ref, zoals bij theme
+  - Logica van UI doorspelen naar andere plaatsen, zodat UI kleiner wordt en meer functie in andere classes komen waar dit hergebruikt kan worden
 
-* Version 2020.04.02.0
-- Fixed Antivirus false positives
-- Fixed bugs in update class
-- New changelog
-- BugFix: Quicksetting filteronCombo now changes state
+- Interessante features:
+  - Selection datagrid: Minuten optellen en uren/vakjes weergeven voor in te vullen op hydra -> Zou heel gemakkelijk zijn
 
-* Version: 2020.04.01.0
-- Added settings menu
-- Quicksettings can now be hidden
-- Cleaned Code
-- BugFix: Delete row now deletes correct row, even if columns have been sorted. For older versions where time didn't get added to a record but created new one instead: Deletes every record with same name.
+- Statistics
+  - **Bug**: Background moet stoppen bij laatste chart bar
+  - Feature: Moet geladen worden met background worker ofzoiets
+  - **Bug**: Achtergrond chart bars veranderen als theme aangepast wordt achteraf
+  - Bijhouden wat grootste aantal minuten zijn, getoond in chart. Maximum van elke progressbar instellen op iets hoger dan maximum. Zorgt voor een betere visualisatie van de tijd.
 
-* Version 2020.03.31.xx:
-  - Added settings menu
-  - Quicksettings can now be hidden
-  - Cleaned Code
-  - BugFix: Delete row now deletes correct row, even if columns have been sorted. For older versions where time didn't get added to a record but created new one instead: Deletes every record with same name.
 
-* Version 2020.03.26
-  - Adding a record previously done that day, will add minutes intead of creating a new record.
-  - Statuslabels are now fading
-  - Settings are saved every minute if one has changed, instead of a direct write to disk upon change
-  - Added a joke
+- **Bug: Some werkt dit soms niet** Headers datagrid moeten vetgedrukt worden
+  - Denk zelfs dat elke cell styling heeft verloren
 
-* Version 2020.03.25
-  - Laatste field + enter = Add (Arne's request)
+- **Bug:** When timer popup on desktop with multiple screens, only dropdownlist shows untill clicked, then full window is shown. Perhaps **This.invalidate()** can fix?
 
-* Version 2020.03.25
-  - Titel now displays current file
-  - Barco logo removed
-  - Table forecolor text white when black theme
-  - Checkbox add to startup
-  - Bug: when popup by timer, time passed field is 0, when double click it's correct
+- Noob proofing:
+  - Hours: "." is not accepted as "," but just ignored -> Depends on locale, can be the other way around
+  - Spaces and other non visable signs are taking in the string (Time & projectcode)
+  - Timer scrolls to much at once, clicking is fine
 
-# Bugs
-Short Term to be fixed:
-- Als popup, maar geen add, blijft time passed op 30 minuten staan ofzoiets. Moet doortellen en tot je op add klikt gereset worden
-- Dark theme status fade, text fade veel minder dan achtergrond
 
-Long term to be fixed:
-- Hours: "." is not accepted as "," but just ignored -> Depends on locale, can be the other way around
-- Spaces and other non visable signs are taking in the string (Time & projectcode)
-- Timer scrolls to much at once
-- Timer does not reset when clicking add, it only resets from popups, do you even want this though? Maybe seperate popup + visible on gui how long till next
-- When timer popup on desktop with multiple screens, only dropdownlist shows untill clicked, then full window is shown. Perhaps This.invalidate() can fix?
+# Solved
+New:
+  - Fixed scrolling of statistics
+  - Fixed persistent trayicon after application exit
 
+
+- ~~Timer does not reset when clicking add, it only resets from popups, do you even want this though? Maybe seperate popup + visible on gui how long till next~~
 - ~~when column is sorted wrong one is deleted~~
 - ~~Project code gets added even though it's already there, when opening file again, there's only one entry per individual project code~~
 - ~~Tabbing selects fields in wrong order~~
+- ~~Crash: (Bug) Als geen log geladen, statistics date veranderen~~

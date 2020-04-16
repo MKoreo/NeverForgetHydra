@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <settingsVersionNumber>2</settingsVersionNumber>
-  <filterOnCombo>false</filterOnCombo>
+  <filterOnCombo>true</filterOnCombo>
   <closeOnAdd>false</closeOnAdd>
   <minimizeOnStartup>false</minimizeOnStartup>
   <showJokes>false</showJokes>
-  <showQuickSettings>false</showQuickSettings>
+  <showQuickSettings>true</showQuickSettings>
   <minutesTillPopup>30</minutesTillPopup>
   <style>dark</style>
   <highlightColor>-16744320</highlightColor>

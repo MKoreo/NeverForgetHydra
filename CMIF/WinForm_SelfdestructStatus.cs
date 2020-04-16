@@ -43,8 +43,8 @@ namespace CMIF
             newStatus = new ToolStripStatusLabel();
             newStatus.Text = status;
             newStatus.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            newStatus.ForeColor = Color.FromArgb(transparency, foreColor);
-            newStatus.BackColor = Color.FromArgb(transparency, backColor);
+            newStatus.ForeColor = Color.FromArgb(transparency, temp1);
+            newStatus.BackColor = Color.FromArgb(transparency, temp2);
 
             //Space with other labels
             Padding margin = newStatus.Margin;

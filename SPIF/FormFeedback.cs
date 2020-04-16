@@ -20,7 +20,7 @@ namespace SPIF
     public partial class FormFeedback : ThemedForm
     {
         public string feedback;
-        public FormFeedback(FormMain test, Theme theme, Settings settings) : base(settings)
+        public FormFeedback(MainWindow test, Theme theme, Settings settings) : base(settings)
         {
             InitializeComponent();
             this.theme = theme;

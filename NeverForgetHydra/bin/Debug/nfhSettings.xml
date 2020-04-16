@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <settingsVersionNumber>2</settingsVersionNumber>
-  <filterOnCombo>false</filterOnCombo>
+  <filterOnCombo>true</filterOnCombo>
   <closeOnAdd>false</closeOnAdd>
   <minimizeOnStartup>false</minimizeOnStartup>
   <showJokes>false</showJokes>
   <showQuickSettings>true</showQuickSettings>
-  <minutesTillPopup>20</minutesTillPopup>
-  <style>dark</style>
-  <highlightColor>-16744320</highlightColor>
-  <lastOpened>C:\Users\thopop\Desktop\realWeekTHOPOP.libtw</lastOpened>
+  <minutesTillPopup>30</minutesTillPopup>
+  <style>light</style>
+  <highlightColor>-16760704</highlightColor>
+  <lastOpened>C:\Users\thopop\Desktop\stats_THOPOP.libtw</lastOpened>
 </Settings>

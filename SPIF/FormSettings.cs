@@ -16,8 +16,8 @@ namespace SPIF
 {
     public partial class FormSettings : ThemedForm
     {
-        private FormMain parent;
-        public FormSettings(FormMain parent, Theme theme, Settings settings) : base(settings)
+        private MainWindow parent;
+        public FormSettings(MainWindow parent, Theme theme, Settings settings) : base(settings)
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@ namespace SPIF
             initializeGui();
         }
 
-        public FormSettings(FormMain parent, Settings settings) : base(settings)
+        public FormSettings(MainWindow parent, Settings settings) : base(settings)
         {
             this.parent = parent;
             this.settings = settings;
@@ -100,7 +100,7 @@ namespace SPIF
                     } else
                     {
                         parent.tableLayoutPanelSettings.Visible = true;
-                        parent.tlpWorkspace.ColumnStyles[0].Width = 270;
+                        parent.tlpWorkspace.ColumnStyles[0].Width = 230;
                     }
                     break;
                 case "cbMinimizeOnStartup":
