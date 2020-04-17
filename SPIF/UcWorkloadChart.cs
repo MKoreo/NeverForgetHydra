@@ -164,7 +164,15 @@ namespace SPIF
                 barTime.Minimum = 0;
                 barTime.Dock = DockStyle.Fill;
                 barTime.Value = (int)(rec.minutes);
-                barTime.CustomText = rec.minutes.ToString(CultureInfo.InvariantCulture) + " min (" + ((int)Math.Round(100 * (double)rec.minutes / (double)totaltime)).ToString(CultureInfo.InvariantCulture) + "%)";
+
+                Func<decimal, string> convertMinutesToHours = (d) =>
+                {
+                    TimeSpan time = TimeSpan.FromMinutes((double)d);
+                    // Get string of minutes if < 60 or hours and minutes otherwise
+                    return time.ToString((d > 59 ? @"hh\hmm\m" : @"mm\m"), CultureInfo.InvariantCulture); 
+                };
+                
+                barTime.CustomText = convertMinutesToHours(rec.minutes) + " (" + ((int)Math.Round(100 * (double)rec.minutes / (double)totaltime)).ToString(CultureInfo.InvariantCulture) + "%)";
 
                 tlpChart.Controls.Add(barTime, 1, currentRow);
 
