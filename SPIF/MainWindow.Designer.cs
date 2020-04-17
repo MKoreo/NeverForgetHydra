@@ -97,7 +97,7 @@ namespace SPIF
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.menuStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip.Size = new System.Drawing.Size(1000, 26);
+            this.menuStrip.Size = new System.Drawing.Size(1000, 28);
             this.menuStrip.Stretch = false;
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
@@ -110,7 +110,7 @@ namespace SPIF
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -146,7 +146,7 @@ namespace SPIF
             // 
             this.hydraToolStripMenuItem.Name = "hydraToolStripMenuItem";
             this.hydraToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
+            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 23);
             this.hydraToolStripMenuItem.Text = "Hydra";
             this.hydraToolStripMenuItem.Click += new System.EventHandler(this.hydraToolStripMenuItem_Click);
             // 
@@ -156,7 +156,7 @@ namespace SPIF
             this.themeToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // themeToolStripMenuItem
@@ -189,7 +189,7 @@ namespace SPIF
             this.feedbackToolStripMenuItem,
             this.viewChangelogToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
@@ -574,14 +574,14 @@ namespace SPIF
             this.tableLayoutPanel.Controls.Add(this.statusStrip, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.tlpWorkspace, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 26);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 3;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(1000, 360);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1000, 358);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // statusStrip
@@ -592,7 +592,7 @@ namespace SPIF
             this.statusStrip.Font = new System.Drawing.Font("Verdana", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStrip.Location = new System.Drawing.Point(0, 335);
+            this.statusStrip.Location = new System.Drawing.Point(0, 333);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1000, 25);
             this.statusStrip.TabIndex = 14;
@@ -613,7 +613,7 @@ namespace SPIF
             this.tlpWorkspace.Name = "tlpWorkspace";
             this.tlpWorkspace.RowCount = 1;
             this.tlpWorkspace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWorkspace.Size = new System.Drawing.Size(994, 296);
+            this.tlpWorkspace.Size = new System.Drawing.Size(994, 294);
             this.tlpWorkspace.TabIndex = 15;
             // 
             // dataGridView
@@ -635,9 +635,10 @@ namespace SPIF
             this.dataGridView.RowHeadersWidth = 47;
             this.dataGridView.RowTemplate.ReadOnly = true;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(754, 286);
+            this.dataGridView.Size = new System.Drawing.Size(754, 284);
             this.dataGridView.TabIndex = 11;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            this.dataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseUp);
             // 
             // MainWindow
             // 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,13 @@ namespace CMLO
                 str += ":";
             }
             return str;
+        }
+
+        public static string convertMinutesToHoursString(decimal minutes)
+        {
+            TimeSpan time = TimeSpan.FromMinutes((double)minutes);
+            // Get string of minutes if < 60 or hours and minutes otherwise
+            return time.ToString((minutes > 59 ? @"hh\hmm\m" : @"mm\m"), CultureInfo.InvariantCulture);
         }
     }
 }

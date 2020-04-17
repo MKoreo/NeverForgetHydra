@@ -9,9 +9,6 @@
 - Interessante features:
   - Selection datagrid: Minuten optellen en uren/vakjes weergeven voor in te vullen op hydra -> Zou heel gemakkelijk zijn
 
-- Statistics
-  - Feature: Moet geladen worden met background worker ofzoiets
-
 - Noob proofing:
   - Hours: "." is not accepted as "," but just ignored -> Depends on locale, can be the other way around
   - Spaces and other non visable signs are taking in the string (Time & projectcode)
@@ -34,6 +31,7 @@ New:
   - Changed chart text color
   - Asynchronous loading of statistics
   - Optimized memory usage of statistics
+  - Statistics now given in hours and minutes
 
 
 - ~~Timer does not reset when clicking add, it only resets from popups, do you even want this though? Maybe seperate popup + visible on gui how long till next~~

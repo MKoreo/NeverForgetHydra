@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Globalization;
+using CMLO;
 
 namespace SPIF
 {
@@ -681,5 +683,22 @@ namespace SPIF
             }
         }
         #endregion
+
+        private void dataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // If first and last cell selected is in minutes column
+            if (dataGridView.SelectedCells[0].ColumnIndex == 2 && dataGridView.SelectedCells[dataGridView.SelectedCells.Count - 1].ColumnIndex == 2)
+            {
+                decimal selectedMin = 0;
+                foreach(DataGridViewCell cell in dataGridView.SelectedCells)
+                {
+                    
+                    selectedMin += Int16.Parse(cell.Value.ToString(), CultureInfo.InvariantCulture);
+                }
+                //MessageBox.Show("Total minutes is: " + selectedMin.ToString(), "Sum", MessageBoxButtons.OK);
+                updateStatus("Sum of minutes: " + Generic.convertMinutesToHoursString(selectedMin));
+            }
+            
+        }
     }
 }
