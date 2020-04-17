@@ -687,7 +687,7 @@ namespace SPIF
         private void dataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             // If first and last cell selected is in minutes column
-            if (dataGridView.SelectedCells[0].ColumnIndex == 2 && dataGridView.SelectedCells[dataGridView.SelectedCells.Count - 1].ColumnIndex == 2)
+            if (dataGridView.SelectedCells[0].ColumnIndex == 2 && dataGridView.SelectedCells[dataGridView.SelectedCells.Count - 1].ColumnIndex == 2 && dataGridView.SelectedCells.Count > 1)
             {
                 decimal selectedMin = 0;
                 foreach(DataGridViewCell cell in dataGridView.SelectedCells)

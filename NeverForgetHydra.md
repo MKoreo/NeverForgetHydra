@@ -1,13 +1,7 @@
 # Feature thinking
-- FIRST:
-  - "Invalid handle bug bij debugging" --> Fixed itself?
-
 - Algemeen:
   - Logs doorgeven met ref, zoals bij theme
   - Logica van UI doorspelen naar andere plaatsen, zodat UI kleiner wordt en meer functie in andere classes komen waar dit hergebruikt kan worden
-
-- Interessante features:
-  - Selection datagrid: Minuten optellen en uren/vakjes weergeven voor in te vullen op hydra -> Zou heel gemakkelijk zijn
 
 - Noob proofing:
   - Hours: "." is not accepted as "," but just ignored -> Depends on locale, can be the other way around
@@ -27,6 +21,7 @@ New:
   - Attempt: Fix only dropdown shows when popup on secondary monitor
 
 - Features:
+  - Selecting multiple minute cells produces status update containing sum 
   - Spread chart view over available width 
   - Changed chart text color
   - Asynchronous loading of statistics
