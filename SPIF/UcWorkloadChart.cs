@@ -11,13 +11,16 @@ using SPDT;
 using CMIF;
 using CMLO;
 using CMDT;
+using System.Globalization;
 
 namespace SPIF
 {
     public partial class UcWorkloadChart : UserControl
     {
-        public Theme theme;
+        private Theme theme;
         private TableLayoutPanel tlpChart;
+        private List<Label> labels;
+        private List<ProgressBarEx> progressbars;
 
         public UcWorkloadChart(ref Theme theme) : base()
         {
@@ -44,20 +47,42 @@ namespace SPIF
                 if (control.GetType() == typeof(ProgressBarEx))
                 {
                     ((ProgressBarEx)control).foreground = theme.highlight;
-                    ((ProgressBarEx)control).background = theme.background;
+                    ((ProgressBarEx)control).background = theme.tint2;
                     ((ProgressBarEx)control).textColor = theme.text;
                 }
             }
         }
+
+        // Removed from designer and added tlpChart
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                tlpChart.Dispose();
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
         public void disposeChart()
         {
-            
+            // Dispose elements that make up graph
+            foreach(Label lbl in labels) { lbl.Dispose(); }
+            foreach(ProgressBarEx pro in progressbars) { pro.Dispose(); }
+
+            // Dispose the actual chart (tablelayout)
             this.Controls.Remove(tlpChart);
             tlpChart.Dispose();
         }
 
         public void initChart()
         {
+            // Dispose old chart if not done so already
+            if (tlpChart != null)
+            {
+                disposeChart();
+            }
+
             // Tablelayoutpanel to house the chart
             tlpChart = new TableLayoutPanel();
             tlpChart.ColumnCount = 2;
@@ -66,13 +91,22 @@ namespace SPIF
             tlpChart.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tlpChart.AutoScroll = true;
             tlpChart.HorizontalScroll.Enabled = false;
+            tlpChart.Dock = DockStyle.Fill;
             this.Controls.Add(tlpChart);
 
-            tlpChart.Dock = DockStyle.Fill;
+            // To be able to make changes/dispose afterwards
+            labels = new List<Label>();
+            progressbars = new List<ProgressBarEx>();
         }
 
-        public async Task generateChart(List<Record> records, bool project)
+        public async Task generateChartAsync(List<Record> records, bool project)
         {
+            // Make sure records is not empty list
+            if (records == null)
+            {
+                throw new ArgumentNullException(nameof(records));
+            }
+
             // Calculate total time
             decimal totaltime = 0;
             decimal maxTime = 0;
@@ -99,6 +133,7 @@ namespace SPIF
                     AutoSize = true,
                     ForeColor = theme.text
                 };
+                labels.Add(name);
 
                 if (project)
                 {
@@ -121,6 +156,7 @@ namespace SPIF
                 {
                     barTime = new ProgressBarEx(theme.text, theme.tint2, theme.highlight);
                 }
+                progressbars.Add(barTime);
 
                 barTime.ForeColor = theme.highlight;
                 barTime.BackColor = theme.highlight;
@@ -128,18 +164,18 @@ namespace SPIF
                 barTime.Minimum = 0;
                 barTime.Dock = DockStyle.Fill;
                 barTime.Value = (int)(rec.minutes);
-                barTime.CustomText = rec.minutes.ToString() + " min (" + ((int)Math.Round((double)(100 * (double)rec.minutes) / (double)totaltime)).ToString() + "%)";
+                barTime.CustomText = rec.minutes.ToString(CultureInfo.InvariantCulture) + " min (" + ((int)Math.Round(100 * (double)rec.minutes / (double)totaltime)).ToString(CultureInfo.InvariantCulture) + "%)";
 
                 tlpChart.Controls.Add(barTime, 1, currentRow);
 
-                // Prevent horizontal scrollbar from appearing
+                // Prevent horizontal scrollbar from appearing when vetical scrollbar is drawn
                 int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
                 tlpChart.Padding = new Padding(0, 0, vertScrollWidth, 0);
             }
 
-            //To fill remaining space
-            //tlpChart.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            //tlpChart.RowCount += 1;
+            //To fill remaining space (Prevent last chart to get streched)
+            tlpChart.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpChart.RowCount += 1;
         }
     }
 }

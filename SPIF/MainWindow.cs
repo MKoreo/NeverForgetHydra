@@ -355,7 +355,7 @@ namespace SPIF
         // ----------------- Sets -----------------------------
         public void setUcStatisticslog()
         {
-            ucStatistics.log = log;
+            ucStatistics.setWorklog(log);
         }
 
         // ------------------ EventHandlers ------------------ 

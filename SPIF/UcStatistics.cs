@@ -15,16 +15,18 @@ namespace SPIF
 {
     public partial class UcStatistics : UserControl
     {
-        public Theme theme;
-        public workLog log;
+        // Instances
+        private Theme theme;
+        private workLog log;
+
         private UcWorkloadChart ucWorkloadChart;
         
-
+        // Empty constructor
         public UcStatistics()
         {
             InitializeComponent();
         }
-        
+        // Constructor
         public UcStatistics(ref Theme theme)
         {
             InitializeComponent();
@@ -36,17 +38,19 @@ namespace SPIF
             // Init comboBox Type
             cbType.Items.Add("Project");
             cbType.Items.Add("Project and Subject");
+
             // Init chart UC
             ucWorkloadChart = new UcWorkloadChart(ref theme);
             ucWorkloadChart.Padding = new Padding(10);
             ucWorkloadChart.Visible = true;
             ucWorkloadChart.Name = "chart";
+
             // Add Chart to TLP: 3rd row + full width
             tlpStatistics.Controls.Add(ucWorkloadChart, 0, 2);
             tlpStatistics.SetColumnSpan(ucWorkloadChart, tlpStatistics.ColumnCount);
             applyTheming();
         }
-
+        // Theming
         public void applyTheming()
         {
             this.BackColor = theme.tint1;
@@ -66,58 +70,61 @@ namespace SPIF
                 ucWorkloadChart.applyTheming();
             }
         }
-
-        public void generate (List<Record> records)
+        // Disposing
+        protected override void Dispose(bool disposing)
         {
-            ucWorkloadChart.generateChart(records, true);
+            if (disposing && (components != null))
+            {
+                ucWorkloadChart.Dispose();
+                components.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
+        // Setters
+        public void setWorklog(workLog log)
+        {
+            this.log = log;
+        }
+        // Methods
+        private async Task generateChartAsync()
+        {
+            bool project = ((string)cbType.SelectedItem == "Project" ? true : false);
+            await ucWorkloadChart.generateChartAsync(log.getRecordsBetweenDates(dtpStart.Value.Date, dtpEnd.Value.Date, project), project).ConfigureAwait(true);
+        }
+
+        // Event handlers
+        // Date buttons
         private void btnDay_Click(object sender, EventArgs e)
         {
             dtpStart.Value = dtpEnd.Value.Date.AddDays(0);
         }
-
         private void btnWeek_Click(object sender, EventArgs e)
         {
             dtpStart.Value = dtpEnd.Value.Date.AddDays(-7);
         }
-
-        private void btnYear_Click(object sender, EventArgs e)
-        {
-            dtpStart.Value = dtpEnd.Value.Date.AddDays(-365);
-        }
-
-        private void btnMonth_MouseClick(object sender, MouseEventArgs e)
+        private void btnMonth_Click(object sender, EventArgs e)
         {
             int[] daysPerMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
             int currentMonth = DateTime.Now.Month;
             dtpStart.Value = dtpEnd.Value.Date.AddDays(-daysPerMonth[currentMonth]);
         }
-
-        private void btnUpdate_ClickAsync(object sender, EventArgs e)
+        private void btnYear_Click(object sender, EventArgs e)
         {
-            ucWorkloadChart.disposeChart();
+            dtpStart.Value = dtpEnd.Value.Date.AddDays(-365);
+        }
+
+        // Update
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            // Create new chart
             ucWorkloadChart.initChart();
 
-            // Check Type
-            if ((string)cbType.SelectedItem == "")
-            {
-                cbType.SelectedIndex = 0;
-            }
+            // Determine chart type to generate
+            if (cbType.SelectedValue is null) { cbType.SelectedIndex = 1; }
 
-            try
-            {
-                _ = test();
-            }
-            catch (Exception ex) { }
-
-            // Generate Chart
-         }
-        private async Task test()
-        {
-            bool project = ((string)cbType.SelectedItem == "Project" ? true : false);
-            await ucWorkloadChart.generateChart(log.getRecordsBetweenDates(dtpStart.Value.Date, dtpEnd.Value.Date, project), project);
-
+            // Generate chart in an asynchronous way
+            _ = generateChartAsync();
         }
     }
 }

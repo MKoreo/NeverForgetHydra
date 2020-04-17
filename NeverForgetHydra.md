@@ -30,8 +30,12 @@ New:
   - Attempt: Fix only dropdown shows when popup on secondary monitor
 
 - Features:
-  - Spread chart view over width available
-  - 
+  - Spread chart view over available width 
+  - Changed chart text color
+  - Asynchronous loading of statistics
+  - Optimized memory usage of statistics
+
+
 - ~~Timer does not reset when clicking add, it only resets from popups, do you even want this though? Maybe seperate popup + visible on gui how long till next~~
 - ~~when column is sorted wrong one is deleted~~
 - ~~Project code gets added even though it's already there, when opening file again, there's only one entry per individual project code~~

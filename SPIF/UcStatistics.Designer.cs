@@ -9,19 +9,6 @@ namespace SPIF
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         #region Component Designer generated code
 
         /// <summary> 
@@ -221,7 +208,7 @@ namespace SPIF
             this.btnMonth.TabIndex = 11;
             this.btnMonth.Text = "Month";
             this.btnMonth.UseVisualStyleBackColor = false;
-            this.btnMonth.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnMonth_MouseClick);
+            this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
             // 
             // btnUpdate
             // 
@@ -237,7 +224,7 @@ namespace SPIF
             this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_ClickAsync);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // UcStatistics
             // 
