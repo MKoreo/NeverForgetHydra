@@ -27,13 +27,14 @@ namespace SPIF
             InitializeComponent();
         }
         // Constructor
-        public UcStatistics(ref Theme theme)
+        public UcStatistics(ref Theme theme, ref workLog log)
         {
             InitializeComponent();
 
             // Properties
             this.Dock = DockStyle.Fill;
             this.theme = theme;
+            this.log = log;
 
             // Init comboBox Type
             cbType.Items.Add("Project");
@@ -81,11 +82,6 @@ namespace SPIF
             base.Dispose(disposing);
         }
 
-        // Setters
-        public void setWorklog(workLog log)
-        {
-            this.log = log;
-        }
         // Methods
         private async Task generateChartAsync()
         {
@@ -125,6 +121,11 @@ namespace SPIF
 
             // Generate chart in an asynchronous way
             _ = generateChartAsync();
+        }
+
+        internal void setLog(ref workLog log)
+        {
+            this.log = log;
         }
     }
 }

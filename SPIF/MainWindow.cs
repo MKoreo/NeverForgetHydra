@@ -247,7 +247,7 @@ namespace SPIF
         }
         private void initUcStatistics()
         {
-            ucStatistics = new UcStatistics(ref theme);
+            ucStatistics = new UcStatistics(ref theme, ref log);
         }
         // ------------------ Updates-------- ------------------
         // Reminder: Every update should be public and designed in such a way that this is allowed.
@@ -354,12 +354,6 @@ namespace SPIF
             textBoxTime.Text = minutesPassed.ToString();
             updateStatus("Time calculated");
         }
-        // ----------------- Sets -----------------------------
-        public void setUcStatisticslog()
-        {
-            ucStatistics.setWorklog(log);
-        }
-
         // ------------------ EventHandlers ------------------ 
         #region menustrip
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -373,6 +367,7 @@ namespace SPIF
                 if (((ToolStripMenuItem)sender).Name.Contains("new"))
                 {
                     this.log = new workLog();
+                    ucStatistics.setLog(ref log);
                 }
                 log.createNew(newFile.FileName);
                 settings.lastOpened = openFile.FileName;
@@ -392,7 +387,7 @@ namespace SPIF
                 //If new file, popuptimer can be 
                 //Incase previous file had records in richtextbox field
                 updateRecords();
-                setUcStatisticslog();
+                
                 popupTimer.Start();
                 fileOpen = true;
             }
@@ -413,6 +408,7 @@ namespace SPIF
             if (openFile.FileName != "")
             {
                 log = log.load(openFile.FileName);
+                ucStatistics.setLog(ref log);
                 updateRecords();
                 settings.lastOpened = openFile.FileName;
                 settings.save();
@@ -431,7 +427,6 @@ namespace SPIF
                 updateStatus("File Loaded");
                 this.Text = "Never Forget Hydra - " + log.getPath();
                 initComboBoxProject();
-                setUcStatisticslog();
                 popupTimer.Start();
                 fileOpen = true;
             }
@@ -665,6 +660,22 @@ namespace SPIF
                 //(e.RowIndex + 1) + "  Row  " + (e.ColumnIndex + 1) + "  Column button clicked ");
             }
         }
+        private void dataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // If first and last cell selected is in minutes column
+            if (dataGridView.SelectedCells[0].ColumnIndex == 2 && dataGridView.SelectedCells[dataGridView.SelectedCells.Count - 1].ColumnIndex == 2 && dataGridView.SelectedCells.Count > 1)
+            {
+                decimal selectedMin = 0;
+                foreach (DataGridViewCell cell in dataGridView.SelectedCells)
+                {
+
+                    selectedMin += Int16.Parse(cell.Value.ToString(), CultureInfo.InvariantCulture);
+                }
+                //MessageBox.Show("Total minutes is: " + selectedMin.ToString(), "Sum", MessageBoxButtons.OK);
+                updateStatus("Sum of minutes: " + Generic.convertMinutesToHoursString(selectedMin));
+            }
+
+        }
         private void trayIcon_DoubleClick(object Sender, EventArgs e)
         {
             // Show the form when the user double clicks on the notify icon.
@@ -684,21 +695,6 @@ namespace SPIF
         }
         #endregion
 
-        private void dataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            // If first and last cell selected is in minutes column
-            if (dataGridView.SelectedCells[0].ColumnIndex == 2 && dataGridView.SelectedCells[dataGridView.SelectedCells.Count - 1].ColumnIndex == 2 && dataGridView.SelectedCells.Count > 1)
-            {
-                decimal selectedMin = 0;
-                foreach(DataGridViewCell cell in dataGridView.SelectedCells)
-                {
-                    
-                    selectedMin += Int16.Parse(cell.Value.ToString(), CultureInfo.InvariantCulture);
-                }
-                //MessageBox.Show("Total minutes is: " + selectedMin.ToString(), "Sum", MessageBoxButtons.OK);
-                updateStatus("Sum of minutes: " + Generic.convertMinutesToHoursString(selectedMin));
-            }
-            
-        }
+
     }
 }
