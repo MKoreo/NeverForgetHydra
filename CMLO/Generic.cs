@@ -10,6 +10,20 @@ namespace CMLO
 {
     public static class Generic
     {
+        public static bool isNullOrEmpty (string testString)
+        {
+            if (testString is null)
+            {
+                return true;
+            }
+
+            if (testString.Length == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
         public static string fixStringLength(string str, int maxChars, bool doublePoint)
         {
             if (str.Length > maxChars)

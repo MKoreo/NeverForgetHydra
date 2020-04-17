@@ -361,7 +361,7 @@ namespace SPIF
             newFile.ShowDialog();
 
             //Only do stuff inside here, otherwise probably crashes is clicked on cancel
-            if (newFile.FileName != "")
+            if (Generic.isNullOrEmpty(newFile.FileName))
             {
                 //If newfile instead of save as, create new workLog
                 if (((ToolStripMenuItem)sender).Name.Contains("new"))
@@ -405,7 +405,7 @@ namespace SPIF
 
             //openFile.
             //Only do stuff inside here, otherwise probably crashes if clicked on cancel
-            if (openFile.FileName != "")
+            if (!Generic.isNullOrEmpty(openFile.FileName))
             {
                 log = log.load(openFile.FileName);
                 ucStatistics.setLog(ref log);
@@ -517,7 +517,7 @@ namespace SPIF
         #region Controlbar
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (comboBoxWork.Text == "" || comboBoxProject.Text == "" || textBoxTime.Text == "")
+            if (Generic.isNullOrEmpty(comboBoxWork.Text) || Generic.isNullOrEmpty(comboBoxProject.Text) || Generic.isNullOrEmpty(textBoxTime.Text))
             {
                 DialogResult error = MessageBox.Show("One or more of the required fields is empty.", "Cannot add new record", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else if (!short.TryParse(textBoxTime.Text, out short _))
