@@ -94,7 +94,7 @@ namespace SPIF
             dtpStart.Value = dtpEnd.Value.Date.AddDays(-daysPerMonth[currentMonth]);
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_ClickAsync(object sender, EventArgs e)
         {
             ucWorkloadChart.disposeChart();
             ucWorkloadChart.initChart();
@@ -104,10 +104,20 @@ namespace SPIF
             {
                 cbType.SelectedIndex = 0;
             }
-            bool project = ((string)cbType.SelectedItem == "Project" ? true : false);
+
+            try
+            {
+                _ = test();
+            }
+            catch (Exception ex) { }
 
             // Generate Chart
-            ucWorkloadChart.generateChart(log.getRecordsBetweenDates(dtpStart.Value.Date, dtpEnd.Value.Date, project), project);
+         }
+        private async Task test()
+        {
+            bool project = ((string)cbType.SelectedItem == "Project" ? true : false);
+            await ucWorkloadChart.generateChart(log.getRecordsBetweenDates(dtpStart.Value.Date, dtpEnd.Value.Date, project), project);
+
         }
     }
 }

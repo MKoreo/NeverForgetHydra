@@ -48,8 +48,6 @@ namespace SPIF
                     ((ProgressBarEx)control).textColor = theme.text;
                 }
             }
-
-
         }
         public void disposeChart()
         {
@@ -67,13 +65,13 @@ namespace SPIF
             tlpChart.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             tlpChart.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tlpChart.AutoScroll = true;
-
+            tlpChart.HorizontalScroll.Enabled = false;
             this.Controls.Add(tlpChart);
 
             tlpChart.Dock = DockStyle.Fill;
         }
 
-        public void generateChart(List<Record> records, bool project)
+        public async Task generateChart(List<Record> records, bool project)
         {
             // Calculate total time
             decimal totaltime = 0;
@@ -96,9 +94,11 @@ namespace SPIF
                 tlpChart.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
                 tlpChart.RowCount += 1;
 
-                Label name = new Label();
-                name.AutoSize = true;
-                name.ForeColor = theme.text;
+                Label name = new Label
+                {
+                    AutoSize = true,
+                    ForeColor = theme.text
+                };
 
                 if (project)
                 {
@@ -131,11 +131,15 @@ namespace SPIF
                 barTime.CustomText = rec.minutes.ToString() + " min (" + ((int)Math.Round((double)(100 * (double)rec.minutes) / (double)totaltime)).ToString() + "%)";
 
                 tlpChart.Controls.Add(barTime, 1, currentRow);
+
+                // Prevent horizontal scrollbar from appearing
+                int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
+                tlpChart.Padding = new Padding(0, 0, vertScrollWidth, 0);
             }
 
             //To fill remaining space
-            tlpChart.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpChart.RowCount += 1;
+            //tlpChart.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            //tlpChart.RowCount += 1;
         }
     }
 }
