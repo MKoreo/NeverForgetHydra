@@ -32,8 +32,8 @@ namespace SPIF
         private UcStatistics ucStatistics;
 
         //Create system Tray Icon
-        NotifyIcon trayIcon = new NotifyIcon();
-
+        private NotifyIcon trayIcon;
+        private ContextMenu cmenu;
         //Constructor
         public MainWindow(Settings settings) : base(settings)
         {
@@ -54,7 +54,6 @@ namespace SPIF
             initTrayIcon();
             initQuickSettingsPanel();
             initUcStatistics();
-           
 
             //btnViewRecords.PerformClick();
         }
@@ -235,16 +234,25 @@ namespace SPIF
         }
         private void initTrayIcon()
         {
+            trayIcon = new NotifyIcon();
             trayIcon.Icon = SPIF.Properties.Resources.Hourglass;
-
-            // The Text property sets the text that will be displayed,
-            // in a tooltip, when the mouse hovers over the systray icon.
-            updateTrayIcon();
+            updateTrayIcon();   // Hover text
             trayIcon.Visible = true;
 
+            cmenu = new ContextMenu();
+            cmenu.MenuItems.Add(0, new MenuItem("Exit", new EventHandler(NotifyIcon_Cmenu_Exit_Click)));
+
+            trayIcon.ContextMenu = cmenu;
             // Handle the DoubleClick event to activate the form.
             trayIcon.DoubleClick += new System.EventHandler(this.trayIcon_DoubleClick);
         }
+
+        private void NotifyIcon_Cmenu_Exit_Click(object sender, EventArgs e)
+        {
+            // No need to write same thing twice
+            exitToolStripMenuItem_Click(sender, e);
+        }
+
         private void initUcStatistics()
         {
             ucStatistics = new UcStatistics(ref theme, ref log);

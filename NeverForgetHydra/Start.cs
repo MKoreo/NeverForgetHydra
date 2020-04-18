@@ -17,7 +17,7 @@ namespace NeverForgetHydra
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Update class
-            Updater update = new Updater(); //Will block thread until done
+            Updater update = new Updater(); //Will block thread untill done
             update = null;
 
             //Check for updates/Files & dispose

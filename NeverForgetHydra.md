@@ -21,6 +21,7 @@ New:
   - Fixed memory issues with worklog
   - Updater now exits after crash (Redownload .exe)
   - Autostart fixed, no more "System .dll moving" dialog
+  - 
 - Features:
   - Selecting multiple minute cells produces status update containing sum 
   - Spread chart view over available width 
@@ -29,7 +30,7 @@ New:
   - Optimized memory usage of statistics
   - Statistics now given in hours and minutes
   - Statistics colors changed
-
+  - Updater is now faster
 
 - ~~Timer does not reset when clicking add, it only resets from popups, do you even want this though? Maybe seperate popup + visible on gui how long till next~~
 - ~~when column is sorted wrong one is deleted~~
