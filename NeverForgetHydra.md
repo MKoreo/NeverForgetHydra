@@ -20,7 +20,7 @@ New:
   - Attempt: Fix only dropdown shows when popup on secondary monitor
   - Fixed memory issues with worklog
   - Updater now exits after crash (Redownload .exe)
-  - 
+  - Autostart fixed, no more "System .dll moving" dialog
 - Features:
   - Selecting multiple minute cells produces status update containing sum 
   - Spread chart view over available width 

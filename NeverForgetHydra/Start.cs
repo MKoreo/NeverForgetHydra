@@ -16,8 +16,12 @@ namespace NeverForgetHydra
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // Update class
+            Updater update = new Updater(); //Will block thread until done
+            update = null;
+
             //Check for updates/Files & dispose
-            _ = new FormUpdate();
+            //_ = new FormUpdate();
 
             //Use starter project to start Never Forget Hydra's app
             SPSTRT.StartApplication app = new SPSTRT.StartApplication();

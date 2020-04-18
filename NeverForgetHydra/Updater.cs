@@ -17,8 +17,7 @@ using System.Windows.Forms;
 
 namespace NeverForgetHydra
 {
-    // Form otherwise this is not a class that can be started
-    public partial class FormUpdate : Form
+    public class Updater
     {
         //Links to Google Drive: A Version.ini file and a zip containing the newest DLL files
         const string LINKTOZIP = "https://drive.google.com/u/0/uc?id=141X9ebxs3Y87P68wi6JNGXH8o3jWDEKr&export=download";
@@ -37,10 +36,10 @@ namespace NeverForgetHydra
         private MessageBoxButtons choice = MessageBoxButtons.AbortRetryIgnore;
         private AutoResetEvent _fileCheckComplete = new AutoResetEvent(false);
 
-        public FormUpdate()
+        public Updater()
         {
-            InitializeComponent();
-            
+            //InitializeComponent();
+
             //Which files should be present
             dllToCheck.Add("CMDA.dll");
             dllToCheck.Add("CMDT.dll");
@@ -68,11 +67,11 @@ namespace NeverForgetHydra
             {
                 Thread.Sleep(100);
             }
-            this.Close();
         }
         private void work_UpdateVersion(object sender, DoWorkEventArgs e)
         {
-            try {
+            try
+            {
                 using (var client = new WebClient())
                 {
                     client.DownloadFile(LINKTOZIP, "NFH_update.zip");
@@ -85,7 +84,8 @@ namespace NeverForgetHydra
                 ZipFile.ExtractToDirectory("NFH_update.zip", ".\\");
                 File.Delete("NFH_update.zip");
                 done = true;
-            } catch (Exception updateException)
+            }
+            catch (Exception updateException)
             {
                 if (updateException is WebException)
                 {
@@ -132,7 +132,8 @@ namespace NeverForgetHydra
                 {
                     _fileCheckComplete.Set();
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "File Checking failed", MessageBoxButtons.OK, MessageBoxIcon.None);
                 Application.Exit();
@@ -162,7 +163,8 @@ namespace NeverForgetHydra
                     if (!short.TryParse(version[l], out short _dump))
                     {
                         version[l] = "0";
-                    } else
+                    }
+                    else
                     {
                         version[l] = version[l].TrimStart('0');
                     }
