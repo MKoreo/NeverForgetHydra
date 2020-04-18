@@ -97,7 +97,7 @@ namespace SPIF
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.menuStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip.Size = new System.Drawing.Size(1000, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1032, 26);
             this.menuStrip.Stretch = false;
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
@@ -110,7 +110,7 @@ namespace SPIF
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -146,7 +146,7 @@ namespace SPIF
             // 
             this.hydraToolStripMenuItem.Name = "hydraToolStripMenuItem";
             this.hydraToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 23);
+            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.hydraToolStripMenuItem.Text = "Hydra";
             this.hydraToolStripMenuItem.Click += new System.EventHandler(this.hydraToolStripMenuItem_Click);
             // 
@@ -156,7 +156,7 @@ namespace SPIF
             this.themeToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // themeToolStripMenuItem
@@ -189,7 +189,7 @@ namespace SPIF
             this.feedbackToolStripMenuItem,
             this.viewChangelogToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
@@ -244,7 +244,7 @@ namespace SPIF
             this.tableLayoutPanelAdd.RowCount = 1;
             this.tableLayoutPanelAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanelAdd.Size = new System.Drawing.Size(730, 33);
+            this.tableLayoutPanelAdd.Size = new System.Drawing.Size(762, 33);
             this.tableLayoutPanelAdd.TabIndex = 11;
             // 
             // comboBoxProject
@@ -273,7 +273,7 @@ namespace SPIF
             this.comboBoxWork.Location = new System.Drawing.Point(250, 4);
             this.comboBoxWork.Margin = new System.Windows.Forms.Padding(0);
             this.comboBoxWork.Name = "comboBoxWork";
-            this.comboBoxWork.Size = new System.Drawing.Size(380, 25);
+            this.comboBoxWork.Size = new System.Drawing.Size(412, 25);
             this.comboBoxWork.TabIndex = 5;
             this.comboBoxWork.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxWork_KeyDown);
             // 
@@ -297,7 +297,7 @@ namespace SPIF
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonAdd.Location = new System.Drawing.Point(633, 4);
+            this.buttonAdd.Location = new System.Drawing.Point(665, 4);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(94, 25);
             this.buttonAdd.TabIndex = 6;
@@ -574,14 +574,14 @@ namespace SPIF
             this.tableLayoutPanel.Controls.Add(this.statusStrip, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.tlpWorkspace, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 26);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 3;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(1000, 358);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1032, 360);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // statusStrip
@@ -592,9 +592,9 @@ namespace SPIF
             this.statusStrip.Font = new System.Drawing.Font("Verdana", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStrip.Location = new System.Drawing.Point(0, 333);
+            this.statusStrip.Location = new System.Drawing.Point(0, 335);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1000, 25);
+            this.statusStrip.Size = new System.Drawing.Size(1032, 25);
             this.statusStrip.TabIndex = 14;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -613,7 +613,7 @@ namespace SPIF
             this.tlpWorkspace.Name = "tlpWorkspace";
             this.tlpWorkspace.RowCount = 1;
             this.tlpWorkspace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWorkspace.Size = new System.Drawing.Size(994, 294);
+            this.tlpWorkspace.Size = new System.Drawing.Size(1026, 296);
             this.tlpWorkspace.TabIndex = 15;
             // 
             // dataGridView
@@ -635,7 +635,7 @@ namespace SPIF
             this.dataGridView.RowHeadersWidth = 47;
             this.dataGridView.RowTemplate.ReadOnly = true;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(754, 284);
+            this.dataGridView.Size = new System.Drawing.Size(786, 286);
             this.dataGridView.TabIndex = 11;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseUp);
@@ -645,13 +645,13 @@ namespace SPIF
             this.AutoScaleDimensions = new System.Drawing.SizeF(110F, 110F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 386);
+            this.ClientSize = new System.Drawing.Size(1032, 386);
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Verdana", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.MinimumSize = new System.Drawing.Size(1000, 375);
+            this.MinimumSize = new System.Drawing.Size(1050, 430);
             this.Name = "MainWindow";
             this.Text = "Never Forget Hydra - Closed Alpha";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);

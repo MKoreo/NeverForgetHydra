@@ -23,7 +23,7 @@ namespace CMDA
         //Serialization
         private void Serialize(object obj, Type objType, string path)
         {
-            using (System.IO.FileStream fs = new FileStream(path, FileMode.Create))
+            using (FileStream fs = new FileStream(path, FileMode.Create))
             {
                 //XmlSerializer serializer = new XmlSerializer(objType);
                 XmlSerializer serializer = XmlSerializer.FromTypes(new[] { objType })[0];

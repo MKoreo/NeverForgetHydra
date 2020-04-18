@@ -4,10 +4,10 @@
   <filterOnCombo>true</filterOnCombo>
   <closeOnAdd>false</closeOnAdd>
   <minimizeOnStartup>true</minimizeOnStartup>
-  <showJokes>false</showJokes>
+  <showJokes>true</showJokes>
   <showQuickSettings>true</showQuickSettings>
   <minutesTillPopup>30</minutesTillPopup>
-  <style>dark</style>
-  <highlightColor>-16760704</highlightColor>
+  <style>light</style>
+  <highlightColor>-16744320</highlightColor>
   <lastOpened>C:\Users\thopop\Desktop\stats_THOPOP.libtw</lastOpened>
 </Settings>

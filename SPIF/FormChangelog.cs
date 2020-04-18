@@ -14,7 +14,7 @@ namespace SPIF
 {
     public partial class FormChangelog : ThemedForm
     {
-        public FormChangelog(MainWindow test, Theme theme, Settings settings) : base(settings)
+        public FormChangelog(Theme theme, Settings settings) : base(settings)
         {
             InitializeComponent();
             this.theme = theme;
@@ -25,7 +25,14 @@ namespace SPIF
             string[] lines = System.IO.File.ReadAllLines(@"version.ini");
             foreach (string line in lines)
             {
-                rtbChangelog.Text += line + "\n";
+                int length = rtbChangelog.Text.Length;
+                rtbChangelog.AppendText(line + "\r\n");
+
+                if (line.Contains("*"))
+                {
+                    rtbChangelog.Select(length, line.Length);
+                    rtbChangelog.SelectionFont = new Font("Consolas", 12, FontStyle.Bold);
+                }
             }
         }
 

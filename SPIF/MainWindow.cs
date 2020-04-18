@@ -240,17 +240,17 @@ namespace SPIF
             trayIcon.Visible = true;
 
             cmenu = new ContextMenu();
-            cmenu.MenuItems.Add(0, new MenuItem("Exit", new EventHandler(NotifyIcon_Cmenu_Exit_Click)));
-
+            cmenu.MenuItems.Add(0, new MenuItem("Show", new EventHandler(TrayIcon_Cmenu_Show_Click)));
+            cmenu.MenuItems.Add(1, new MenuItem("Settings", settingsToolStripMenuItem_Click));
+            cmenu.MenuItems.Add(2, new MenuItem("Exit", exitToolStripMenuItem_Click));
             trayIcon.ContextMenu = cmenu;
+
             // Handle the DoubleClick event to activate the form.
             trayIcon.DoubleClick += new System.EventHandler(this.trayIcon_DoubleClick);
         }
-
-        private void NotifyIcon_Cmenu_Exit_Click(object sender, EventArgs e)
+        private void TrayIcon_Cmenu_Show_Click(object sender, EventArgs e)
         {
-            // No need to write same thing twice
-            exitToolStripMenuItem_Click(sender, e);
+            popup();
         }
 
         private void initUcStatistics()
@@ -369,7 +369,7 @@ namespace SPIF
             newFile.ShowDialog();
 
             //Only do stuff inside here, otherwise probably crashes is clicked on cancel
-            if (Generic.isNullOrEmpty(newFile.FileName))
+            if (!Generic.isNullOrEmpty(newFile.FileName))
             {
                 //If newfile instead of save as, create new workLog
                 if (((ToolStripMenuItem)sender).Name.Contains("new"))

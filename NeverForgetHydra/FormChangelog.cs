@@ -17,14 +17,20 @@ namespace NeverForgetHydra
             InitializeComponent();
             foreach (string line in lines)
             {
-                rtbChangelog.Text += line + "\n";
+                int length = rtbChangelog.Text.Length;
+                rtbChangelog.AppendText(line + "\r\n");
+
+                if (line.Contains("*"))
+                {
+                    rtbChangelog.Select(length, line.Length);
+                    rtbChangelog.SelectionFont = new Font("Consolas", 12, FontStyle.Bold);
+                }
             }
 
             if (choice == MessageBoxButtons.OK)
             {
                 btnCancel.Enabled = false;
-            }
-             
+            }       
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

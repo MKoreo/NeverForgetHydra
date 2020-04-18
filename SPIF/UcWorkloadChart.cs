@@ -22,6 +22,9 @@ namespace SPIF
         private List<Label> labels;
         private List<ProgressBarEx> progressbars;
 
+        private decimal totaltime;
+        private decimal maxTime;
+
         public UcWorkloadChart(ref Theme theme) : base()
         {
             InitializeComponent();
@@ -44,11 +47,20 @@ namespace SPIF
                     ((Label)control).ForeColor = theme.text;
                 }
 
+                // Depending on value, textcolor changes
                 if (control.GetType() == typeof(ProgressBarEx))
                 {
+                    if (((ProgressBarEx)control).Value > (maxTime + 30) / 2)
+                    {
+                        ((ProgressBarEx)control).textColor = theme.textHighlight;
+                    }
+                    else
+                    {
+                        ((ProgressBarEx)control).textColor = theme.text;
+                    }
                     ((ProgressBarEx)control).foreground = theme.highlight;
                     ((ProgressBarEx)control).background = theme.tint1;
-                    ((ProgressBarEx)control).textColor = theme.textHighlight;
+                    
                 }
             }
         }
@@ -108,8 +120,8 @@ namespace SPIF
             }
 
             // Calculate total time
-            decimal totaltime = 0;
-            decimal maxTime = 0;
+            totaltime = 0;
+            maxTime = 0;
 
             foreach (Record rec in records)
             {

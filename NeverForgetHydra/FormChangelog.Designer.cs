@@ -57,7 +57,7 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tlpMain.Size = new System.Drawing.Size(446, 240);
+            this.tlpMain.Size = new System.Drawing.Size(482, 556);
             this.tlpMain.TabIndex = 0;
             // 
             // rtbChangelog
@@ -67,7 +67,7 @@
             this.rtbChangelog.Font = new System.Drawing.Font("Consolas", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbChangelog.Location = new System.Drawing.Point(13, 33);
             this.rtbChangelog.Name = "rtbChangelog";
-            this.rtbChangelog.Size = new System.Drawing.Size(420, 154);
+            this.rtbChangelog.Size = new System.Drawing.Size(456, 470);
             this.rtbChangelog.TabIndex = 0;
             this.rtbChangelog.Text = "";
             // 
@@ -75,10 +75,10 @@
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(35, 200);
+            this.btnCancel.Location = new System.Drawing.Point(35, 516);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(158, 30);
+            this.btnCancel.Size = new System.Drawing.Size(176, 30);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -90,10 +90,10 @@
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnUpdate.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(253, 200);
+            this.btnUpdate.Location = new System.Drawing.Point(271, 516);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(25, 10, 25, 10);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(158, 30);
+            this.btnUpdate.Size = new System.Drawing.Size(176, 30);
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -114,7 +114,7 @@
             this.AcceptButton = this.btnUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 240);
+            this.ClientSize = new System.Drawing.Size(482, 556);
             this.Controls.Add(this.tlpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
