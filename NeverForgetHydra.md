@@ -19,6 +19,7 @@ New:
   - Fixed datagrid theming
   - Attempt: Fix only dropdown shows when popup on secondary monitor
   - Fixed memory issues with worklog
+  - Updater now exits after crash (Redownload .exe)
   - 
 - Features:
   - Selecting multiple minute cells produces status update containing sum 
