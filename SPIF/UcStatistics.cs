@@ -117,7 +117,7 @@ namespace SPIF
             ucWorkloadChart.initChart();
 
             // Determine chart type to generate
-            if (cbType.SelectedValue is null) { cbType.SelectedIndex = 1; }
+            if (cbType.SelectedIndex == -1) { cbType.SelectedIndex = 1; }
 
             // Generate chart in an asynchronous way
             _ = generateChartAsync();

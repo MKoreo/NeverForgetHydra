@@ -1,6 +1,5 @@
 # Feature thinking
 - Algemeen:
-  - Logs doorgeven met ref, zoals bij theme
   - Logica van UI doorspelen naar andere plaatsen, zodat UI kleiner wordt en meer functie in andere classes komen waar dit hergebruikt kan worden
 
 - Noob proofing:
@@ -19,7 +18,8 @@ New:
   - Fixed background of chart bars changing
   - Fixed datagrid theming
   - Attempt: Fix only dropdown shows when popup on secondary monitor
-
+  - Fixed memory issues with worklog
+  - 
 - Features:
   - Selecting multiple minute cells produces status update containing sum 
   - Spread chart view over available width 
@@ -27,6 +27,7 @@ New:
   - Asynchronous loading of statistics
   - Optimized memory usage of statistics
   - Statistics now given in hours and minutes
+  - Statistics colors changed
 
 
 - ~~Timer does not reset when clicking add, it only resets from popups, do you even want this though? Maybe seperate popup + visible on gui how long till next~~

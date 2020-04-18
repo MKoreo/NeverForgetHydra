@@ -47,8 +47,8 @@ namespace SPIF
                 if (control.GetType() == typeof(ProgressBarEx))
                 {
                     ((ProgressBarEx)control).foreground = theme.highlight;
-                    ((ProgressBarEx)control).background = theme.tint2;
-                    ((ProgressBarEx)control).textColor = theme.text;
+                    ((ProgressBarEx)control).background = theme.tint1;
+                    ((ProgressBarEx)control).textColor = theme.textHighlight;
                 }
             }
         }
@@ -131,7 +131,6 @@ namespace SPIF
                 Label name = new Label
                 {
                     AutoSize = true,
-                    ForeColor = theme.text
                 };
                 labels.Add(name);
 
@@ -158,8 +157,6 @@ namespace SPIF
                 }
                 progressbars.Add(barTime);
 
-                barTime.ForeColor = theme.highlight;
-                barTime.BackColor = theme.highlight;
                 barTime.Maximum = (int)maxTime + 40;
                 barTime.Minimum = 0;
                 barTime.Dock = DockStyle.Fill;
@@ -178,6 +175,9 @@ namespace SPIF
             //To fill remaining space (Prevent last chart to get streched)
             tlpChart.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpChart.RowCount += 1;
+
+            // Theme this chart
+            applyTheming();
         }
     }
 }
