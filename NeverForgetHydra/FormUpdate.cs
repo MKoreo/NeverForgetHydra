@@ -94,6 +94,7 @@ namespace NeverForgetHydra
                 {
                     MessageBox.Show(updateException.ToString(), "Update failed", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
+                Application.Exit();
             }
         }
 
@@ -134,6 +135,7 @@ namespace NeverForgetHydra
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "File Checking failed", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Application.Exit();
             }
         }
 
@@ -238,6 +240,7 @@ namespace NeverForgetHydra
                 else
                 {
                     MessageBox.Show(ex.ToString(), "Failed to check version", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    Application.Exit();
                 }
             }
 
