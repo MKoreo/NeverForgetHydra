@@ -3,7 +3,7 @@
   <settingsVersionNumber>2</settingsVersionNumber>
   <filterOnCombo>true</filterOnCombo>
   <closeOnAdd>false</closeOnAdd>
-  <minimizeOnStartup>false</minimizeOnStartup>
+  <minimizeOnStartup>true</minimizeOnStartup>
   <showJokes>false</showJokes>
   <showQuickSettings>true</showQuickSettings>
   <minutesTillPopup>30</minutesTillPopup>

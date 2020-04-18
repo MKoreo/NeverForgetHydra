@@ -36,19 +36,9 @@ namespace NeverForgetHydra
         private MessageBoxButtons choice = MessageBoxButtons.AbortRetryIgnore;
         private AutoResetEvent _fileCheckComplete = new AutoResetEvent(false);
 
-        [DllImport("kernel32")]
-        extern static UInt64 GetTickCount64();
-
         public FormUpdate()
         {
             InitializeComponent();
-
-            if (TimeSpan.FromMilliseconds(GetTickCount64()).TotalMinutes < (double)5)
-            {
-                // If system uptime smaller than 5 minutes, wait 30 seconds before starting.
-                // Attempt to prevent "Moving .dll system dialog"
-                Thread.Sleep(TimeSpan.FromSeconds(30));
-            } 
             
             //Which files should be present
             dllToCheck.Add("CMDA.dll");

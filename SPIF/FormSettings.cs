@@ -110,7 +110,7 @@ namespace SPIF
                         //If not in startup, add it
                         if (!WindowsSpecific.checkForStartup("NeverForgetHydra"))
                         {
-                            WindowsSpecific.addToStartup("NeverForgetHydra", Assembly.GetExecutingAssembly().Location);
+                            WindowsSpecific.addToStartup("NeverForgetHydra", Assembly.GetEntryAssembly().Location);
                         }
                     }
                     else //if settings.minimizedStartup == false
