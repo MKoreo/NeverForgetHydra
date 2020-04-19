@@ -11,7 +11,9 @@
 - **Bug:**  When timer popup on desktop with multiple screens, only dropdownlist shows untill clicked, then full window is shown. Perhaps **This.invalidate()** can fix?
   
 # Solved
-New:
+
+
+Version 2020.04.18
 - Bugfixes:
   - Fixed scrolling of statistics
   - Fixed persistent trayicon after application exit

@@ -494,7 +494,7 @@ namespace SPIF
         }
         private void ShowChangelogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormChangelog changes = new FormChangelog(this, theme, settings);
+            FormChangelog changes = new FormChangelog(theme, settings);
             DialogResult rslt = changes.ShowDialog();
         }
         #endregion
@@ -702,7 +702,5 @@ namespace SPIF
             }
         }
         #endregion
-
-
     }
 }
