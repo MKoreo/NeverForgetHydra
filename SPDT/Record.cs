@@ -10,19 +10,26 @@ namespace SPDT
     public class Record
     {
         //DataType class
-        public DateTime date { get; set; }
-        public string projectCode { get; set; }
-        public string subject { get; set;  }
+        public int logVersion { get; set; }    // new
+        public DateTime addDate { get; set; }   // New
+        public DateTime recordDate { get; set; }    // Changed
+        public string costCenter { get; set; }  // new
+        public string project { get; set; } // Changed
+        public string subject { get; set; }
         public decimal minutes { get; set; }
 
         public Record()
         {
 
         }
-        public Record(DateTime dateTime, string subject, string projectCode, decimal minutes)
+        public Record(DateTime recordDate,string costCenter, string project, string subject , decimal minutes)
         {
-            this.date = dateTime;
-            this.projectCode = projectCode;
+            logVersion = 1;
+            this.addDate = DateTime.Now;
+            this.recordDate = recordDate;
+
+            this.costCenter = costCenter;
+            this.project = project;
             this.subject = subject;
             this.minutes = minutes;
         }

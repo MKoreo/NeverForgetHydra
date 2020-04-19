@@ -3,11 +3,11 @@
   <settingsVersionNumber>2</settingsVersionNumber>
   <filterOnCombo>true</filterOnCombo>
   <closeOnAdd>false</closeOnAdd>
-  <minimizeOnStartup>true</minimizeOnStartup>
+  <minimizeOnStartup>false</minimizeOnStartup>
   <showJokes>true</showJokes>
   <showQuickSettings>true</showQuickSettings>
-  <minutesTillPopup>30</minutesTillPopup>
-  <style>dark</style>
+  <minutesTillPopup>15</minutesTillPopup>
+  <style>light</style>
   <highlightColor>-16744320</highlightColor>
-  <lastOpened>C:\Users\thopop\Desktop\stats_THOPOP.libtw</lastOpened>
+  <lastOpened>C:\Users\thopop\Desktop\newVersion.libtw</lastOpened>
 </Settings>

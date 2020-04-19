@@ -86,6 +86,7 @@ namespace SPIF
                     break;
                 case "cbFilter":
                     settings.filterOnCombo = ((CheckBox)obj).Checked;
+                    parent.updateComboBoxProject();
                     parent.updateComboBoxSubject();
                     break;
                 case "cbShowJokes":

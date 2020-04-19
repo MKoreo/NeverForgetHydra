@@ -24,7 +24,7 @@ namespace CMIF
         private int fadeFactor;
 
         //Creation of object sets parent and creates status
-        public WinForm_SelfdestructStatus(StatusStrip strip, string status, decimal seconds, Color foreColor, Color backColor)
+        public WinForm_SelfdestructStatus(ref StatusStrip strip, string status, decimal seconds, Color foreColor, Color backColor)
         {
             //Construct
             this.time = 10 * seconds;
@@ -55,6 +55,38 @@ namespace CMIF
             strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newStatus });
         }
 
+        public WinForm_SelfdestructStatus(ref StatusStrip strip, string status, Color foreColor, Color backColor)
+        {
+            // No selfdestruct
+            //Construct
+            this.transparency = 255;
+            this.temp1 = foreColor;
+            this.temp2 = backColor;
+
+            //Create Label
+            newStatus = new ToolStripStatusLabel();
+            newStatus.Text = status;
+            newStatus.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            newStatus.ForeColor = Color.FromArgb(transparency, temp1);
+            newStatus.BackColor = Color.FromArgb(transparency, temp2);
+
+            //Right align this non destruct message
+            newStatus.Spring = true;
+            newStatus.Alignment = ToolStripItemAlignment.Right;
+            //Space with other labels
+            Padding margin = newStatus.Margin;
+            margin.Left = 4;
+            newStatus.Margin = margin;
+
+            //Pass object
+            strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newStatus });
+        }
+
+        public void destructStatus()
+        {
+            newStatus.Dispose();
+        }
+
         private void destroyTimer(object timer, EventArgs e)
         {
             //Decrease time
@@ -68,7 +100,7 @@ namespace CMIF
                 newStatus.BackColor = Color.FromArgb(transparency, temp2);
             } else
             {
-                newStatus.Dispose();
+                destructStatus();
             }
 
         }

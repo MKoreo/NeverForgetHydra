@@ -148,10 +148,10 @@ namespace SPIF
 
                 if (project)
                 {
-                    name.Text = rec.projectCode;
+                    name.Text = rec.project;
                 } else
                 {
-                    name.Text = rec.projectCode;
+                    name.Text = rec.project;
                     name.Text += " - " + rec.subject;
                 }
 

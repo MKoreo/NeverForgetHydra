@@ -23,6 +23,7 @@ namespace CMDT
         public Color text { get; set; }
         public Color tint1 { get; set; }
         public Color tint2 { get; set; }
+        public decimal White { get; set; }
 
         public void generateColours(themeStyle style)
         {

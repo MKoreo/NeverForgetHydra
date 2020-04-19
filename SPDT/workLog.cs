@@ -19,19 +19,19 @@ namespace SPDT
         public workLog(){}
 
         // ---- Do something with records ----
-        public void addRecord(DateTime dateTime, string subject, string projectCode, decimal minutes)
+        public void addRecord(DateTime recordDate, string costCenter, string project, string subject, decimal minutes)
         {
             //records.Add(new Record(dateTime, subject, projectCode, minutes));
             foreach (Record rec in records)
             {
-                if (rec.date == dateTime && rec.projectCode == projectCode && rec.subject == subject)
+                if (rec.costCenter == costCenter && rec.recordDate == recordDate && rec.project == project && rec.subject == subject)
                 {
                     rec.minutes += minutes;
                     return;
                 }
             }
             //Else add
-            records.Add(new Record(dateTime, subject, projectCode, minutes));
+            records.Add(new Record(recordDate, costCenter, project, subject, minutes));
         }
         public void removeRecord(Record record)
         {
@@ -42,7 +42,7 @@ namespace SPDT
            List<Record> records = getRecordsByDate(dateTime);
            foreach(Record rec in records)
             {
-                if (rec.projectCode == projectCode && rec.subject == subject)
+                if (rec.project == projectCode && rec.subject == subject)
                 {
                     removeRecord(rec);
                 }
@@ -59,7 +59,7 @@ namespace SPDT
             List<Record> returnList = new List<Record>();
             foreach (Record rec in records)
             {
-                if (rec.date == dateTime)
+                if (rec.recordDate == dateTime)
                 {
                     returnList.Add(rec);
                 } 
@@ -85,7 +85,7 @@ namespace SPDT
                 {
                     foreach (Record dum in dummy)
                     {
-                        if (dum.projectCode == rec.projectCode && dum.subject == rec.subject)
+                        if (dum.project == rec.project && dum.subject == rec.subject)
                         {
                             dum.minutes += rec.minutes;
                             matched = true;
@@ -105,7 +105,7 @@ namespace SPDT
                 {
                     foreach (Record dum in dummy)
                     {
-                        if (dum.projectCode == rec.projectCode)
+                        if (dum.project == rec.project)
                         {
                             dum.minutes += rec.minutes;
                             matched = true;

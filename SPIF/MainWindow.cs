@@ -14,6 +14,18 @@ namespace SPIF
 {
     public partial class MainWindow : ThemedForm
     {
+        // Globals
+        // Datagrid view column names
+        internal const string COLUMN_NAME_DATE = "Date";
+        internal const string COLUMN_NAME_COSTCENTER = "Cost C.";
+        internal const string COLUMN_NAME_PROJECT = "Project";
+        internal const string COLUMN_NAME_SUBJECT = "Subject";
+        internal const string COLUMN_NAME_TIME = "Time";
+        internal const string COLUMN_NAME_DELETE = "Remove";
+
+        // Colors
+        internal Color HELPCOLOR = Color.Blue;
+
         //Ui timer
         System.Windows.Forms.Timer popupTimer = new System.Windows.Forms.Timer();
 
@@ -30,6 +42,7 @@ namespace SPIF
         //Variables
         private workLog log;
         private UcStatistics ucStatistics;
+        private WinForm_SelfdestructStatus helpStatus;
 
         //Create system Tray Icon
         private NotifyIcon trayIcon;
@@ -97,7 +110,7 @@ namespace SPIF
             //Change to today
             dateTimePicker.Value = DateTime.Now;
             //Dropdown
-            comboBoxWork.DroppedDown = true;
+            cbSubject.DroppedDown = true;
         }
         // ------------------ Themes and color ------------------
         // Main theming happens in derrived class: ThemedForm
@@ -105,8 +118,8 @@ namespace SPIF
         public void applyAddTheming()
         {
             //Add button specific
-            buttonAdd.BackColor = theme.textHighlight;
-            buttonAdd.ForeColor = theme.highlight;
+            btnAdd.BackColor = theme.textHighlight;
+            btnAdd.ForeColor = theme.highlight;
 
             //Back and forward button specific
             button_left.ForeColor = theme.background;
@@ -220,15 +233,29 @@ namespace SPIF
         }
         private void initComboBoxProject()
         {
-            comboBoxProject.Items.Clear();
+            cbProject.Items.Clear();
 
             foreach (Record rec in log.records)
             {
-                if (!comboBoxProject.Items.Contains(rec.projectCode))
+                if (!cbProject.Items.Contains(rec.project))
                 {
                     //When pressing add, new project code needs to be added directly if not yet in it!
                     //Calling this method is to much overhead
-                    comboBoxProject.Items.Add(rec.projectCode);
+                    cbProject.Items.Add(rec.project);
+                }
+            }
+        }
+        private void initComboBoxCostCenter()
+        {
+            cbCostCenter.Items.Clear();
+
+            foreach (Record rec in log.records)
+            {
+                if (!cbCostCenter.Items.Contains(rec.costCenter))
+                {
+                    //When pressing add, new project code needs to be added directly if not yet in it!
+                    //Calling this method is to much overhead
+                    cbCostCenter.Items.Add(rec.costCenter);
                 }
             }
         }
@@ -252,7 +279,6 @@ namespace SPIF
         {
             popup();
         }
-
         private void initUcStatistics()
         {
             ucStatistics = new UcStatistics(ref theme, ref log);
@@ -266,11 +292,12 @@ namespace SPIF
             dataGridView.Rows.Clear();
 
             //Add Columns
-            dataGridView.Columns.Add("Date", "Date");
-            dataGridView.Columns.Add("Project", "Project");
-            dataGridView.Columns.Add("Time", "Time");
-            dataGridView.Columns.Add("Subject", "Subject");
-            dataGridView.Columns.Add("Remove", "");
+            dataGridView.Columns.Add(COLUMN_NAME_DATE, COLUMN_NAME_DATE);
+            dataGridView.Columns.Add(COLUMN_NAME_COSTCENTER, COLUMN_NAME_COSTCENTER);
+            dataGridView.Columns.Add(COLUMN_NAME_PROJECT, COLUMN_NAME_PROJECT);
+            dataGridView.Columns.Add(COLUMN_NAME_TIME, COLUMN_NAME_TIME);
+            dataGridView.Columns.Add(COLUMN_NAME_SUBJECT, COLUMN_NAME_SUBJECT);
+            dataGridView.Columns.Add(COLUMN_NAME_DELETE, "");
 
             //Set Column settings
             foreach (DataGridViewColumn dc in dataGridView.Columns)
@@ -278,7 +305,8 @@ namespace SPIF
                 dc.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
 
-            dataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            // Subject column should be biggest, others just min size
+            dataGridView.Columns[COLUMN_NAME_SUBJECT].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             // Add the data
             List<Record> records = log.getRecordsByDate(dateTimePicker.Value.Date);
@@ -289,22 +317,34 @@ namespace SPIF
 
                 // Grab the new row!
                 DataGridViewRow row = dataGridView.Rows[rowId];
-                row.Cells["Date"].Value = rec.date.ToShortDateString();
-                row.Cells["Project"].Value = rec.projectCode;
-                row.Cells["Time"].Value = rec.minutes.ToString();
-                row.Cells["Subject"].Value = rec.subject;
-                row.Cells["Remove"].Value = "Delete";
+                row.Cells[COLUMN_NAME_DATE].Value = rec.recordDate.ToShortDateString();
+                row.Cells[COLUMN_NAME_COSTCENTER].Value = rec.costCenter;
+                row.Cells[COLUMN_NAME_PROJECT].Value = rec.project;
+                row.Cells[COLUMN_NAME_TIME].Value = rec.minutes.ToString();
+                row.Cells[COLUMN_NAME_SUBJECT].Value = rec.subject;
+                row.Cells[COLUMN_NAME_DELETE].Value = "Delete";
                 //Possible to change colour based on time value, but it ugly:
                 //row.Cells["Time"].Style.BackColor = Color.FromArgb((int)rec.minutes, (int)rec.minutes, (int)rec.minutes);
             }
         }
         public void updateStatus(string text)
         {
-            _ = new WinForm_SelfdestructStatus(statusStrip, text, 5, theme.textHighlight, theme.highlight);
+            _ = new WinForm_SelfdestructStatus(ref statusStrip, text, 5, theme.textHighlight, theme.highlight);
         }
         public void updateStatus(string text, decimal seconds, Color back)
         {
-            _ = new WinForm_SelfdestructStatus(statusStrip, text, seconds, theme.textHighlight, back);
+            _ = new WinForm_SelfdestructStatus(ref statusStrip, text, seconds, theme.textHighlight, back);
+        }
+        public void updateHelpStatus(string text)
+        {
+            // Destroy if still exists for some reason.
+            if (helpStatus != null)
+            {
+                helpStatus.destructStatus();
+            }
+
+            // Create helpstatus
+            helpStatus = new WinForm_SelfdestructStatus(ref statusStrip, text, Color.White, HELPCOLOR);
         }
         public void updateQuickSettings()
         {
@@ -327,26 +367,48 @@ namespace SPIF
         public void updateComboBoxSubject()
         {
             //Clear previous
-            comboBoxWork.Items.Clear();
-
-            //Filter Settings
-
+            cbSubject.Items.Clear();
             //If project that has been entered before is chosen
-            if (comboBoxProject.Items.Contains(comboBoxProject.Text))
+            if (cbProject.Items.Contains(cbProject.Text))
             {
                 //For all records
                 foreach (Record rec in log.records)
                 {
-                    if (!comboBoxWork.Items.Contains(rec.subject))
+                    if (!cbSubject.Items.Contains(rec.subject))
                     {
-                        bool filter = (rec.projectCode == comboBoxProject.Text);
+                        bool filter = (rec.project == cbProject.Text);
                         if (!settings.filterOnCombo)
                         {
-                            comboBoxWork.Items.Add(rec.subject);
+                            cbSubject.Items.Add(rec.subject);
                         }
                         else if (filter)
                         {
-                            comboBoxWork.Items.Add(rec.subject);
+                            cbSubject.Items.Add(rec.subject);
+                        }
+                    }
+                }
+            }
+        }
+        public void updateComboBoxProject()
+        {
+            //Clear previous
+            cbProject.Items.Clear();
+            //If project that has been entered before is chosen
+            if (cbCostCenter.Items.Contains(cbCostCenter.Text))
+            {
+                //For all records
+                foreach (Record rec in log.records)
+                {
+                    if (!cbProject.Items.Contains(rec.project))
+                    {
+                        bool filter = (rec.costCenter == cbCostCenter.Text);
+                        if (!settings.filterOnCombo)
+                        {
+                            cbProject.Items.Add(rec.project);
+                        }
+                        else if (filter)
+                        {
+                            cbProject.Items.Add(rec.project);
                         }
                     }
                 }
@@ -359,7 +421,7 @@ namespace SPIF
         public void updateTimePassed()
         {
             //Set time passed in minutes
-            textBoxTime.Text = minutesPassed.ToString();
+            tbTime.Text = minutesPassed.ToString();
             updateStatus("Time calculated");
         }
         // ------------------ EventHandlers ------------------ 
@@ -382,13 +444,15 @@ namespace SPIF
                 settings.save();
 
                 //Enable buttons etc.
-                comboBoxProject.Enabled = true;
-                comboBoxWork.Enabled = true;
-                textBoxTime.Enabled = true;
-                buttonAdd.Enabled = true;
+                cbCostCenter.Enabled = true;
+                cbProject.Enabled = true;
+                cbSubject.Enabled = true;
+                tbTime.Enabled = true;
+                btnAdd.Enabled = true;
                 button_left.Enabled = true;
                 button_right.Enabled = true;
                 dateTimePicker.Enabled = true;
+
 
                 updateStatus("File created");
                 this.Text = "Never Forget Hydra - " + log.getPath();
@@ -422,10 +486,11 @@ namespace SPIF
                 settings.save();
 
                 //Enable buttons etc.
-                comboBoxProject.Enabled = true;
-                comboBoxWork.Enabled = true;
-                textBoxTime.Enabled = true;
-                buttonAdd.Enabled = true;
+                cbCostCenter.Enabled = true;
+                cbProject.Enabled = true;
+                cbSubject.Enabled = true;
+                tbTime.Enabled = true;
+                btnAdd.Enabled = true;
                 button_left.Enabled = true;
                 button_right.Enabled = true;
                 dateTimePicker.Enabled = true;
@@ -434,6 +499,7 @@ namespace SPIF
                 //tableLayoutPanel.SetRowSpan(dataGridView, 2);
                 updateStatus("File Loaded");
                 this.Text = "Never Forget Hydra - " + log.getPath();
+                initComboBoxCostCenter();
                 initComboBoxProject();
                 popupTimer.Start();
                 fileOpen = true;
@@ -525,25 +591,27 @@ namespace SPIF
         #region Controlbar
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (Generic.isNullOrEmpty(comboBoxWork.Text) || Generic.isNullOrEmpty(comboBoxProject.Text) || Generic.isNullOrEmpty(textBoxTime.Text))
+            if (Generic.isNullOrEmpty(cbCostCenter.Text) || Generic.isNullOrEmpty(cbSubject.Text) || Generic.isNullOrEmpty(cbProject.Text) || Generic.isNullOrEmpty(tbTime.Text))
             {
                 DialogResult error = MessageBox.Show("One or more of the required fields is empty.", "Cannot add new record", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else if (!short.TryParse(textBoxTime.Text, out short _))
+            } else if (!short.TryParse(tbTime.Text, out short _))
             {
                 DialogResult error = MessageBox.Show("Cannot interpret the time value as a number.", "Cannot add new record", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 //Add the record
-                log.addRecord(dateTimePicker.Value.Date, comboBoxWork.Text, comboBoxProject.Text, Convert.ToDecimal(textBoxTime.Text));
+                log.addRecord(dateTimePicker.Value.Date, cbCostCenter.Text, cbProject.Text, cbSubject.Text, Convert.ToDecimal(tbTime.Text));
 
-                //Ui: Add projectcode to comboBox
-                if (!comboBoxProject.Items.Contains(comboBoxProject.Text))
+                //Ui: Add costCenter to comboBox
+                if (!cbCostCenter.Items.Contains(cbCostCenter.Text))
                 {
-                    comboBoxProject.Items.Add(comboBoxProject.Text);
+                    cbCostCenter.Items.Add(cbCostCenter.Text);
                 }
 
+
                 //Update subjects in comboBox
+                updateComboBoxProject();
                 updateComboBoxSubject();
 
                 //Update Richtextbox
@@ -576,6 +644,10 @@ namespace SPIF
         private void comboBoxProject_SelectedIndexChanged(object sender, EventArgs e)
         {
             updateComboBoxSubject();
+        }
+        private void cbCostCenter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateComboBoxProject();
         }
         #endregion
 
@@ -655,7 +727,7 @@ namespace SPIF
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //Check if delete is pressed
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == dataGridView.Columns[COLUMN_NAME_DELETE].Index)
             {
                 DialogResult confirm = MessageBox.Show("Are you sure you want to delete this record?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (confirm == DialogResult.Yes)
@@ -671,7 +743,7 @@ namespace SPIF
         private void dataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             // If first and last cell selected is in minutes column
-            if (dataGridView.SelectedCells[0].ColumnIndex == 2 && dataGridView.SelectedCells[dataGridView.SelectedCells.Count - 1].ColumnIndex == 2 && dataGridView.SelectedCells.Count > 1)
+            if (dataGridView.SelectedCells[0].ColumnIndex == dataGridView.Columns[COLUMN_NAME_TIME].Index && dataGridView.SelectedCells[dataGridView.SelectedCells.Count - 1].ColumnIndex == dataGridView.Columns[COLUMN_NAME_TIME].Index && dataGridView.SelectedCells.Count > 1)
             {
                 decimal selectedMin = 0;
                 foreach (DataGridViewCell cell in dataGridView.SelectedCells)
@@ -698,9 +770,48 @@ namespace SPIF
             //If in comboBoxWork and enter is pressed, simulate add button
             if (e.KeyCode == Keys.Enter)
             {
-                buttonAdd.PerformClick();
+                btnAdd.PerformClick();
             }
         }
         #endregion
+
+        private void tbTime_Enter(object sender, EventArgs e)
+        {
+            // Upon focus
+            updateHelpStatus("Fill in: Spend Time");
+        }
+        private void cbCostCenter_Enter(object sender, EventArgs e)
+        {
+            // Upon focus
+            updateHelpStatus("Fill in: Cost Center");
+        }
+        private void cbProject_Enter(object sender, EventArgs e)
+        {
+            // Upon focus
+            updateHelpStatus("Fill in: Project");
+        }
+        private void cbSubject_Enter(object sender, EventArgs e)
+        {
+            // Upon focus
+            updateHelpStatus("Fill in: Subject");
+        }
+
+        // Destroy helpStatus when out of focus
+        private void tbTime_Leave(object sender, EventArgs e)
+        {
+            helpStatus.destructStatus();
+        }
+        private void cbCostCenter_Leave(object sender, EventArgs e)
+        {
+            helpStatus.destructStatus();
+        }
+        private void cbProject_Leave(object sender, EventArgs e)
+        {
+            helpStatus.destructStatus();
+        }
+        private void cbSubject_Leave(object sender, EventArgs e)
+        {
+            helpStatus.destructStatus();
+        }
     }
 }

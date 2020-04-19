@@ -49,10 +49,11 @@ namespace SPIF
             this.newFile = new System.Windows.Forms.SaveFileDialog();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanelAdd = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBoxProject = new System.Windows.Forms.ComboBox();
-            this.comboBoxWork = new System.Windows.Forms.ComboBox();
-            this.textBoxTime = new System.Windows.Forms.TextBox();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.cbCostCenter = new System.Windows.Forms.ComboBox();
+            this.cbSubject = new System.Windows.Forms.ComboBox();
+            this.tbTime = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.cbProject = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanelSettings = new System.Windows.Forms.TableLayoutPanel();
             this.btnViewStatistics = new System.Windows.Forms.Button();
             this.btnViewRecords = new System.Windows.Forms.Button();
@@ -228,82 +229,107 @@ namespace SPIF
             // tableLayoutPanelAdd
             // 
             this.tableLayoutPanelAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tableLayoutPanelAdd.ColumnCount = 4;
-            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
-            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanelAdd.Controls.Add(this.comboBoxProject, 0, 0);
-            this.tableLayoutPanelAdd.Controls.Add(this.comboBoxWork, 2, 0);
-            this.tableLayoutPanelAdd.Controls.Add(this.textBoxTime, 0, 0);
-            this.tableLayoutPanelAdd.Controls.Add(this.buttonAdd, 3, 0);
+            this.tableLayoutPanelAdd.ColumnCount = 5;
+            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanelAdd.Controls.Add(this.cbCostCenter, 0, 0);
+            this.tableLayoutPanelAdd.Controls.Add(this.cbSubject, 3, 0);
+            this.tableLayoutPanelAdd.Controls.Add(this.tbTime, 0, 0);
+            this.tableLayoutPanelAdd.Controls.Add(this.btnAdd, 4, 0);
+            this.tableLayoutPanelAdd.Controls.Add(this.cbProject, 2, 0);
             this.tableLayoutPanelAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelAdd.Location = new System.Drawing.Point(270, 0);
             this.tableLayoutPanelAdd.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelAdd.Name = "tableLayoutPanelAdd";
             this.tableLayoutPanelAdd.RowCount = 1;
             this.tableLayoutPanelAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanelAdd.Size = new System.Drawing.Size(762, 33);
             this.tableLayoutPanelAdd.TabIndex = 11;
             // 
-            // comboBoxProject
+            // cbCostCenter
             // 
-            this.comboBoxProject.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxProject.BackColor = System.Drawing.Color.White;
-            this.comboBoxProject.Enabled = false;
-            this.comboBoxProject.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBoxProject.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxProject.ForeColor = System.Drawing.Color.Black;
-            this.comboBoxProject.FormattingEnabled = true;
-            this.comboBoxProject.Location = new System.Drawing.Point(78, 4);
-            this.comboBoxProject.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBoxProject.Name = "comboBoxProject";
-            this.comboBoxProject.Size = new System.Drawing.Size(169, 25);
-            this.comboBoxProject.TabIndex = 4;
-            this.comboBoxProject.SelectedIndexChanged += new System.EventHandler(this.comboBoxProject_SelectedIndexChanged);
+            this.cbCostCenter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCostCenter.BackColor = System.Drawing.Color.White;
+            this.cbCostCenter.Enabled = false;
+            this.cbCostCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbCostCenter.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCostCenter.ForeColor = System.Drawing.Color.Black;
+            this.cbCostCenter.FormattingEnabled = true;
+            this.cbCostCenter.Location = new System.Drawing.Point(65, 4);
+            this.cbCostCenter.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.cbCostCenter.Name = "cbCostCenter";
+            this.cbCostCenter.Size = new System.Drawing.Size(146, 25);
+            this.cbCostCenter.TabIndex = 4;
+            this.cbCostCenter.SelectedIndexChanged += new System.EventHandler(this.cbCostCenter_SelectedIndexChanged);
+            this.cbCostCenter.Enter += new System.EventHandler(this.cbCostCenter_Enter);
+            this.cbCostCenter.Leave += new System.EventHandler(this.cbCostCenter_Leave);
             // 
-            // comboBoxWork
+            // cbSubject
             // 
-            this.comboBoxWork.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxWork.Enabled = false;
-            this.comboBoxWork.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBoxWork.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxWork.FormattingEnabled = true;
-            this.comboBoxWork.Location = new System.Drawing.Point(250, 4);
-            this.comboBoxWork.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBoxWork.Name = "comboBoxWork";
-            this.comboBoxWork.Size = new System.Drawing.Size(412, 25);
-            this.comboBoxWork.TabIndex = 5;
-            this.comboBoxWork.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxWork_KeyDown);
+            this.cbSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSubject.Enabled = false;
+            this.cbSubject.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbSubject.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSubject.FormattingEnabled = true;
+            this.cbSubject.Location = new System.Drawing.Point(363, 4);
+            this.cbSubject.Margin = new System.Windows.Forms.Padding(0);
+            this.cbSubject.Name = "cbSubject";
+            this.cbSubject.Size = new System.Drawing.Size(298, 25);
+            this.cbSubject.TabIndex = 6;
+            this.cbSubject.Enter += new System.EventHandler(this.cbSubject_Enter);
+            this.cbSubject.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxWork_KeyDown);
+            this.cbSubject.Leave += new System.EventHandler(this.cbSubject_Leave);
             // 
-            // textBoxTime
+            // tbTime
             // 
-            this.textBoxTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTime.Enabled = false;
-            this.textBoxTime.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTime.Location = new System.Drawing.Point(0, 4);
-            this.textBoxTime.Margin = new System.Windows.Forms.Padding(0);
-            this.textBoxTime.Name = "textBoxTime";
-            this.textBoxTime.Size = new System.Drawing.Size(75, 25);
-            this.textBoxTime.TabIndex = 3;
+            this.tbTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbTime.Enabled = false;
+            this.tbTime.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTime.Location = new System.Drawing.Point(0, 4);
+            this.tbTime.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.tbTime.Name = "tbTime";
+            this.tbTime.Size = new System.Drawing.Size(62, 25);
+            this.tbTime.TabIndex = 3;
+            this.tbTime.Enter += new System.EventHandler(this.tbTime_Enter);
+            this.tbTime.Leave += new System.EventHandler(this.tbTime_Leave);
             // 
-            // buttonAdd
+            // btnAdd
             // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.BackColor = System.Drawing.Color.White;
-            this.buttonAdd.Enabled = false;
-            this.buttonAdd.FlatAppearance.BorderSize = 0;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonAdd.Location = new System.Drawing.Point(665, 4);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(94, 25);
-            this.buttonAdd.TabIndex = 6;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.Enabled = false;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAdd.Location = new System.Drawing.Point(664, 4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(95, 25);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // cbProject
+            // 
+            this.cbProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbProject.BackColor = System.Drawing.Color.White;
+            this.cbProject.Enabled = false;
+            this.cbProject.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbProject.Font = new System.Drawing.Font("Verdana", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProject.ForeColor = System.Drawing.Color.Black;
+            this.cbProject.FormattingEnabled = true;
+            this.cbProject.Location = new System.Drawing.Point(214, 4);
+            this.cbProject.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.cbProject.Name = "cbProject";
+            this.cbProject.Size = new System.Drawing.Size(146, 25);
+            this.cbProject.TabIndex = 5;
+            this.cbProject.SelectedIndexChanged += new System.EventHandler(this.comboBoxProject_SelectedIndexChanged);
+            this.cbProject.Enter += new System.EventHandler(this.cbProject_Enter);
+            this.cbProject.Leave += new System.EventHandler(this.cbProject_Leave);
             // 
             // tableLayoutPanelSettings
             // 
@@ -355,7 +381,7 @@ namespace SPIF
             this.btnViewStatistics.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewStatistics.Name = "btnViewStatistics";
             this.btnViewStatistics.Size = new System.Drawing.Size(89, 25);
-            this.btnViewStatistics.TabIndex = 15;
+            this.btnViewStatistics.TabIndex = 14;
             this.btnViewStatistics.Text = "Statistics";
             this.btnViewStatistics.UseVisualStyleBackColor = false;
             this.btnViewStatistics.Click += new System.EventHandler(this.btnViewStatistics_Click);
@@ -371,7 +397,7 @@ namespace SPIF
             this.btnViewRecords.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewRecords.Name = "btnViewRecords";
             this.btnViewRecords.Size = new System.Drawing.Size(89, 25);
-            this.btnViewRecords.TabIndex = 14;
+            this.btnViewRecords.TabIndex = 13;
             this.btnViewRecords.Text = "Records";
             this.btnViewRecords.UseVisualStyleBackColor = false;
             this.btnViewRecords.Click += new System.EventHandler(this.btnViewRecords_Click);
@@ -413,7 +439,7 @@ namespace SPIF
             0});
             this.nudTimer.Name = "nudTimer";
             this.nudTimer.Size = new System.Drawing.Size(78, 22);
-            this.nudTimer.TabIndex = 7;
+            this.nudTimer.TabIndex = 8;
             this.nudTimer.Value = new decimal(new int[] {
             10,
             0,
@@ -439,7 +465,7 @@ namespace SPIF
             this.cbCloseOnAdd.Location = new System.Drawing.Point(18, 79);
             this.cbCloseOnAdd.Name = "cbCloseOnAdd";
             this.cbCloseOnAdd.Size = new System.Drawing.Size(112, 20);
-            this.cbCloseOnAdd.TabIndex = 8;
+            this.cbCloseOnAdd.TabIndex = 9;
             this.cbCloseOnAdd.Text = "Close on add";
             this.cbCloseOnAdd.UseVisualStyleBackColor = true;
             // 
@@ -450,9 +476,9 @@ namespace SPIF
             this.tableLayoutPanelSettings.SetColumnSpan(this.cbFilter, 3);
             this.cbFilter.Location = new System.Drawing.Point(18, 114);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(182, 20);
-            this.cbFilter.TabIndex = 9;
-            this.cbFilter.Text = "Filter subject by Project Code";
+            this.cbFilter.Size = new System.Drawing.Size(129, 20);
+            this.cbFilter.TabIndex = 10;
+            this.cbFilter.Text = "Filter dropdown";
             this.cbFilter.UseVisualStyleBackColor = true;
             // 
             // labelQuicksettings
@@ -495,7 +521,7 @@ namespace SPIF
             this.btnResetTimer.Margin = new System.Windows.Forms.Padding(0);
             this.btnResetTimer.Name = "btnResetTimer";
             this.btnResetTimer.Size = new System.Drawing.Size(188, 25);
-            this.btnResetTimer.TabIndex = 13;
+            this.btnResetTimer.TabIndex = 12;
             this.btnResetTimer.Text = "Reset Timer";
             this.btnResetTimer.UseVisualStyleBackColor = false;
             this.btnResetTimer.Click += new System.EventHandler(this.btnResetTimer_Click);
@@ -586,15 +612,18 @@ namespace SPIF
             // 
             // statusStrip
             // 
+            this.statusStrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusStrip.AutoSize = false;
             this.statusStrip.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel.SetColumnSpan(this.statusStrip, 2);
-            this.statusStrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip.Font = new System.Drawing.Font("Verdana", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.statusStrip.Location = new System.Drawing.Point(0, 335);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1032, 25);
+            this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 14;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -636,7 +665,7 @@ namespace SPIF
             this.dataGridView.RowTemplate.ReadOnly = true;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.Size = new System.Drawing.Size(786, 286);
-            this.dataGridView.TabIndex = 11;
+            this.dataGridView.TabIndex = 15;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseUp);
             // 
@@ -690,15 +719,15 @@ namespace SPIF
         private System.Windows.Forms.SaveFileDialog newFile;
         private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAdd;
-        private System.Windows.Forms.ComboBox comboBoxWork;
-        private System.Windows.Forms.TextBox textBoxTime;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.ComboBox cbSubject;
+        private System.Windows.Forms.TextBox tbTime;
+        private System.Windows.Forms.Button btnAdd;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDate;
         private System.Windows.Forms.Button button_left;
         private System.Windows.Forms.Button button_right;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.ComboBox comboBoxProject;
+        private System.Windows.Forms.ComboBox cbProject;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanelSettings;
         private System.Windows.Forms.CheckBox cbCloseOnAdd;
@@ -717,6 +746,7 @@ namespace SPIF
         private System.Windows.Forms.Label lblView;
         private System.Windows.Forms.Button btnViewStatistics;
         private System.Windows.Forms.Button btnViewRecords;
+        private System.Windows.Forms.ComboBox cbCostCenter;
     }
 }
 
