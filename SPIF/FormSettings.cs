@@ -97,11 +97,11 @@ namespace SPIF
                     if (!settings.showQuickSettings)
                     {
                         parent.tableLayoutPanelSettings.Visible = false;
-                        parent.tlpWorkspace.ColumnStyles[0].Width = 0;
+                        parent.tlpWorkspace.ColumnStyles[1].Width = 0;
                     } else
                     {
                         parent.tableLayoutPanelSettings.Visible = true;
-                        parent.tlpWorkspace.ColumnStyles[0].Width = 230;
+                        parent.tlpWorkspace.ColumnStyles[1].Width = 230;
                     }
                     break;
                 case "cbMinimizeOnStartup":

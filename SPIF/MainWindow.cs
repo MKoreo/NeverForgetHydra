@@ -24,7 +24,7 @@ namespace SPIF
         internal const string COLUMN_NAME_DELETE = "Remove";
 
         // Colors
-        internal Color HELPCOLOR = Color.Blue;
+        internal Color HELPCOLOR = Color.FromArgb(0, 125, 255);
 
         //Ui timer
         System.Windows.Forms.Timer popupTimer = new System.Windows.Forms.Timer();
@@ -39,6 +39,7 @@ namespace SPIF
             statistics
         }
         View view = View.records;
+
         //Variables
         private workLog log;
         private UcStatistics ucStatistics;
@@ -47,6 +48,7 @@ namespace SPIF
         //Create system Tray Icon
         private NotifyIcon trayIcon;
         private ContextMenu cmenu;
+
         //Constructor
         public MainWindow(Settings settings) : base(settings)
         {
@@ -192,6 +194,9 @@ namespace SPIF
             btnResetTimer.BackColor = theme.tint2;
             btnResetTimer.ForeColor = theme.text;
             btnResetTimer.FlatAppearance.BorderSize = 0;
+            btnFold.BackColor = theme.highlight;
+            btnFold.ForeColor = theme.text;
+            btnFold.FlatAppearance.BorderSize = 0;
 
             //Statusstrip specific
             statusStrip.BackColor = theme.tint1;
@@ -702,7 +707,7 @@ namespace SPIF
             if (view == View.records)
             {
                 tlpWorkspace.Controls.Remove(dataGridView);
-                tlpWorkspace.Controls.Add(ucStatistics, 1, 0);
+                tlpWorkspace.Controls.Add(ucStatistics, 2, 0);
 
                 // To ensure datagrid is themed at start
                 // Perhaps there's a better location for this
@@ -716,7 +721,7 @@ namespace SPIF
             if (view == View.statistics)
             {
                 tlpWorkspace.Controls.Remove(ucStatistics);
-                tlpWorkspace.Controls.Add(dataGridView, 1, 0);
+                tlpWorkspace.Controls.Add(dataGridView, 2, 0);
             }
             view = View.records;
             // ((UcWorkloadChart)tlpWorkspace.Controls.Find("stats", false)[0]).Dispose();            
@@ -778,7 +783,7 @@ namespace SPIF
         private void tbTime_Enter(object sender, EventArgs e)
         {
             // Upon focus
-            updateHelpStatus("Fill in: Spend Time");
+            updateHelpStatus("Fill in: Spent Time");
         }
         private void cbCostCenter_Enter(object sender, EventArgs e)
         {
@@ -812,6 +817,18 @@ namespace SPIF
         private void cbSubject_Leave(object sender, EventArgs e)
         {
             helpStatus.destructStatus();
+        }
+
+        private void btnFold_Click(object sender, EventArgs e)
+        {
+            CheckBox fake = new CheckBox();
+            fake.Checked = !settings.showQuickSettings;
+            fake.Name = "cbShowQuickSettings";
+
+            FormSettings parser = new FormSettings(this, theme, settings);
+            parser.handlerCheckedChanged(fake, e);
+            parser.btnSubmit_Click(sender, e);
+            parser.Dispose();
         }
     }
 }

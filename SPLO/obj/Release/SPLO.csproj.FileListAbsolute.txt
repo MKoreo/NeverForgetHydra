@@ -43,3 +43,4 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\obj\Re
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\obj\Release\SPLO.pdb
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\bin\Release\Newtonsoft.Json.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\bin\Release\Newtonsoft.Json.xml
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\SPLO\obj\Release\SPLO.csprojAssemblyReference.cache

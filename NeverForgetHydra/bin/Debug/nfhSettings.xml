@@ -2,12 +2,12 @@
 <Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <settingsVersionNumber>2</settingsVersionNumber>
   <filterOnCombo>true</filterOnCombo>
-  <closeOnAdd>false</closeOnAdd>
-  <minimizeOnStartup>false</minimizeOnStartup>
+  <closeOnAdd>true</closeOnAdd>
+  <minimizeOnStartup>true</minimizeOnStartup>
   <showJokes>true</showJokes>
   <showQuickSettings>true</showQuickSettings>
-  <minutesTillPopup>15</minutesTillPopup>
+  <minutesTillPopup>30</minutesTillPopup>
   <style>light</style>
-  <highlightColor>-16744320</highlightColor>
-  <lastOpened>C:\Users\thopop\Desktop\newVersion.libtw</lastOpened>
+  <highlightColor>-4784128</highlightColor>
+  <lastOpened>D:\Barco\OneDrive\OneDrive - Barco N.V\_Programma's\inUse\NeverForgetHydra\new_THOPOP_log.libtw</lastOpened>
 </Settings>

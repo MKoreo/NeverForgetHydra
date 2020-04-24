@@ -73,6 +73,7 @@ namespace SPIF
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tlpWorkspace = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.btnFold = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanelAdd.SuspendLayout();
             this.tableLayoutPanelSettings.SuspendLayout();
@@ -98,7 +99,7 @@ namespace SPIF
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.menuStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip.Size = new System.Drawing.Size(1032, 26);
+            this.menuStrip.Size = new System.Drawing.Size(1032, 28);
             this.menuStrip.Stretch = false;
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
@@ -111,7 +112,7 @@ namespace SPIF
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -147,7 +148,7 @@ namespace SPIF
             // 
             this.hydraToolStripMenuItem.Name = "hydraToolStripMenuItem";
             this.hydraToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
+            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 23);
             this.hydraToolStripMenuItem.Text = "Hydra";
             this.hydraToolStripMenuItem.Click += new System.EventHandler(this.hydraToolStripMenuItem_Click);
             // 
@@ -157,7 +158,7 @@ namespace SPIF
             this.themeToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // themeToolStripMenuItem
@@ -165,7 +166,7 @@ namespace SPIF
             this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setColorToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
             this.themeToolStripMenuItem.Text = "Theme";
             // 
             // setColorToolStripMenuItem
@@ -178,7 +179,7 @@ namespace SPIF
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -190,7 +191,7 @@ namespace SPIF
             this.feedbackToolStripMenuItem,
             this.viewChangelogToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
@@ -333,8 +334,6 @@ namespace SPIF
             // 
             // tableLayoutPanelSettings
             // 
-            this.tableLayoutPanelSettings.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tableLayoutPanelSettings.AutoSize = true;
             this.tableLayoutPanelSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanelSettings.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanelSettings.ColumnCount = 5;
@@ -353,9 +352,10 @@ namespace SPIF
             this.tableLayoutPanelSettings.Controls.Add(this.labelQuicksettings, 0, 0);
             this.tableLayoutPanelSettings.Controls.Add(this.cbMinimizeOnStartup, 1, 4);
             this.tableLayoutPanelSettings.Controls.Add(this.btnResetTimer, 1, 5);
+            this.tableLayoutPanelSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelSettings.Font = new System.Drawing.Font("Verdana", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanelSettings.Location = new System.Drawing.Point(5, 5);
-            this.tableLayoutPanelSettings.Margin = new System.Windows.Forms.Padding(5);
+            this.tableLayoutPanelSettings.Location = new System.Drawing.Point(12, 5);
+            this.tableLayoutPanelSettings.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.tableLayoutPanelSettings.Name = "tableLayoutPanelSettings";
             this.tableLayoutPanelSettings.RowCount = 9;
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
@@ -366,8 +366,8 @@ namespace SPIF
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(220, 284);
+            this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(225, 284);
             this.tableLayoutPanelSettings.TabIndex = 3;
             // 
             // btnViewStatistics
@@ -377,10 +377,10 @@ namespace SPIF
             this.btnViewStatistics.FlatAppearance.BorderSize = 0;
             this.btnViewStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewStatistics.ForeColor = System.Drawing.Color.Black;
-            this.btnViewStatistics.Location = new System.Drawing.Point(114, 249);
+            this.btnViewStatistics.Location = new System.Drawing.Point(116, 249);
             this.btnViewStatistics.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewStatistics.Name = "btnViewStatistics";
-            this.btnViewStatistics.Size = new System.Drawing.Size(89, 25);
+            this.btnViewStatistics.Size = new System.Drawing.Size(91, 25);
             this.btnViewStatistics.TabIndex = 14;
             this.btnViewStatistics.Text = "Statistics";
             this.btnViewStatistics.UseVisualStyleBackColor = false;
@@ -396,7 +396,7 @@ namespace SPIF
             this.btnViewRecords.Location = new System.Drawing.Point(15, 249);
             this.btnViewRecords.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewRecords.Name = "btnViewRecords";
-            this.btnViewRecords.Size = new System.Drawing.Size(89, 25);
+            this.btnViewRecords.Size = new System.Drawing.Size(91, 25);
             this.btnViewRecords.TabIndex = 13;
             this.btnViewRecords.Text = "Records";
             this.btnViewRecords.UseVisualStyleBackColor = false;
@@ -412,7 +412,7 @@ namespace SPIF
             this.lblView.Location = new System.Drawing.Point(10, 217);
             this.lblView.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.lblView.Name = "lblView";
-            this.lblView.Size = new System.Drawing.Size(200, 22);
+            this.lblView.Size = new System.Drawing.Size(205, 22);
             this.lblView.TabIndex = 16;
             this.lblView.Text = "View";
             this.lblView.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -426,7 +426,7 @@ namespace SPIF
             0,
             0,
             0});
-            this.nudTimer.Location = new System.Drawing.Point(117, 43);
+            this.nudTimer.Location = new System.Drawing.Point(119, 43);
             this.nudTimer.Maximum = new decimal(new int[] {
             60,
             0,
@@ -492,7 +492,7 @@ namespace SPIF
             this.labelQuicksettings.Location = new System.Drawing.Point(10, 10);
             this.labelQuicksettings.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
             this.labelQuicksettings.Name = "labelQuicksettings";
-            this.labelQuicksettings.Size = new System.Drawing.Size(200, 22);
+            this.labelQuicksettings.Size = new System.Drawing.Size(205, 22);
             this.labelQuicksettings.TabIndex = 12;
             this.labelQuicksettings.Text = "Quicksettings";
             this.labelQuicksettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -520,7 +520,7 @@ namespace SPIF
             this.btnResetTimer.Location = new System.Drawing.Point(15, 182);
             this.btnResetTimer.Margin = new System.Windows.Forms.Padding(0);
             this.btnResetTimer.Name = "btnResetTimer";
-            this.btnResetTimer.Size = new System.Drawing.Size(188, 25);
+            this.btnResetTimer.Size = new System.Drawing.Size(192, 25);
             this.btnResetTimer.TabIndex = 12;
             this.btnResetTimer.Text = "Reset Timer";
             this.btnResetTimer.UseVisualStyleBackColor = false;
@@ -600,14 +600,14 @@ namespace SPIF
             this.tableLayoutPanel.Controls.Add(this.statusStrip, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.tlpWorkspace, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 26);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 3;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(1032, 360);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1032, 358);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // statusStrip
@@ -620,7 +620,7 @@ namespace SPIF
             this.statusStrip.Font = new System.Drawing.Font("Verdana", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStrip.Location = new System.Drawing.Point(0, 335);
+            this.statusStrip.Location = new System.Drawing.Point(0, 333);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1032, 25);
             this.statusStrip.SizingGrip = false;
@@ -631,18 +631,20 @@ namespace SPIF
             // 
             this.tlpWorkspace.AutoSize = true;
             this.tlpWorkspace.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpWorkspace.ColumnCount = 2;
+            this.tlpWorkspace.ColumnCount = 3;
             this.tableLayoutPanel.SetColumnSpan(this.tlpWorkspace, 2);
+            this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
             this.tlpWorkspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWorkspace.Controls.Add(this.dataGridView, 1, 0);
-            this.tlpWorkspace.Controls.Add(this.tableLayoutPanelSettings, 0, 0);
+            this.tlpWorkspace.Controls.Add(this.dataGridView, 2, 0);
+            this.tlpWorkspace.Controls.Add(this.tableLayoutPanelSettings, 1, 0);
+            this.tlpWorkspace.Controls.Add(this.btnFold, 0, 0);
             this.tlpWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpWorkspace.Location = new System.Drawing.Point(3, 36);
             this.tlpWorkspace.Name = "tlpWorkspace";
             this.tlpWorkspace.RowCount = 1;
             this.tlpWorkspace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWorkspace.Size = new System.Drawing.Size(1026, 296);
+            this.tlpWorkspace.Size = new System.Drawing.Size(1026, 294);
             this.tlpWorkspace.TabIndex = 15;
             // 
             // dataGridView
@@ -656,7 +658,7 @@ namespace SPIF
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridView.Location = new System.Drawing.Point(235, 5);
+            this.dataGridView.Location = new System.Drawing.Point(247, 5);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -664,10 +666,24 @@ namespace SPIF
             this.dataGridView.RowHeadersWidth = 47;
             this.dataGridView.RowTemplate.ReadOnly = true;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(786, 286);
+            this.dataGridView.Size = new System.Drawing.Size(774, 284);
             this.dataGridView.TabIndex = 15;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseUp);
+            // 
+            // btnFold
+            // 
+            this.btnFold.BackColor = System.Drawing.Color.Red;
+            this.btnFold.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFold.FlatAppearance.BorderSize = 0;
+            this.btnFold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFold.Location = new System.Drawing.Point(5, 5);
+            this.btnFold.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnFold.Name = "btnFold";
+            this.btnFold.Size = new System.Drawing.Size(7, 284);
+            this.btnFold.TabIndex = 16;
+            this.btnFold.UseVisualStyleBackColor = false;
+            this.btnFold.Click += new System.EventHandler(this.btnFold_Click);
             // 
             // MainWindow
             // 
@@ -696,7 +712,6 @@ namespace SPIF
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.tlpWorkspace.ResumeLayout(false);
-            this.tlpWorkspace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -747,6 +762,7 @@ namespace SPIF
         private System.Windows.Forms.Button btnViewStatistics;
         private System.Windows.Forms.Button btnViewRecords;
         private System.Windows.Forms.ComboBox cbCostCenter;
+        private System.Windows.Forms.Button btnFold;
     }
 }
 

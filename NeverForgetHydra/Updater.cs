@@ -22,7 +22,7 @@ namespace NeverForgetHydra
         //Links to Google Drive: A Version.ini file and a zip containing the newest DLL files
         const string LINKTOZIP = "https://drive.google.com/u/0/uc?id=141X9ebxs3Y87P68wi6JNGXH8o3jWDEKr&export=download";
         const string LINKTOVER = "https://drive.google.com/u/0/uc?id=1oOYv15NwKKk6SuFhsFzdehTvw_T87X6Z&export=download";
-        List<string> dllToCheck = new List<string>();
+        private List<string> dllToCheck = new List<string>();
 
         //Background workers for simultanous file checking, version checking and afterwards updating
         private BackgroundWorker bwFileChecker = new BackgroundWorker();
@@ -31,6 +31,7 @@ namespace NeverForgetHydra
 
         //Checking for updates done
         private bool done = false;
+        private string DIRECTORY = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Substring(6) + "\\";
 
         //Startfase
         private MessageBoxButtons choice = MessageBoxButtons.AbortRetryIgnore;
@@ -51,7 +52,7 @@ namespace NeverForgetHydra
             //compareDll.Add("SPLO.dll");
 
             // FileChecker setup
-            // Check Files are present
+            // Check Files are presen
             bwFileChecker.DoWork += work_checkFiles;
             bwFileChecker.RunWorkerAsync();
 
@@ -74,15 +75,15 @@ namespace NeverForgetHydra
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadFile(LINKTOZIP, "NFH_update.zip");
+                    client.DownloadFile(LINKTOZIP, DIRECTORY + "NFH_update.zip");
                 }
                 foreach (string fileName in dllToCheck)
                 {
                     File.Delete(fileName);
                 }
 
-                ZipFile.ExtractToDirectory("NFH_update.zip", ".\\");
-                File.Delete("NFH_update.zip");
+                ZipFile.ExtractToDirectory("NFH_update.zip", DIRECTORY);
+                File.Delete(DIRECTORY + "NFH_update.zip");
                 done = true;
             }
             catch (Exception updateException)
@@ -103,13 +104,13 @@ namespace NeverForgetHydra
             try
             {
                 //Get all DLL files next to .exe
-                string[] dll = Directory.GetFileSystemEntries(Directory.GetCurrentDirectory(), "*.dll");
+                string[] dll = Directory.GetFileSystemEntries(DIRECTORY, "*.dll");
                 //To Keep track of missing DLL files
                 List<string> missingDll = new List<string>();
 
                 foreach (string cmp in dllToCheck)
                 {
-                    if (!(dll.Contains(Directory.GetCurrentDirectory() + "\\" + cmp)))
+                    if (!(dll.Contains(DIRECTORY + cmp)))
                     {
                         missingDll.Add(cmp);
                     }
@@ -146,16 +147,18 @@ namespace NeverForgetHydra
                 //Download Version.ini
                 using (var client = new WebClient())
                 {
-                    client.DownloadFile(LINKTOVER, "version.ini");
+                    client.DownloadFile(LINKTOVER, DIRECTORY + "version.ini");
                 }
 
                 //Get all lines from file and turn values into sepperate strings
-                string[] lines = System.IO.File.ReadAllLines(@"version.ini");
+                string[] lines = System.IO.File.ReadAllLines(DIRECTORY + "version.ini");
                 string[] version = lines[0].Substring(lines[0].IndexOf("20")).TrimEnd(' ').Split('.'); //Removes "* Version: "
+
                 //Only continue if we know the file is there
                 _fileCheckComplete.WaitOne();
+
                 //Get program version
-                string[] versionCmp = FileVersionInfo.GetVersionInfo(@"SPIF.dll").FileVersion.Split('.');
+                string[] versionCmp = FileVersionInfo.GetVersionInfo(DIRECTORY + "SPIF.dll").FileVersion.Split('.');
 
                 //To make sure both files use same format, remove prefix 0's but not for last as that is just an index
                 for (int l = 0; l < version.Count() - 2; l++)

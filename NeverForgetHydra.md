@@ -2,10 +2,19 @@
 - Algemeen:
   - Logica van UI doorspelen naar andere plaatsen, zodat UI kleiner wordt en meer functie in andere classes komen waar dit hergebruikt kan worden
 
+- UI:
+  - Quicksettings met >> knop aan de zijkant uitklappen of inklappen ipv settings in setting menu
+  - Ipv help status, lichtgrijs in de in te vullen combobox?
+  - Theming datagrid werkt nog steeds soms niet
+
+- Theme:
+  - text & higlight text inverse maken van background & highlight, zodat bij gelijk welk kleur toch altijd alles leesbaar is? Of mss kijken naar algemene brightness en ergens switchen
 - Noob proofing:
   - Hours: "." is not accepted as "," but just ignored -> Depends on locale, can be the other way around
   - Spaces and other non visable signs are taking in the string (Time & projectcode)
   - Timer scrolls to much at once, clicking is fine
+
+- Fix only dropdown shows when popup on secondary monitor
 
 **Attempted fix in place**
 - **Bug:**  When timer popup on desktop with multiple screens, only dropdownlist shows untill clicked, then full window is shown. Perhaps **This.invalidate()** can fix?
@@ -19,7 +28,7 @@ Version 2020.04.18
   - Fixed persistent trayicon after application exit
   - Fixed background of chart bars changing
   - Fixed datagrid theming
-  - Attempt: Fix only dropdown shows when popup on secondary monitor
+  - Attempt: 
   - Fixed memory issues with worklog
   - Updater now exits after crash (Redownload .exe)
   - Autostart fixed, no more "System .dll moving" dialog

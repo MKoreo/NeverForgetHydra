@@ -17,7 +17,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>false</Deterministic>
-    <AssemblyVersion>2020.4.19</AssemblyVersion>
+    <AssemblyVersion>2020.4.24</AssemblyVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>

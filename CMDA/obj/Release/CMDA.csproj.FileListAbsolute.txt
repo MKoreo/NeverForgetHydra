@@ -9,3 +9,4 @@ D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\bin\Re
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\bin\Release\CMDA.pdb
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\obj\Release\CMDA.dll
 D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\obj\Release\CMDA.pdb
+D:\Barco\OneDrive\OneDrive - Barco N.V\_Programming\NeverForgetHydra\CMDA\obj\Release\CMDA.csprojAssemblyReference.cache
