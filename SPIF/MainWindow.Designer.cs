@@ -328,7 +328,7 @@ namespace SPIF
             this.cbProject.Name = "cbProject";
             this.cbProject.Size = new System.Drawing.Size(146, 25);
             this.cbProject.TabIndex = 5;
-            this.cbProject.SelectedIndexChanged += new System.EventHandler(this.comboBoxProject_SelectedIndexChanged);
+            this.cbProject.SelectedIndexChanged += new System.EventHandler(this.cbProject_SelectedIndexChanged);
             this.cbProject.Enter += new System.EventHandler(this.cbProject_Enter);
             this.cbProject.Leave += new System.EventHandler(this.cbProject_Leave);
             // 

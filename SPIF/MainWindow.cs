@@ -14,7 +14,8 @@ namespace SPIF
 {
     public partial class MainWindow : ThemedForm
     {
-        // Globals
+        // ---------- Globals
+
         // Datagrid view column names
         internal const string COLUMN_NAME_DATE = "Date";
         internal const string COLUMN_NAME_COSTCENTER = "Cost C.";
@@ -47,7 +48,7 @@ namespace SPIF
 
         //Create system Tray Icon
         private NotifyIcon trayIcon;
-        private ContextMenu cmenu;
+        private ContextMenu trayIcon_cmenu;
 
         //Constructor
         public MainWindow(Settings settings) : base(settings)
@@ -271,11 +272,11 @@ namespace SPIF
             updateTrayIcon();   // Hover text
             trayIcon.Visible = true;
 
-            cmenu = new ContextMenu();
-            cmenu.MenuItems.Add(0, new MenuItem("Show", new EventHandler(TrayIcon_Cmenu_Show_Click)));
-            cmenu.MenuItems.Add(1, new MenuItem("Settings", settingsToolStripMenuItem_Click));
-            cmenu.MenuItems.Add(2, new MenuItem("Exit", exitToolStripMenuItem_Click));
-            trayIcon.ContextMenu = cmenu;
+            trayIcon_cmenu = new ContextMenu();
+            trayIcon_cmenu.MenuItems.Add(0, new MenuItem("Show", new EventHandler(TrayIcon_Cmenu_Show_Click)));
+            trayIcon_cmenu.MenuItems.Add(1, new MenuItem("Settings", settingsToolStripMenuItem_Click));
+            trayIcon_cmenu.MenuItems.Add(2, new MenuItem("Exit", exitToolStripMenuItem_Click));
+            trayIcon.ContextMenu = trayIcon_cmenu;
 
             // Handle the DoubleClick event to activate the form.
             trayIcon.DoubleClick += new System.EventHandler(this.trayIcon_DoubleClick);
@@ -288,6 +289,7 @@ namespace SPIF
         {
             ucStatistics = new UcStatistics(ref theme, ref log);
         }
+
         // ------------------ Updates-------- ------------------
         // Reminder: Every update should be public and designed in such a way that this is allowed.
         public void updateRecords()
@@ -646,13 +648,16 @@ namespace SPIF
         {
             updateRecords();
         }
-        private void comboBoxProject_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbProject_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbSubject.SelectedIndex = -1;
             updateComboBoxSubject();
         }
         private void cbCostCenter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbProject.SelectedIndex = -1;
             updateComboBoxProject();
+            
         }
         #endregion
 
@@ -725,6 +730,17 @@ namespace SPIF
             }
             view = View.records;
             // ((UcWorkloadChart)tlpWorkspace.Controls.Find("stats", false)[0]).Dispose();            
+        }
+        private void btnFold_Click(object sender, EventArgs e)
+        {
+            CheckBox fake = new CheckBox();
+            fake.Checked = !settings.showQuickSettings;
+            fake.Name = "cbShowQuickSettings";
+
+            FormSettings parser = new FormSettings(this, theme, settings);
+            parser.handlerCheckedChanged(fake, e);
+            parser.btnSubmit_Click(sender, e);
+            parser.Dispose();
         }
         #endregion
 
@@ -819,16 +835,6 @@ namespace SPIF
             helpStatus.destructStatus();
         }
 
-        private void btnFold_Click(object sender, EventArgs e)
-        {
-            CheckBox fake = new CheckBox();
-            fake.Checked = !settings.showQuickSettings;
-            fake.Name = "cbShowQuickSettings";
 
-            FormSettings parser = new FormSettings(this, theme, settings);
-            parser.handlerCheckedChanged(fake, e);
-            parser.btnSubmit_Click(sender, e);
-            parser.Dispose();
-        }
     }
 }
