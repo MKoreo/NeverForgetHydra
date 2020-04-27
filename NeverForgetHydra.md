@@ -18,6 +18,7 @@
 
 **Attempted fix in place**
 - **Bug:**  When timer popup on desktop with multiple screens, only dropdownlist shows untill clicked, then full window is shown. Perhaps **This.invalidate()** can fix?
+- It didn't fix
   
 # Solved
 

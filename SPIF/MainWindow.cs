@@ -754,8 +754,13 @@ namespace SPIF
                 if (confirm == DialogResult.Yes)
                 {
                     //Delete record that matches the selected row
-                    log.removeRecord(dateTimePicker.Value.Date, dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    string costCenter = dataGridView.Rows[e.RowIndex].Cells[COLUMN_NAME_COSTCENTER].Value.ToString();
+                    string column = dataGridView.Rows[e.RowIndex].Cells[COLUMN_NAME_PROJECT].Value.ToString();
+                    string subject = dataGridView.Rows[e.RowIndex].Cells[COLUMN_NAME_SUBJECT].Value.ToString();
+
+                    log.removeRecord(dateTimePicker.Value.Date, costCenter , column, subject);
                     log.save();
+
                     updateRecords();
                 }
                 //(e.RowIndex + 1) + "  Row  " + (e.ColumnIndex + 1) + "  Column button clicked ");

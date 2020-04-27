@@ -37,12 +37,12 @@ namespace SPDT
         {
             records.Remove(record);
         }
-        public void removeRecord(DateTime dateTime, string projectCode, string subject)
+        public void removeRecord(DateTime dateTime,string costCenter, string projectCode, string subject)
         {
            List<Record> records = getRecordsByDate(dateTime);
            foreach(Record rec in records)
             {
-                if (rec.project == projectCode && rec.subject == subject)
+                if (rec.costCenter == costCenter && rec.project == projectCode && rec.subject == subject )
                 {
                     removeRecord(rec);
                 }

@@ -99,7 +99,7 @@ namespace SPIF
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.menuStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip.Size = new System.Drawing.Size(1032, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1032, 26);
             this.menuStrip.Stretch = false;
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
@@ -112,7 +112,7 @@ namespace SPIF
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -148,7 +148,7 @@ namespace SPIF
             // 
             this.hydraToolStripMenuItem.Name = "hydraToolStripMenuItem";
             this.hydraToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 23);
+            this.hydraToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.hydraToolStripMenuItem.Text = "Hydra";
             this.hydraToolStripMenuItem.Click += new System.EventHandler(this.hydraToolStripMenuItem_Click);
             // 
@@ -158,7 +158,7 @@ namespace SPIF
             this.themeToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(103, 21);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // themeToolStripMenuItem
@@ -166,7 +166,7 @@ namespace SPIF
             this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setColorToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.themeToolStripMenuItem.Text = "Theme";
             // 
             // setColorToolStripMenuItem
@@ -179,7 +179,7 @@ namespace SPIF
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -191,7 +191,7 @@ namespace SPIF
             this.feedbackToolStripMenuItem,
             this.viewChangelogToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
@@ -341,7 +341,7 @@ namespace SPIF
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanelSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanelSettings.Controls.Add(this.btnViewStatistics, 3, 7);
             this.tableLayoutPanelSettings.Controls.Add(this.btnViewRecords, 1, 7);
             this.tableLayoutPanelSettings.Controls.Add(this.lblView, 0, 6);
@@ -367,7 +367,7 @@ namespace SPIF
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanelSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(225, 284);
+            this.tableLayoutPanelSettings.Size = new System.Drawing.Size(225, 286);
             this.tableLayoutPanelSettings.TabIndex = 3;
             // 
             // btnViewStatistics
@@ -600,14 +600,14 @@ namespace SPIF
             this.tableLayoutPanel.Controls.Add(this.statusStrip, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.tlpWorkspace, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 26);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 3;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(1032, 358);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1032, 360);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // statusStrip
@@ -620,7 +620,7 @@ namespace SPIF
             this.statusStrip.Font = new System.Drawing.Font("Verdana", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStrip.Location = new System.Drawing.Point(0, 333);
+            this.statusStrip.Location = new System.Drawing.Point(0, 335);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1032, 25);
             this.statusStrip.SizingGrip = false;
@@ -644,11 +644,13 @@ namespace SPIF
             this.tlpWorkspace.Name = "tlpWorkspace";
             this.tlpWorkspace.RowCount = 1;
             this.tlpWorkspace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWorkspace.Size = new System.Drawing.Size(1026, 294);
+            this.tlpWorkspace.Size = new System.Drawing.Size(1026, 296);
             this.tlpWorkspace.TabIndex = 15;
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -666,7 +668,8 @@ namespace SPIF
             this.dataGridView.RowHeadersWidth = 47;
             this.dataGridView.RowTemplate.ReadOnly = true;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(774, 284);
+            this.dataGridView.ShowEditingIcon = false;
+            this.dataGridView.Size = new System.Drawing.Size(774, 286);
             this.dataGridView.TabIndex = 15;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseUp);
@@ -680,7 +683,7 @@ namespace SPIF
             this.btnFold.Location = new System.Drawing.Point(5, 5);
             this.btnFold.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.btnFold.Name = "btnFold";
-            this.btnFold.Size = new System.Drawing.Size(7, 284);
+            this.btnFold.Size = new System.Drawing.Size(7, 286);
             this.btnFold.TabIndex = 16;
             this.btnFold.UseVisualStyleBackColor = false;
             this.btnFold.Click += new System.EventHandler(this.btnFold_Click);
