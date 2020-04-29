@@ -14,7 +14,7 @@ namespace SPIF
 {
     public partial class FormChangelog : ThemedForm
     {
-        public FormChangelog(Theme theme, Settings settings) : base(settings)
+        public FormChangelog(Theme theme, Settings settings) : base(ref settings)
         {
             InitializeComponent();
             this.theme = theme;

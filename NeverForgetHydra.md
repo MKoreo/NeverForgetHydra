@@ -1,27 +1,22 @@
 # Feature thinking
 - Algemeen:
   - Logica van UI doorspelen naar andere plaatsen, zodat UI kleiner wordt en meer functie in andere classes komen waar dit hergebruikt kan worden
-
-- UI:
-  - Quicksettings met >> knop aan de zijkant uitklappen of inklappen ipv settings in setting menu
   - Ipv help status, lichtgrijs in de in te vullen combobox?
-  - Theming datagrid werkt nog steeds soms niet
+  - Als statistics open en vandaag is in dag range, update statistics indien op Add gedrukt wordt
 
-- Theme:
-  - text & higlight text inverse maken van background & highlight, zodat bij gelijk welk kleur toch altijd alles leesbaar is? Of mss kijken naar algemene brightness en ergens switchen
-- Noob proofing:
+- **Bugs:**
+  - When select color but cancel -> Black selected
+  - Theming datagrid werkt nog steeds soms niet
+  - When timer popup on desktop with multiple screens, only dropdownlist shows untill clicked, then full window is shown. **Attempted fix in place**
+    - Attempted fix with this.invalidate().
+    - Fix didn't work
+
+- **Noob proofing:**
   - Hours: "." is not accepted as "," but just ignored -> Depends on locale, can be the other way around
   - Spaces and other non visable signs are taking in the string (Time & projectcode)
   - Timer scrolls to much at once, clicking is fine
 
-- Fix only dropdown shows when popup on secondary monitor
-
-**Attempted fix in place**
-- **Bug:**  When timer popup on desktop with multiple screens, only dropdownlist shows untill clicked, then full window is shown. Perhaps **This.invalidate()** can fix?
-- It didn't fix
-  
 # Solved
-
 
 Version 2020.04.18
 - Bugfixes:

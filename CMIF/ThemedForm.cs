@@ -12,14 +12,14 @@ namespace CMIF
 {
     public partial class ThemedForm : Form
     {
-        public Settings settings { get; set; }
+        public Settings settings;
         public Theme theme;
 
         public ThemedForm()
         {
 
         }
-        public ThemedForm(Settings settings)
+        public ThemedForm(ref Settings settings)
         {
             InitializeComponent();
             this.settings = settings;

@@ -51,7 +51,7 @@ namespace SPIF
         private ContextMenu trayIcon_cmenu;
 
         //Constructor
-        public MainWindow(Settings settings) : base(settings)
+        public MainWindow(Settings settings) : base(ref settings)
         {
             // Default
             InitializeComponent();
@@ -227,7 +227,7 @@ namespace SPIF
         private void initQuickSettingsPanel()
         {
             //Show or hide quicksettings
-            FormSettings parser = new FormSettings(this, theme, settings);
+            FormSettings parser = new FormSettings(this, theme, ref settings);
             EventArgs empty = new EventArgs();
             CheckBox fakeCheckbox = new CheckBox();
             fakeCheckbox.Checked = settings.showQuickSettings;
@@ -527,12 +527,13 @@ namespace SPIF
             Color test = colorc.Color;
             settings.highlightColor = test.ToArgb();
             settings.save();
+
             applyTheming();
             applyAddTheming();
         }
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form setting = new FormSettings(this, theme, settings);
+            Form setting = new FormSettings(this, theme, ref settings);
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
             if (setting.ShowDialog(this) == DialogResult.OK)
             {
@@ -547,7 +548,7 @@ namespace SPIF
         }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form about = new FormAbout(theme, settings);
+            Form about = new FormAbout(theme, ref settings);
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
             if (about.ShowDialog(this) == DialogResult.OK)
             {
@@ -664,35 +665,35 @@ namespace SPIF
         #region Quicksettings
         private void nudTimer_ValueChanged(object sender, EventArgs e)
         {
-            FormSettings parser = new FormSettings(this, theme, settings);
+            FormSettings parser = new FormSettings(this, theme, ref settings);
             parser.handlerUpDownChanged(sender, e);
             parser.btnSubmit_Click(sender, e);
             parser.Dispose();
         }
         private void cbCloseOnAdd_CheckedChanged(object sender, EventArgs e)
         {
-            FormSettings parser = new FormSettings(this, theme, settings);
+            FormSettings parser = new FormSettings(this, theme, ref settings);
             parser.handlerCheckedChanged(sender, e);
             parser.btnSubmit_Click(sender, e);
             parser.Dispose();
         }
         private void cbFilter_CheckedChanged(object sender, EventArgs e)
         {
-            FormSettings parser = new FormSettings(this, theme, settings);
+            FormSettings parser = new FormSettings(this, theme, ref settings);
             parser.handlerCheckedChanged(sender, e);
             parser.btnSubmit_Click(sender, e);
             parser.Dispose();
         }
         private void cbDarkTheme_CheckedChanged(object sender, EventArgs e)
         {
-            FormSettings parser = new FormSettings(this, theme, settings);
+            FormSettings parser = new FormSettings(this, theme, ref settings);
             parser.handlerCheckedChanged(sender, e);
             parser.btnSubmit_Click(sender, e);
             parser.Dispose();
         }
         private void cbMinimizeOnStartup_CheckedChanged(object sender, EventArgs e)
         {
-            FormSettings parser = new FormSettings(this, theme, settings);
+            FormSettings parser = new FormSettings(this, theme, ref settings);
             parser.handlerCheckedChanged(sender, e);
             parser.btnSubmit_Click(sender, e);
             parser.Dispose();
@@ -729,6 +730,7 @@ namespace SPIF
                 tlpWorkspace.Controls.Add(dataGridView, 2, 0);
             }
             view = View.records;
+            applyAddTheming();
             // ((UcWorkloadChart)tlpWorkspace.Controls.Find("stats", false)[0]).Dispose();            
         }
         private void btnFold_Click(object sender, EventArgs e)
@@ -737,7 +739,7 @@ namespace SPIF
             fake.Checked = !settings.showQuickSettings;
             fake.Name = "cbShowQuickSettings";
 
-            FormSettings parser = new FormSettings(this, theme, settings);
+            FormSettings parser = new FormSettings(this, theme, ref settings);
             parser.handlerCheckedChanged(fake, e);
             parser.btnSubmit_Click(sender, e);
             parser.Dispose();
@@ -839,7 +841,5 @@ namespace SPIF
         {
             helpStatus.destructStatus();
         }
-
-
     }
 }

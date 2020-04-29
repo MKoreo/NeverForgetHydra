@@ -17,13 +17,13 @@ namespace SPIF
     public partial class FormSettings : ThemedForm
     {
         private MainWindow parent;
-        public FormSettings(MainWindow parent, Theme theme, Settings settings) : base(settings)
+        public FormSettings(MainWindow parent, Theme theme, ref Settings settings) : base(ref settings)
         {
             InitializeComponent();
 
             this.parent = parent;
             this.theme = theme;
-            this.settings = settings;
+            // this.settings = settings;
 
             applyTheming();
             applyAddTheming();
@@ -32,10 +32,10 @@ namespace SPIF
             initializeGui();
         }
 
-        public FormSettings(MainWindow parent, Settings settings) : base(settings)
+        public FormSettings(MainWindow parent, Settings settings) : base(ref settings)
         {
             this.parent = parent;
-            this.settings = settings;
+            //this.settings = settings;
         }
 
         private void initializeGui()

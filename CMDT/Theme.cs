@@ -27,13 +27,23 @@ namespace CMDT
 
         public void generateColours(themeStyle style)
         {
+            // Check how dark highlight colour is.
+            bool lightColour = (((highlight.R + highlight.G + highlight.B) / 3) < 128 ? true : false);
+            if (lightColour)
+            {
+                textHighlight = Color.White;
+            } else
+            {
+                textHighlight = Color.Black;
+            }
+
             //Set colours based on theme
             if (style == themeStyle.light)
             {
                 //highlight = Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
                 background = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
                 text = Color.Black;
-                textHighlight = Color.White;
+                //textHighlight = Color.White;
                 tint2 = Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
                 tint1 = Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             }
@@ -42,7 +52,7 @@ namespace CMDT
                 //highlight = Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
                 background = Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
                 text = Color.White;
-                textHighlight = Color.White;
+                //textHighlight = Color.White;
                 tint1 = Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20))))); 
                 tint2 = Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             }

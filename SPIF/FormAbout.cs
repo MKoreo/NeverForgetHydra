@@ -9,11 +9,11 @@ namespace SPIF
     partial class FormAbout : ThemedForm
     {
 
-        public FormAbout(Theme theme, Settings settings) : base(settings)
+        public FormAbout(Theme theme, ref Settings settings) : base(ref settings)
         {
             InitializeComponent();
             this.theme = theme;
-            this.settings = settings;
+            //this.settings = settings;
             applyAddTheming();
 
             this.Text = String.Format("About {0}", AssemblyTitle);
