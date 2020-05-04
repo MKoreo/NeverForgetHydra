@@ -120,7 +120,7 @@ namespace SPIF
             if (cbType.SelectedIndex == -1) { cbType.SelectedIndex = 1; }
 
             // Generate chart in an asynchronous way
-            _ = generateChartAsync();
+            object _ = generateChartAsync();
         }
 
         internal void setLog(ref workLog log)

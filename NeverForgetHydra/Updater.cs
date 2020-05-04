@@ -163,7 +163,8 @@ namespace NeverForgetHydra
                 //To make sure both files use same format, remove prefix 0's but not for last as that is just an index
                 for (int l = 0; l < version.Count() - 2; l++)
                 {
-                    if (!short.TryParse(version[l], out short _dump))
+                    short _;
+                    if (!short.TryParse(version[l], out _))
                     {
                         version[l] = "0";
                     }

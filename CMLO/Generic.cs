@@ -12,7 +12,7 @@ namespace CMLO
     {
         public static bool isNullOrEmpty (string testString)
         {
-            if (testString is null)
+            if (testString == null)
             {
                 return true;
             }

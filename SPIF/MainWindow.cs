@@ -336,11 +336,11 @@ namespace SPIF
         }
         public void updateStatus(string text)
         {
-            _ = new WinForm_SelfdestructStatus(ref statusStrip, text, 5, theme.textHighlight, theme.highlight);
+            object _ = new WinForm_SelfdestructStatus(ref statusStrip, text, 5, theme.textHighlight, theme.highlight);
         }
         public void updateStatus(string text, decimal seconds, Color back)
         {
-            _ = new WinForm_SelfdestructStatus(ref statusStrip, text, seconds, theme.textHighlight, back);
+            object _ = new WinForm_SelfdestructStatus(ref statusStrip, text, seconds, theme.textHighlight, back);
         }
         public void updateHelpStatus(string text)
         {
@@ -599,10 +599,11 @@ namespace SPIF
         #region Controlbar
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            short _;
             if (Generic.isNullOrEmpty(cbCostCenter.Text) || Generic.isNullOrEmpty(cbSubject.Text) || Generic.isNullOrEmpty(cbProject.Text) || Generic.isNullOrEmpty(tbTime.Text))
             {
                 DialogResult error = MessageBox.Show("One or more of the required fields is empty.", "Cannot add new record", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else if (!short.TryParse(tbTime.Text, out short _))
+            } else if (!short.TryParse(tbTime.Text, out _))
             {
                 DialogResult error = MessageBox.Show("Cannot interpret the time value as a number.", "Cannot add new record", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
